@@ -15,11 +15,13 @@
   </head>
   <body>
     <div class="main">
+      <div class="home-link">META</div>
+      <div class="home-icon"><i class="fa fa-home"></i></div>
       <div class="logo">
         <img src="./wp-content/themes/metadigital/meta-moskow-logo.png"">
       </div>
       <video preload="none" autoplay="autoplay" loop="loop">
-          <source src="./wp-content/themes/metadigital/metaspace.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+          <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
       </video>
     </div>
     <?php wp_footer(); ?>
