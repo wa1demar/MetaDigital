@@ -32,3 +32,38 @@ body{
     right: 0;
     bottom: 0;
 }
+
+.main .home-link{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    background-color: #000000;
+    width: 120px;
+    height: 35px;
+    margin: 0 auto;
+}
+
+.main .home-link img{
+    width: 70px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.main .home-icon{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    top: 20px;
+    left: 121px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.main .home-icon i{
+    margin-top: 10px;
+}
