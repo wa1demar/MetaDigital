@@ -67,3 +67,15 @@ body{
 .main .home-icon i{
     margin-top: 10px;
 }
+
+.main .description{
+    position: absolute;
+    width: 14%;
+    top: 130px;
+    left: 30px;
+    line-height: 1.9em;
+    font-size: 9px;
+    font-family: monospace;
+    color: #000000;
+    text-align: justify;
+}

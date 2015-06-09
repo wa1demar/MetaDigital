@@ -22,6 +22,8 @@
       <div class="logo">
         <img src="./wp-content/themes/metadigital/images/meta-moskow-logo.png"">
       </div>
+      <div class="description">
+      </div>
       <video preload="none" autoplay="autoplay" loop="loop">
           <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
       </video>
