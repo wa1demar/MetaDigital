@@ -25,6 +25,7 @@ body{
 }
 
 .main .logo img{
+    width: 60%;
     position: absolute;
     margin: auto;
     top: 0;
@@ -78,4 +79,36 @@ body{
     font-family: monospace;
     color: #000000;
     text-align: justify;
+}
+
+.articles{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /*overflow-x:hidden;*/
+    white-space: nowrap;
+    position: relative;
+}
+
+.articles .category{
+    margin: 0;
+    width: 16.65%;
+    float: left;
+    text-align: center;
+    white-space: normal;
+    font-size: 10px;
+    font-family: monospace;
+    padding: 0;
+}
+
+.articles .category:hover{
+    background-color: lightgray;
+}
+
+.articles .category .item{
+    margin: 10px;
+}
+
+.articles .category .icon img{
+    height: 50px;
 }
