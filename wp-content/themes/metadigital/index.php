@@ -14,13 +14,28 @@
       </style>
   </head>
   <body>
+    <div class="sidebar">
+      <a>
+        <img src="./wp-content/themes/metadigital/images/who_we_are.png">
+      </a>
+      <a>
+        <img src="./wp-content/themes/metadigital/images/service.png">
+      </a>
+      <a>
+        <img src="./wp-content/themes/metadigital/images/works.png">
+      </a>
+      <a>
+        <img src="./wp-content/themes/metadigital/images/contacts.png">
+      </a>
+    </div>
     <div class="main">
       <div class="home-link">
-        <img src="./wp-content/themes/metadigital/images/meta-moskow-logo.svg"">
+        <img src="./wp-content/themes/metadigital/images/meta-moskow-logo.svg">
       </div>
       <div class="home-icon"><i class="fa fa-home"></i></div>
       <div class="logo">
-        <img src="./wp-content/themes/metadigital/images/meta-moskow-logo.png"">
+        <img class="logo-image" src="./wp-content/themes/metadigital/images/meta-moskow-logo.png">
+        <img class="logo-scroll" src="./wp-content/themes/metadigital/images/scroll-icon.svg" onclick="$('.articles').goTo()">
       </div>
       <div class="description">
       </div>
@@ -32,7 +47,7 @@
       <div class="category">
         <div class="item">
           <span class="icon">
-            <img src="./wp-content/themes/metadigital/images/marketing-icon.png"">
+            <img src="./wp-content/themes/metadigital/images/marketing-icon.png">
           </span>
           <br>
           ИНТЕРНЕТ-МАРКЕТИНГ
@@ -41,7 +56,7 @@
       <div class="category">
         <div class="item">
           <span class="icon">
-            <img src="./wp-content/themes/metadigital/images/device-icon.png"">
+            <img src="./wp-content/themes/metadigital/images/device-icon.png">
           </span>
           <br>
           ДЕВАЙС?
@@ -50,7 +65,7 @@
       <div class="category">
         <div class="item">
           <span class="icon">
-            <img src="./wp-content/themes/metadigital/images/design-icon.png"">
+            <img src="./wp-content/themes/metadigital/images/design-icon.png">
           </span>
           <br>
           WEB-ДИЗАЙН
@@ -68,7 +83,7 @@
       <div class="category">
         <div class="item">
           <span class="icon">
-            <img src="./wp-content/themes/metadigital/images/applications-icon.png"">
+            <img src="./wp-content/themes/metadigital/images/applications-icon.png">
           </span>
           <br>
           РАЗРАБОТКА ПРИЛОЖЕНИЙ
@@ -77,7 +92,7 @@
       <div class="category">
         <div class="item">
           <span class="icon">
-            <img src="./wp-content/themes/metadigital/images/outstuffing-icon.png"">
+            <img src="./wp-content/themes/metadigital/images/outstuffing-icon.png">
           </span>
           <br>
           АУСТАФФИНГ

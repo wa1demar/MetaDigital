@@ -1,4 +1,13 @@
 (function($) {
+    window.$ = jQuery;
+
+    $.fn.goTo = function() {
+        $('html, body').animate({
+            scrollTop: $(this).offset().top + 'px'
+        }, 'slow');
+        return this; // for chaining...
+    };
+
     $(function(){
         function type(el, text, i){
             if( i <= text.length ) {
