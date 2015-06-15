@@ -1,6 +1,6 @@
 # MetaDigital 
 
-##Запросы
+
                     |     | LINK                                   | PARAMS       |    
 ------------------- | --- | -------------------------------------- | ------------ |
 About Us            | GET | /api/general/get_site_info             | lang         |
