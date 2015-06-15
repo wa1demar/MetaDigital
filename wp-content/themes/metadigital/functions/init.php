@@ -18,3 +18,6 @@ function meta_enqueue_script() {
     wp_enqueue_script('main', THEME_URL . '/js/main.js');
 
 }
+
+add_theme_support( 'post-thumbnails' );
+
