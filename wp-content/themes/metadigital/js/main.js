@@ -22,4 +22,4 @@
         " TO CREATE MASTERPIECES OF ART OF BRANDING.", 0);
 
     });
-})(jQuery);
+})(jQuery);иво ?
