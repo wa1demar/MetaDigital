@@ -120,6 +120,10 @@
       </div>
       <div class="bottom-gradient"></div>
     </div>
+
+    <div id="gallery">
+
+    </div>
     <?php wp_footer(); ?>
   </body>
 </html>
