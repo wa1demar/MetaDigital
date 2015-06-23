@@ -62,7 +62,8 @@
                 });
             }
 
-            for(i = 0; i < defaults.simple_tiles_count; i++){
+            console.log(defaults.simple_tiles_count);
+            for(i = 0; i < simple_tiles_count(); i++){
                 var tile = generateTile();
                 var place = randomPlace();
                 if(!place)
@@ -89,7 +90,7 @@
 
             for(var i = 0; i < responsive_options.length; i++){
                 var options = responsive_options[i];
-                if(options.breakpoint >= width){
+                if(options.breakpoint >= width || (!defaults.width)){
                     defaults.width = options.settings.width;
                     defaults.height = options.settings.height;
                     defaults.vertical_double_tiles_count = options.settings.vertical_double_tiles_count;
@@ -207,7 +208,7 @@
         var randomPlaceForHorizontalTile = function(){
             var available_places = availablePlacesForHorizontalTile();
             if(available_places.length == 0){
-                defaults.horizontal_double_tiles_count -=1;
+                defaults.horizontal_double_tiles_count--;
                 defaults.simple_tiles_count = simple_tiles_count();
                 return null;
             }
@@ -217,8 +218,8 @@
 
         var randomPlaceForVerticalTile = function(){
             var available_places = availablePlacesForVerticalTile();
-            if(available_places.length == 0){
-                defaults.vertical_double_tiles_count -=1;
+            if(available_places.length == 0 || defaults.height < 2){
+                defaults.vertical_double_tiles_count--;
                 defaults.simple_tiles_count = simple_tiles_count();
                 return null;
             }
@@ -235,10 +236,25 @@
             return available_places[index];
         };
 
+        var image_index = 0;
+        var albums_count = Object.keys(options.albums).length;
+
         var generateTile = function(){
             var tile = $("<div class='gallery-item'></div>");
             tile.css('position', 'absolute');
-            tile.css('background-color', generateColor());
+            //tile.css('background-color', generateColor());
+            tile.css('background-repeat', 'no-repeat');
+            tile.css('background-position', 'center');
+            if(image_index >= albums_count)
+                image_index = 0;
+
+            while(options.albums[image_index].images.length == 0){
+                image_index++;
+                if(image_index >= albums_count)
+                    image_index = 0;
+            }
+            tile.css('background-image', 'url(' + options.albums[image_index].images[0].img + ')');
+            image_index++;
             return tile;
         };
 
@@ -281,49 +297,49 @@
             url: '/api/gallery/get_all_galleries',
             method: 'GET',
             success: function(data){
-
+                delete data.status;
+                var gallery = new Gallery("#gallery", {
+                    albums: data,
+                    responsive: [
+                        {
+                            breakpoint: 20000,
+                            settings: {
+                                vertical_double_tiles_count: 2,
+                                horizontal_double_tiles_count: 3,
+                                width: 8,
+                                height: 2
+                            }
+                        },
+                        {
+                            breakpoint: 1300,
+                            settings: {
+                                vertical_double_tiles_count: 1,
+                                horizontal_double_tiles_count: 2,
+                                width: 6,
+                                height: Math.ceil(Object.keys(data).length/6)
+                            }
+                        },
+                        {
+                            breakpoint: 800,
+                            settings: {
+                                vertical_double_tiles_count: 1,
+                                horizontal_double_tiles_count: 1,
+                                width: 4,
+                                height: Math.ceil(Object.keys(data).length/4)
+                            }
+                        },
+                        {
+                            breakpoint: 550,
+                            settings: {
+                                vertical_double_tiles_count: 1,
+                                horizontal_double_tiles_count: 1,
+                                width: 2,
+                                height: Math.ceil(Object.keys(data).length/2)
+                            }
+                        }
+                    ]
+                });
             }
-        });
-
-        var gallery = new Gallery("#gallery", {
-            responsive: [
-                {
-                    breakpoint: 2000,
-                    settings: {
-                        vertical_double_tiles_count: 0,
-                        horizontal_double_tiles_count: 0,
-                        width: 8,
-                        height: 2
-                    }
-                },
-                {
-                    breakpoint: 1300,
-                    settings: {
-                        vertical_double_tiles_count: 0,
-                        horizontal_double_tiles_count: 0,
-                        width: 6,
-                        height: 2
-                    }
-                },
-                {
-                    breakpoint: 800,
-                    settings: {
-                        vertical_double_tiles_count: 0,
-                        horizontal_double_tiles_count: 0,
-                        width: 4,
-                        height: 2
-                    }
-                },
-                {
-                    breakpoint: 550,
-                    settings: {
-                        vertical_double_tiles_count: 0,
-                        horizontal_double_tiles_count: 0,
-                        width: 2,
-                        height: 8
-                    }
-                }
-            ]
         });
     });
 
