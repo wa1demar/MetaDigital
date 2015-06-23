@@ -12,12 +12,9 @@
         $("#section5").goTo();
     });
 
-    var Gallery = function(selector){
-        var vertical_double_tiles_count = 3;
-        var horizontal_double_tiles_count = 3;
-        var width = 8;
-        var height = 3;
-        var simple_tiles_count = (width * height) - ((vertical_double_tiles_count + horizontal_double_tiles_count) * 2);
+    var Gallery = function(selector, options){
+
+        var responsive_options = options.responsive;
 
         var g = $(selector);
 
@@ -25,14 +22,94 @@
 
         var tiles = [];
 
+        var defaults = {};
+
+        var simple_tiles_count = function(){
+            return ((defaults.width * defaults.height) - ((defaults.vertical_double_tiles_count + defaults.horizontal_double_tiles_count) * 2));
+        };
+
+        var redraw = function(){
+            for(var i = 0; i < tiles.length; i++){
+                tiles[i].tile.remove();
+            }
+            tiles = [];
+
+            for(var i = 0; i < defaults.vertical_double_tiles_count; i++){
+                var place =  randomPlaceForVerticalTile();
+                var tile = generateTile();
+                if(!place)
+                    continue;
+
+                tiles.push({
+                    x: place.x,
+                    y: place.y,
+                    tile: tile,
+                    type: 'vertical'
+                });
+            }
+
+            for(var i = 0; i < defaults.horizontal_double_tiles_count; i++){
+                var tile = generateTile();
+                var place = randomPlaceForHorizontalTile();
+                if(!place)
+                    continue;
+
+                tiles.push({
+                    x: place.x,
+                    y: place.y,
+                    tile: tile,
+                    type: 'horizontal'
+                });
+            }
+
+            for(i = 0; i < defaults.simple_tiles_count; i++){
+                var tile = generateTile();
+                var place = randomPlace();
+                if(!place)
+                    continue;
+
+                tiles.push({
+                    x: place.x,
+                    y: place.y,
+                    tile: tile,
+                    type: 'simple'
+                });
+            }
+
+            i = 0;
+            while(i < tiles.length){
+                g.append(tiles[i].tile);
+                i++;
+            }
+        };
+
+        var applySize = function(){
+            var width = g.width();
+            var old_width = defaults.width;
+
+            for(var i = 0; i < responsive_options.length; i++){
+                var options = responsive_options[i];
+                if(options.breakpoint >= width){
+                    defaults.width = options.settings.width;
+                    defaults.height = options.settings.height;
+                    defaults.vertical_double_tiles_count = options.settings.vertical_double_tiles_count;
+                    defaults.horizontal_double_tiles_count = options.settings.horizontal_double_tiles_count;
+                    defaults.simple_tiles_count = simple_tiles_count();
+                }
+            }
+            if(old_width != defaults.width){
+                redraw();
+            }
+        };
+
         var generateColor = function(){
-            return '#'+Math.floor(Math.random()*16777215).toString(16)
+            return '#'+Math.floor(Math.random()*16777215).toString(16);
         };
 
         var availablePlaces = function(){
             var result = [];
-            for(var x = 0; x < width; x++){
-                for(var y = 0; y < height; y++){
+            for(var x = 0; x < defaults.width; x++){
+                for(var y = 0; y < defaults.height; y++){
                     var is_available = true;
                     var z = 0;
                     while(z < tiles.length){
@@ -57,8 +134,8 @@
 
         var availablePlacesForHorizontalTile = function(){
             var result = [];
-            for(var x = 0; x < width - 1; x++){
-                for(var y = 0; y < height; y++){
+            for(var x = 0; x < defaults.width - 1; x++){
+                for(var y = 0; y < defaults.height; y++){
                     var is_available = true;
                     var z = 0;
                     while(z < tiles.length){
@@ -93,8 +170,8 @@
 
         var availablePlacesForVerticalTile = function(){
             var result = [];
-            for(var x = 0; x < width; x++){
-                for(var y = 0; y < height - 1; y++){
+            for(var x = 0; x < defaults.width; x++){
+                for(var y = 0; y < defaults.height - 1; y++){
                     var is_available = true;
                     var z = 0;
                     while(z < tiles.length){
@@ -129,17 +206,33 @@
 
         var randomPlaceForHorizontalTile = function(){
             var available_places = availablePlacesForHorizontalTile();
-            return available_places[Math.floor(Math.random()*available_places.length)];
+            if(available_places.length == 0){
+                defaults.horizontal_double_tiles_count -=1;
+                defaults.simple_tiles_count = simple_tiles_count();
+                return null;
+            }
+            var index = Math.floor(Math.random()*available_places.length);
+            return available_places[index];
         };
 
         var randomPlaceForVerticalTile = function(){
             var available_places = availablePlacesForVerticalTile();
-            return available_places[Math.floor(Math.random()*available_places.length)];
+            if(available_places.length == 0){
+                defaults.vertical_double_tiles_count -=1;
+                defaults.simple_tiles_count = simple_tiles_count();
+                return null;
+            }
+            var index = Math.floor(Math.random()*available_places.length);
+            return available_places[index];
         };
 
         var randomPlace = function(){
             var available_places = availablePlaces();
-            return available_places[Math.floor(Math.random()*available_places.length)];
+            if(available_places.length == 0){
+                return null;
+            }
+            var index = Math.floor(Math.random()*available_places.length);
+            return available_places[index];
         };
 
         var generateTile = function(){
@@ -149,51 +242,10 @@
             return tile;
         };
 
-        for(var i = 0; i < vertical_double_tiles_count; i++){
-            var place =  randomPlaceForVerticalTile();
-            var tile = generateTile();
-
-            tiles.push({
-                x: place.x,
-                y: place.y,
-                tile: tile,
-                type: 'vertical'
-            });
-        }
-
-        for(var i = 0; i < horizontal_double_tiles_count; i++){
-            var tile = generateTile();
-            var place = randomPlaceForHorizontalTile();
-
-            tiles.push({
-                x: place.x,
-                y: place.y,
-                tile: tile,
-                type: 'horizontal'
-            });
-        }
-
-        for(var i = 0; i < simple_tiles_count; i++){
-            var tile = generateTile();
-            var place = randomPlace();
-
-            tiles.push({
-                x: place.x,
-                y: place.y,
-                tile: tile,
-                type: 'simple'
-            });
-        }
-
-        var i = 0;
-        while(i < tiles.length){
-            g.append(tiles[i].tile);
-            i++;
-        }
+        applySize();
 
         var resize = function(){
-            console.log(g);
-            var cell_width = g.width()/width;
+            var cell_width = g.width()/defaults.width;
             g.css('height', cell_width*2);
 
             var i = 0;
@@ -215,19 +267,64 @@
         };
         resize();
 
-        return {
-            resize: function(){
-                resize();
-            }
-        }
+        $(window).resize(function(){
+            applySize();
+            resize();
+        });
+
+        return {};
     };
 
     $(document).ready(function(){
-        var gallery = new Gallery("#gallery");
-        $(window).resize(function(){
-            gallery.resize();
+
+        $.ajax({
+            url: '/api/gallery/get_all_galleries',
+            method: 'GET',
+            success: function(data){
+
+            }
+        });
+
+        var gallery = new Gallery("#gallery", {
+            responsive: [
+                {
+                    breakpoint: 2000,
+                    settings: {
+                        vertical_double_tiles_count: 0,
+                        horizontal_double_tiles_count: 0,
+                        width: 8,
+                        height: 2
+                    }
+                },
+                {
+                    breakpoint: 1300,
+                    settings: {
+                        vertical_double_tiles_count: 0,
+                        horizontal_double_tiles_count: 0,
+                        width: 6,
+                        height: 2
+                    }
+                },
+                {
+                    breakpoint: 800,
+                    settings: {
+                        vertical_double_tiles_count: 0,
+                        horizontal_double_tiles_count: 0,
+                        width: 4,
+                        height: 2
+                    }
+                },
+                {
+                    breakpoint: 550,
+                    settings: {
+                        vertical_double_tiles_count: 0,
+                        horizontal_double_tiles_count: 0,
+                        width: 2,
+                        height: 8
+                    }
+                }
+            ]
         });
     });
-
 
 })(jQuery);
