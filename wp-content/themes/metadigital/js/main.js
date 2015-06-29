@@ -253,7 +253,7 @@
                 if(image_index >= albums_count)
                     image_index = 0;
             }
-            tile.css('background-image', 'url(' + options.albums[image_index].images[0].img + ')');
+            tile.css('background-image', 'url(' + options.albums[image_index].images[0].thumbnail + ')');
             image_index++;
             return tile;
         };

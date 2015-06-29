@@ -1,8 +1,8 @@
 <?php
-
-/**
- * @author: Vladimir Martynyuk
- */
+/*
+Controller name: Service
+Controller description: Data manipulation methods for service
+*/
 class JSON_API_Service_Controller
 {
 

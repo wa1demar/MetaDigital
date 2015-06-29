@@ -1,8 +1,8 @@
 <?php
-
-/**
- * @author: Vladimir Martynyuk
- */
+/*
+Controller name: General
+Controller description: Data manipulation methods for site info
+*/
 class JSON_API_General_Controller
 {
 

@@ -1,11 +1,15 @@
 <?php
 
-/**
- * @author: Vladimir Martynyuk
- */
-class JSON_API_Gallery_Controller {
+/*
+Controller name: Gallery
+Controller description: Data manipulation methods for gallery
+*/
 
-    public function get_all_galleries() {
+class JSON_API_Gallery_Controller
+{
+
+    public function get_all_galleries()
+    {
         global $json_api;
         $lang = $json_api->query->lang;
         if (!$lang) $lang = 'ru';
@@ -40,9 +44,12 @@ class JSON_API_Gallery_Controller {
 
                 if (has_post_thumbnail($posts_list[$i]->ID)) {
 
-                    $p['post_id'] = $posts_list[$i]->ID;
+                    $p['image_id'] = $posts_list[$i]->ID;
                     $p['title'] = $posts_list[$i]->post_title;
-                    $p['img'] = wp_get_attachment_image_src(get_post_thumbnail_id($posts_list[$i]->ID), 'single-post-thumbnail')[0];
+                    $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($posts_list[$i]->ID),'medium');
+                    $p['thumbnail'] = $thumb[0];
+                    $p['img'] = wp_get_attachment_url(get_post_thumbnail_id($posts_list[$i]->ID));
+//                    $p['thumbnail'] = "test";
 
                     array_push($posts, $p);
                     unset($p);
