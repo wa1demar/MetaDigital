@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
+      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
+      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
+      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
+      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
+      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
+      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
+      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
+      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
       <meta charset="<?php bloginfo('charset'); ?>"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -123,6 +131,49 @@
 
     <div id="gallery">
 
+    </div>
+
+    <div class="main-footer">
+        <div class="footer-address">
+            <div class="footer-address-header">moscow</div>
+            <p>45 olkhovskaya st, bdg 1<br>
+            +74957259669<br>
+            info@metamoscow.com</p>
+
+            <ul class="footer-address-header-social-links">
+                <li><a href="#"><img src="<?php echo THEME_URL?>/images/twitter-icon.png"></a> </li>
+                <li><a href="#"><img src="<?php echo THEME_URL?>/images/vk-icon.png"></a> </li>
+                <li><a href="#"><img src="<?php echo THEME_URL?>/images/linkedin-icon.png"></a> </li>
+                <li><a href="#"><img src="<?php echo THEME_URL?>/images/facebook-icon.png"></a> </li>
+                <li><a href="#"><img src="<?php echo THEME_URL?>/images/blogger-icon.png"></a> </li>
+            </ul>
+        </div>
+
+        <div class="footer-map-search">
+            <a href="#"><img src="<?php echo THEME_URL?>/images/search-icon.png"></a>
+        </div>
+
+        <div class="footer-contact-us">
+            <p>contact us</p>
+            <form class="footer-contact-us-inputs">
+                <div class="inputs">
+                    <input id="username" name="username" type="text" placeholder="Name">
+                </div>
+                <div class="inputs">
+                    <input id="useremail" name="useremail" type="text" placeholder="Email Address">
+                </div>
+                <div class="inputs">
+                    <input id="useretext" name="useretext" type="text" placeholder="Your text ...">
+                </div>
+                <input class="contact-us-send-button" name="send" type="submit" value="send">
+            </form>
+        </div>
+        <div class="footer-google-link">
+            <a href="#"><img src="<?php echo THEME_URL?>/images/google-maps-icon.png"></a>
+        </div>
+        <div class="footer-bottom-image">
+            <img src="<?php echo THEME_URL?>/images/meta-moskow-logo.png">
+        </div>
     </div>
     <?php wp_footer(); ?>
   </body>

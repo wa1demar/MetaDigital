@@ -226,3 +226,125 @@ body{
     /*border: 1px solid red;*/
     background-size: auto 120%;
 }
+
+.main-footer {
+    background-image: url('../images/map.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 101vh;
+    border: 0;
+    text-align: center;
+    position: relative;
+    background-size: 100%;
+}
+
+.footer-bottom-image {
+    height: 91px;
+    width: 100%;
+    background-color: #ebebeb;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-bottom-image img {
+    height: 59px;
+    top: 50%;
+    margin: 15px auto;
+}
+
+.footer-address {
+    float: left;
+    text-align: left;
+    font-family: ISOCTEUR;
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-left: 37px;
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+.footer-address p {
+    font-size: 18px;
+    line-height: 150%;
+    margin: 42px 0;
+}
+
+.footer-address-header-social-links {
+    list-style-type: none;
+    left: 0;
+    padding-left: 0px;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.footer-address-header-social-links li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.footer-contact-us {
+    float: right;
+    width: 300px;
+    margin-right: 75px;
+    font-family: ISOCTEUR;
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+.footer-contact-us p {
+    font-size: 40px;
+    text-transform: uppercase;
+    margin: 0 0 33px 0;
+}
+
+
+.footer-contact-us-inputs input {
+    font-size: 24px;
+    text-align: center;
+    width: 296px;
+    padding: 15px 0;
+}
+
+.main-footer .footer-contact-us .inputs {
+    border-bottom: 0;
+}
+
+.main-footer .footer-contact-us .inputs:last-child {
+    border-bottom: 1px;
+}
+
+.footer-contact-us-inputs #useretext {
+    height: 96px;
+}
+
+.contact-us-send-button {
+    background: black;
+    color: white;
+    border: none;
+    width: 300px !important;
+    padding: 0;
+    margin-top: 30px;
+    font-family: ISOCTEUR;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.footer-map-search {
+    margin: auto;
+    position: absolute;
+    top: 35%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.footer-google-link {
+    position: absolute;
+    bottom: 110px;
+    left: 0;
+    right: 0;
+}
