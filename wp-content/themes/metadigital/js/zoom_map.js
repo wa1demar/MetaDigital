@@ -4,9 +4,8 @@
 
     $('.main-footer').click(function () {
         var $this = $(this);
-        var mapId = $this.attr("data-map");
+        var mapId = parseInt($this.attr("data-map"));
 
-        console.log(mapId);
         switch (mapId) {
             case 0:
                 zoomImage($this, "./wp-content/themes/metadigital/images/map2.png", mapId);
