@@ -239,7 +239,7 @@ body{
     border: 0;
     text-align: center;
     position: relative;
-    transition: all ease-in-out 2s;
+    transition: background-image ease-in-out 2s;
     cursor: url(../images/search-icon.png) 33 33, auto;
 }
 

@@ -2,7 +2,7 @@
 
     window.$ = jQuery;
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.main-footer').click(function () {
             var $this = $(this);
             var mapId = parseInt($this.attr("data-map"));
@@ -20,14 +20,10 @@
     });
 
     var zoomImage = function (el, background_img, mapId) {
-        //el.css('background-image', "url('" + background + "')");
+
         el.attr("data-map", (++mapId));
 
-        el.animate({opacity: 0}, 'fast', function () {
-            el
-                .css({'background-image': 'url(' + background_img + ')'})
-                .animate({opacity: 1});
-        });
+        el.css({'background-image': 'url(' + background_img + ')'})
 
     }
 })(jQuery);
