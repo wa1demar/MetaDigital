@@ -147,6 +147,7 @@ body{
 
 .articles-drilldown{
     position: relative;
+    height: 100vh;
 }
 
 .articles-drilldown .articles-list{
