@@ -318,12 +318,14 @@
             ruCallback: function(callback){
                 $("#languagebox .locale-ru").click(function(){
                     callback();
+                    return false;
                 });
                 return this;
             },
             enCallback: function(callback){
                 $("#languagebox .locale-en").click(function(){
                     callback();
+                    return false;
                 });
                 return this;
             }
@@ -333,14 +335,6 @@
 
     $(document).ready(function(){
 
-        var Alert = new languageBox();
-        Alert.render().enCallback(function(){
-            console.log('en');
-            Alert.close();
-        }).ruCallback(function(){
-            console.log('ru');
-            Alert.close();
-        });
 
         $.ajax({
             url: '/api/gallery/get_all_galleries',
