@@ -299,7 +299,6 @@
                 var dialogoverlay = document.getElementById('languageoverlay');
                 var dialogbox = document.getElementById('languagebox');
                 dialogoverlay.style.display = "block";
-                dialogoverlay.style.height = winH+"px";
                 dialogbox.style.top = "100px";
                 dialogbox.style.display = "block";
                 $('body').css('overflow', 'hidden');

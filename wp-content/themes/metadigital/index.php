@@ -179,8 +179,8 @@
 
     <div id="languageoverlay"></div>
     <div id="languagebox">
-        <div>
-            <div id="languagebody">
+        <div id="languagebody">
+            <div>
                 <a href="#" class="locale locale-ru"></a>
                 <a href="#" class="locale locale-en"></a>
             </div>
