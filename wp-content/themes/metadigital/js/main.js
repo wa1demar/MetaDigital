@@ -291,7 +291,57 @@
         return {};
     };
 
+    window.languageBox = function (){
+        return {
+            render: function(){
+                var winW = window.innerWidth;
+                var winH = window.innerHeight;
+                var dialogoverlay = document.getElementById('languageoverlay');
+                var dialogbox = document.getElementById('languagebox');
+                dialogoverlay.style.display = "block";
+                dialogoverlay.style.height = winH+"px";
+                dialogbox.style.top = "100px";
+                dialogbox.style.display = "block";
+                $('body').css('overflow', 'hidden');
+                var ok_button = $("<button>OK</button>");
+                var self = this;
+                ok_button.click(function(){
+                    self.ok();
+                });
+                return this;
+            },
+            close: function() {
+                document.getElementById('languagebox').style.display = "none";
+                document.getElementById('languageoverlay').style.display = "none";
+                $('body').css('overflow', 'auto');
+                return this;
+            },
+            ruCallback: function(callback){
+                $("#languagebox .locale-ru").click(function(){
+                    callback();
+                });
+                return this;
+            },
+            enCallback: function(callback){
+                $("#languagebox .locale-en").click(function(){
+                    callback();
+                });
+                return this;
+            }
+        }
+    };
+
+
     $(document).ready(function(){
+
+        var Alert = new languageBox();
+        Alert.render().enCallback(function(){
+            console.log('en');
+            Alert.close();
+        }).ruCallback(function(){
+            console.log('ru');
+            Alert.close();
+        });
 
         $.ajax({
             url: '/api/gallery/get_all_galleries',

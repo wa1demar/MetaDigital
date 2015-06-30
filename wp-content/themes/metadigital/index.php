@@ -176,5 +176,15 @@
         </div>
     </div>
     <?php wp_footer(); ?>
+
+    <div id="languageoverlay"></div>
+    <div id="languagebox">
+        <div>
+            <div id="languagebody">
+                <a href="#" class="locale locale-ru"></a>
+                <a href="#" class="locale locale-en"></a>
+            </div>
+        </div>
+    </div>
   </body>
 </html>

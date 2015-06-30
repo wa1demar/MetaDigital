@@ -5,6 +5,8 @@
 
 body{
     margin: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .main{
@@ -131,7 +133,7 @@ body{
     position: fixed;
     right: 30px;
     top: 80px;
-    z-index: 10000;
+    z-index: 999;
 }
 
 .sidebar a{
@@ -349,3 +351,38 @@ body{
     left: 0;
     right: 0;
 }
+
+#languageoverlay{
+    display: none;
+    opacity: .8;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(20, 20, 20, 0.98);
+    width: 100%;
+    z-index: 1000;
+    cursor: url(../images/enru.png), auto;
+}
+#languagebox{
+    display: none;
+    position: fixed;
+    background: transparent;
+    border-radius:7px;
+    z-index: 1001;
+    width: 100%;
+    cursor: url(../images/enru.png), auto;
+}
+#languagebox > div{  }
+#languagebox .locale-ru{ background-image: url('../images/ru1.png'); }
+#languagebox .locale-ru:hover{ background-image: url('../images/ru2.png'); }
+#languagebox .locale-en{ background-image: url('../images/en1.png'); }
+#languagebox .locale-en:hover{ background-image: url('../images/en2.png'); }
+#languagebox .locale{
+    display: inline-block;
+    width: 40px;
+    background-size: cover;
+    height: 40px;
+    cursor: url(../images/enru.png), auto;
+    margin: 20px;
+}
+#languagebox > div > #languagebody{ text-align: center; background: transparent;}
