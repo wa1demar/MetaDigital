@@ -378,7 +378,7 @@ body{
     background-size: cover;
     height: 40px;
     cursor: url(../images/enru.png), auto;
-    margin: 20px;
+    margin: 0 25px;
     vertical-align: middle;
 }
 #languagebox > #languagebody{
