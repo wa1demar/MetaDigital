@@ -133,7 +133,7 @@
 
     </div>
 
-    <div class="main-footer">
+    <div class="main-footer" data-map="0">
         <div class="footer-address">
             <div class="footer-address-header">moscow</div>
             <p>45 olkhovskaya st, bdg 1<br>
@@ -147,10 +147,6 @@
                 <li><a href="#"><img src="<?php echo THEME_URL?>/images/facebook-icon.png"></a> </li>
                 <li><a href="#"><img src="<?php echo THEME_URL?>/images/blogger-icon.png"></a> </li>
             </ul>
-        </div>
-
-        <div class="footer-map-search">
-            <a href="#"><img src="<?php echo THEME_URL?>/images/search-icon.png"></a>
         </div>
 
         <div class="footer-contact-us">
@@ -171,9 +167,10 @@
         <div class="footer-google-link">
             <a href="#"><img src="<?php echo THEME_URL?>/images/google-maps-icon.png"></a>
         </div>
-        <div class="footer-bottom-image">
-            <img src="<?php echo THEME_URL?>/images/meta-moskow-logo.png">
-        </div>
+    </div>
+
+    <div class="footer-bottom-image">
+        <img src="<?php echo THEME_URL?>/images/meta-moskow-logo-small.png">
     </div>
     <?php wp_footer(); ?>
 
@@ -186,5 +183,6 @@
             </div>
         </div>
     </div>
+
   </body>
 </html>

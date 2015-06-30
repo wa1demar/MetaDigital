@@ -16,6 +16,7 @@ add_action('wp_enqueue_scripts', 'meta_enqueue_script');
 function meta_enqueue_script() {
 
     wp_enqueue_script('main', THEME_URL . '/js/main.js');
+    wp_enqueue_script('zoom', THEME_URL . '/js/zoom.js');
 
 }
 

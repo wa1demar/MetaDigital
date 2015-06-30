@@ -234,24 +234,25 @@ body{
     background-image: url('../images/map.png');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     height: 101vh;
     border: 0;
     text-align: center;
     position: relative;
-    background-size: 100%;
+    transition: all ease-in-out 2s;
+    cursor: url(../images/search-icon.png) 33 33, auto;
 }
 
 .footer-bottom-image {
-    height: 91px;
+    /*height: 91px;*/
     width: 100%;
     background-color: #ebebeb;
-    position: absolute;
-    bottom: 0;
+    text-align: center;
 }
 
 .footer-bottom-image img {
-    height: 59px;
-    top: 50%;
+    /*height: 59px;*/
+    /*top: 50%;*/
     margin: 15px auto;
 }
 
@@ -336,15 +337,6 @@ body{
     text-transform: uppercase;
 }
 
-.footer-map-search {
-    margin: auto;
-    position: absolute;
-    top: 35%;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-
 .footer-google-link {
     position: absolute;
     bottom: 110px;
@@ -374,7 +366,7 @@ body{
     border-radius:7px;
     z-index: 1001;
     width: 100%;
-    cursor: url(../images/enru.png), auto;
+    cursor: url(../images/enru.png) 10 10, auto;
 }
 #languagebox .locale-ru{ background-image: url('../images/ru1.png'); }
 #languagebox .locale-ru:hover{ background-image: url('../images/ru2.png'); }
