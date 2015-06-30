@@ -292,6 +292,8 @@
     };
 
     window.languageBox = function (){
+        var choose = function(){};
+        var lang = 'ru';
         return {
             render: function(){
                 var winW = window.innerWidth;
@@ -302,10 +304,14 @@
                 dialogbox.style.top = "100px";
                 dialogbox.style.display = "block";
                 $('body').css('overflow', 'hidden');
-                var ok_button = $("<button>OK</button>");
-                var self = this;
-                ok_button.click(function(){
-                    self.ok();
+
+                $("#languagebox .locale-ru").click(function(){
+                    choose('ru');
+                    return false;
+                });
+                $("#languagebox .locale-en").click(function(){
+                    choose('en');
+                    return false;
                 });
                 return this;
             },
@@ -315,18 +321,8 @@
                 $('body').css('overflow', 'auto');
                 return this;
             },
-            ruCallback: function(callback){
-                $("#languagebox .locale-ru").click(function(){
-                    callback();
-                    return false;
-                });
-                return this;
-            },
-            enCallback: function(callback){
-                $("#languagebox .locale-en").click(function(){
-                    callback();
-                    return false;
-                });
+            chooseCallback: function(callback){
+                choose = callback;
                 return this;
             }
         }
