@@ -68,7 +68,7 @@ class JSON_API_General_Controller
             array_push($result['errors'], $messages[$lang]['error_username']);
         }
 
-        if (!$useremail || strlen($useremail) < 3 || filter_var($useremail, FILTER_VALIDATE_EMAIL)) {
+        if (!$useremail || strlen($useremail) < 3 || !filter_var($useremail, FILTER_VALIDATE_EMAIL)) {
             array_push($result['errors'], $messages[$lang]['error_useremail']);
         }
 

@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
-      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
-      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
-      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
-      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
-      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
-      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
-      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
-      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
+
       <meta charset="<?php bloginfo('charset'); ?>"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
