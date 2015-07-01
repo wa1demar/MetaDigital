@@ -22,8 +22,12 @@
             $scope.locale = 'ru';
             $scope.t = {
                 en: {
+                    sidebar_top: 'who we are',
+                    sidebar_services: 'services',
+                    sidebar_works: 'works',
+                    sidebar_contacts: 'contact us',
                     webdevelopment: 'WEB - DEVELOPMENT',
-                    mosckow: 'Moskow',
+                    moskow: 'Moskow',
                     address: '45 olkhovskaya st, bdg 1',
                     contact_us: 'contact us',
                     name: 'Name',
@@ -32,10 +36,14 @@
                     send_button: 'send'
                 },
                 ru: {
+                    sidebar_top:'кто мы',
+                    sidebar_services: 'услуги',
+                    sidebar_works: 'работы',
+                    sidebar_contacts: 'контакты',
                     webdevelopment: 'WEB - РАЗРАБОТКА',
-                    mosckow: 'Москва',
+                    moskow: 'Москва',
                     address: 'ул. Ольховская, 45, ст. 1',
-                    contact_us: 'Связь с нами',
+                    contact_us: 'Связаться с нами',
                     name: 'Имя',
                     email: 'Електронный адресс',
                     feadback_text: 'Ваш текст ...',

@@ -381,23 +381,5 @@
             }
         });
     });
-/*
-    $(".scroll").click(function(e) {
-        e.preventDefault();
-        console.log($($(this).attr('href')));
-        $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top
-        }, 2000);
-    });
-*/
 
-    $(".scroll").click(function(event){
-        event.preventDefault();
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
-    });
-    /*
-    $(".scroll").click(function(event){
-        $('html,body').animate({scrollTop:$('[name="'+this.hash.substring(1)+'"]').offset().top}, 500);
-    });
-    */
 })(jQuery);

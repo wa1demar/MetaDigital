@@ -132,19 +132,96 @@ body {
 
 .sidebar {
     position: fixed;
-    right: 30px;
-    top: 80px;
+    right: 13px;
+    top: 152px;
     z-index: 999;
 }
 
-.sidebar a {
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    width: 37px;
     display: block;
-    margin-bottom: 45px;
     cursor: pointer;
 }
+.sidebar ul li a {
+    margin: 0 auto;
+    margin-bottom: 75px;
+    height: 37px;
+    display: block;
+    transition: background 1s;
+}
 
-.sidebar a img {
-    width: 40px;
+.sidebar li {
+    padding: 0;
+    position: relative;
+}
+
+.sidebar .to-main {
+    background: url(../images/who-we-are.png) no-repeat;
+}
+
+.sidebar .to-main:hover {
+    background: url(../images/who-we-are-bw.png) no-repeat;
+}
+
+.sidebar .to-articles {
+    background: url(../images/service.png) no-repeat;
+}
+
+.sidebar .to-articles:hover {
+    background: url(../images/service-bw.png) no-repeat;
+}
+
+.sidebar .to-gallery {
+    background: url(../images/works.png) no-repeat;
+}
+
+.sidebar .to-gallery:hover {
+    background: url(../images/works-bw.png) no-repeat;
+}
+
+.sidebar .to-main-footer {
+    background: url(../images/contacts.png) no-repeat;
+}
+
+.sidebar .to-main-footer:hover {
+    background: url(../images/contacts-bw.png) no-repeat;
+}
+
+.sidebar li .tooltip {
+    position: absolute;
+    padding: 10px 10px 10px 15px;
+    white-space: nowrap;
+    background: black;
+    color: white;
+    right: 57px;
+    top: -3px;
+    width: auto;
+    display: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-family: ISOCTEUR;
+    transition: opacity 1s;
+    opacity: 0;
+}
+
+.sidebar li .tooltip:after {
+    content: "";
+    width: 0;
+    position: absolute;
+    height: 0;
+    right: -15px;
+    top: 0;
+    border-style: solid;
+    border-width: 21px 0 21px 15px;
+    border-color: transparent transparent transparent #000000;
+}
+
+.sidebar li:hover .tooltip{
+    display: block;
+    opacity: 1;
 }
 
 .articles-drilldown {
@@ -426,3 +503,5 @@ body {
     right: 0;
     bottom: 0;
 }
+
+
