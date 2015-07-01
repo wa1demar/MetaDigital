@@ -137,14 +137,55 @@ body {
     z-index: 999;
 }
 
-.sidebar a {
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0px;
+    width: 55px;
     display: block;
-    margin-bottom: 45px;
     cursor: pointer;
 }
-
-.sidebar a img {
+.sidebar ul li a {
+    text-align: center;
+    margin: 10px;
     width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+.sidebar li {
+    padding: 5px 0;
+}
+
+.sidebar .to-main {
+    background: url(../images/who-we-are.png) no-repeat;
+}
+
+.sidebar .to-main:hover {
+    background: url(../images/who-we-are-bw.png) no-repeat;
+}
+
+.sidebar .to-articles {
+    background: url(../images/service.png) no-repeat;
+}
+
+.sidebar .to-articles:hover {
+    background: url(../images/service-bw.png) no-repeat;
+}
+
+.sidebar .to-gallery {
+    background: url(../images/works.png) no-repeat;
+}
+
+.sidebar .to-gallery:hover {
+    background: url(../images/works-bw.png) no-repeat;
+}
+
+.sidebar .to-main-footer {
+    background: url(../images/contacts.png) no-repeat;
+}
+
+.sidebar .to-main-footer:hover {
+    background: url(../images/contacts-bw.png) no-repeat;
 }
 
 .articles-drilldown {
@@ -425,4 +466,12 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.tooltip {
+    position: absolute;
+    padding: 30px;
+    background: black;
+    color: white;
+    display: none
 }

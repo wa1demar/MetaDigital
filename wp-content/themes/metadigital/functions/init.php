@@ -17,6 +17,7 @@ function meta_enqueue_script() {
 
     wp_enqueue_script('main', THEME_URL . '/js/main.js');
     wp_enqueue_script('zoom_map', THEME_URL . '/js/zoom_map.js');
+    wp_enqueue_script('scroller', THEME_URL . '/js/scroller.js');
 
 }
 

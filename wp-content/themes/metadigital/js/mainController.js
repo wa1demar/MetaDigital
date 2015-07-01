@@ -23,7 +23,7 @@
             $scope.t = {
                 en: {
                     webdevelopment: 'WEB - DEVELOPMENT',
-                    mosckow: 'Moskow',
+                    moskow: 'Moskow',
                     address: '45 olkhovskaya st, bdg 1',
                     contact_us: 'contact us',
                     name: 'Name',
@@ -33,9 +33,9 @@
                 },
                 ru: {
                     webdevelopment: 'WEB - РАЗРАБОТКА',
-                    mosckow: 'Москва',
+                    moskow: 'Москва',
                     address: 'ул. Ольховская, 45, ст. 1',
-                    contact_us: 'Связь с нами',
+                    contact_us: 'Связаться с нами',
                     name: 'Имя',
                     email: 'Електронный адресс',
                     feadback_text: 'Ваш текст ...',
