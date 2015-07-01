@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
-
       <meta charset="<?php bloginfo('charset'); ?>"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -17,13 +16,12 @@
   <body ng-app="metaDigitalApp" ng-controller="HomeController as con">
     <div class="sidebar">
         <ul>
-            <li><a href="#main" class="to-main"></a></li>
-            <li><a href="#articles" class="to-articles"></a></li>
-            <li><a href="#gallery" class="to-gallery"></a></li>
-            <li><a href="#main-footer" class="to-main-footer"></a></li>
+            <li><a href="#top" class="to-main"></a><div class="tooltip">{{ t[locale].sidebar_top }}</div></li>
+            <li><a href="#services" class="to-articles"></a><div class="tooltip">{{ t[locale].sidebar_services }}</div></li>
+            <li><a href="#gallery" class="to-gallery"></a><div class="tooltip">{{ t[locale].sidebar_works }}</div></li>
+            <li><a href="#contact_us" class="to-main-footer"></a><div class="tooltip">{{ t[locale].sidebar_contacts }}</div></li>
         </ul>
     </div>
-    <div class="tooltip">The tooltip!</div>
 
     <div class="main" id="main">
       <div class="home-link">
@@ -75,7 +73,7 @@
 
     <div class="main-footer" id="main-footer" data-map="0">
         <div class="footer-address">
-            <div class="footer-address-header"> {{ t[locale].moskow }}</div>
+            <div class="footer-address-header">{{ t[locale].moskow }}</div>
             <p> {{ t[locale].address}} <br>
             +74957259669<br>
             info@metamoscow.com</p>

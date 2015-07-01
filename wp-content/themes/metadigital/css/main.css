@@ -132,28 +132,30 @@ body {
 
 .sidebar {
     position: fixed;
-    right: 30px;
-    top: 80px;
+    right: 13px;
+    top: 152px;
     z-index: 999;
 }
 
 .sidebar ul {
     list-style-type: none;
-    padding-left: 0px;
-    width: 55px;
+    padding-left: 0;
+    margin: 0;
+    width: 37px;
     display: block;
     cursor: pointer;
 }
 .sidebar ul li a {
-    text-align: center;
-    margin: 10px;
-    width: 40px;
-    height: 40px;
-    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 75px;
+    height: 37px;
+    display: block;
+    transition: background 1s;
 }
 
 .sidebar li {
-    padding: 5px 0;
+    padding: 0;
+    position: relative;
 }
 
 .sidebar .to-main {
@@ -186,6 +188,40 @@ body {
 
 .sidebar .to-main-footer:hover {
     background: url(../images/contacts-bw.png) no-repeat;
+}
+
+.sidebar li .tooltip {
+    position: absolute;
+    padding: 10px 10px 10px 15px;
+    white-space: nowrap;
+    background: black;
+    color: white;
+    right: 57px;
+    top: -3px;
+    width: auto;
+    display: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-family: ISOCTEUR;
+    transition: opacity 1s;
+    opacity: 0;
+}
+
+.sidebar li .tooltip:after {
+    content: "";
+    width: 0;
+    position: absolute;
+    height: 0;
+    right: -15px;
+    top: 0;
+    border-style: solid;
+    border-width: 21px 0 21px 15px;
+    border-color: transparent transparent transparent #000000;
+}
+
+.sidebar li:hover .tooltip{
+    display: block;
+    opacity: 1;
 }
 
 .articles-drilldown {
@@ -468,10 +504,4 @@ body {
     bottom: 0;
 }
 
-.tooltip {
-    position: absolute;
-    padding: 30px;
-    background: black;
-    color: white;
-    display: none
-}
+
