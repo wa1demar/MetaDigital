@@ -389,7 +389,6 @@ body {
 }
 
 .footer-contact-us-inputs input {
-    font-size: 24px;
     text-align: center;
     width: 296px;
     padding: 15px 0;
@@ -397,10 +396,16 @@ body {
 
 .main-footer .footer-contact-us .inputs {
     border-bottom: 0;
+    font-size: 20px;
 }
 
 .main-footer .footer-contact-us .inputs:last-child {
     border-bottom: 1px;
+}
+.main-footer .footer-contact-us .inputs > textarea {
+    width: 98%;
+    resize: vertical;
+    text-align: center;
 }
 
 .footer-contact-us-inputs #useretext {
