@@ -208,6 +208,7 @@ body{
     left: 33.13%;
     background: rgba(246,246,246,1);
     background: -moz-linear-gradient(top, rgba(246, 246, 246, 0) 0%, rgba(255,255,255,1) 100%);
+    /*noinspection CssInvalidFunction*/
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(246, 246, 246, 0)), color-stop(100%, rgba(255,255,255,1)));
     background: -webkit-linear-gradient(top, rgba(246, 246, 246, 0) 0%, rgba(255,255,255,1) 100%);
     background: -o-linear-gradient(top, rgba(246, 246, 246, 0) 0%, rgba(255,255,255,1) 100%);
@@ -245,18 +246,18 @@ body{
 }
 
 .footer-bottom-image {
-    /*height: 91px;*/
     width: 100%;
     background-color: #ebebeb;
     text-align: center;
 }
 
-.footer-bottom-image img {
-    /*height: 59px;*/
-    /*top: 50%;*/
+.footer-bottom-image a {
     margin: 15px auto;
 }
 
+.footer-bottom-image a:hover {
+    background-image: url('../images/google-maps-hover-icon.png');;
+}
 .footer-address {
     float: left;
     text-align: left;
@@ -339,10 +340,17 @@ body{
 }
 
 .footer-google-link {
-    position: absolute;
-    bottom: 110px;
-    left: 0;
-    right: 0;
+    padding-top: 90vh;
+}
+
+.footer-google-link a {
+    background: url(../images/google-maps-icon.png) center no-repeat;
+    padding: 10px 75px;
+    transition: background 0.5s;
+}
+
+.footer-google-link a:hover {
+    background-image: url(../images/google-maps-hover-icon.png);
 }
 
 #languageoverlay{

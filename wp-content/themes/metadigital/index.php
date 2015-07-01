@@ -16,20 +16,20 @@
   </head>
   <body ng-app="metaDigitalApp" ng-controller="HomeController as con">
     <div class="sidebar">
-      <a>
+      <a href="#main" class="scroll">
         <img src="./wp-content/themes/metadigital/images/who_we_are.png">
       </a>
-      <a>
+      <a href="#articles" class="scroll">
         <img src="./wp-content/themes/metadigital/images/service.png">
       </a>
-      <a>
+      <a href="#gallery" class="scroll">
         <img src="./wp-content/themes/metadigital/images/works.png">
       </a>
-      <a>
+      <a href="#main-footer" class="scroll">
         <img src="./wp-content/themes/metadigital/images/contacts.png">
       </a>
     </div>
-    <div class="main">
+    <div class="main" id="main">
       <div class="home-link">
         <img src="./wp-content/themes/metadigital/images/meta-moskow-logo.svg">
       </div>
@@ -44,7 +44,7 @@
           <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
       </video>
     </div>
-    <div class="articles">
+    <div class="articles" id="articles">
       <div class="category" ng-repeat="category in categories" ng-click="$parent.current_category = category; $parent.current_post = $parent.current_category.posts[0]">
         <div class="item">
           <span class="icon">
@@ -77,10 +77,10 @@
 
     </div>
 
-    <div class="main-footer" data-map="0">
+    <div class="main-footer" id="main-footer" data-map="0">
         <div class="footer-address">
-            <div class="footer-address-header">moscow</div>
-            <p>45 olkhovskaya st, bdg 1<br>
+            <div class="footer-address-header"> {{ t[locale].moskow }}</div>
+            <p> {{ t[locale].address}} <br>
             +74957259669<br>
             info@metamoscow.com</p>
 
@@ -94,18 +94,18 @@
         </div>
 
         <div class="footer-contact-us">
-            <p>contact us</p>
+            <p>{{ t[locale].contact_us}}</p>
             <form class="footer-contact-us-inputs">
                 <div class="inputs">
-                    <input id="username" name="username" type="text" placeholder="Name">
+                    <input id="username" name="username" type="text" placeholder="{{ t[locale].name}}">
                 </div>
                 <div class="inputs">
-                    <input id="useremail" name="useremail" type="text" placeholder="Email Address">
+                    <input id="useremail" name="useremail" type="text" placeholder="{{ t[locale].email}}">
                 </div>
                 <div class="inputs">
-                    <input id="useretext" name="useretext" type="text" placeholder="Your text ...">
+                    <input id="useretext" name="useretext" type="text" placeholder="{{ t[locale].feadback_text}}">
                 </div>
-                <input class="contact-us-send-button" name="send" type="submit" value="send">
+                <input class="contact-us-send-button" name="send" type="submit" value="{{ t[locale].send_button}}">
             </form>
         </div>
         <div class="footer-google-link">
