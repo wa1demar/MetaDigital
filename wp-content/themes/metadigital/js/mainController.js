@@ -21,8 +21,26 @@
 
             $scope.locale = 'ru';
             $scope.t = {
-                en: {webdevelopment: 'WEB - DEVELOPMENT'},
-                ru: {webdevelopment: 'WEB - РАЗРАБОТКА'}
+                en: {
+                    webdevelopment: 'WEB - DEVELOPMENT',
+                    mosckow: 'Moskow',
+                    address: '45 olkhovskaya st, bdg 1',
+                    contact_us: 'contact us',
+                    name: 'Name',
+                    email: 'Email Address',
+                    feadback_text: 'Your text ...',
+                    send_button: 'send'
+                },
+                ru: {
+                    webdevelopment: 'WEB - РАЗРАБОТКА',
+                    mosckow: 'Москва',
+                    address: 'ул. Ольховская, 45, ст. 1',
+                    contact_us: 'Связь с нами',
+                    name: 'Имя',
+                    email: 'Електронный адресс',
+                    feadback_text: 'Ваш текст ...',
+                    send_button: 'отправить'
+                }
             };
 
             var Alert = new languageBox();
