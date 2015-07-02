@@ -514,4 +514,12 @@ body {
     bottom: 0;
 }
 
+.articles-body img.alignleft {
+    float: left;
+    padding: 8px 10px 10px 0;
+}
 
+.articles-body img.alignright {
+    float: right;
+    padding: 8px 0 10px 10px;
+}
