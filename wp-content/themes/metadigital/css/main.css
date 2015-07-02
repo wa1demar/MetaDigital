@@ -7,6 +7,7 @@ body {
     margin: 0;
     width: 100%;
     overflow-x: hidden;
+    font-family: ISOCTEUR;
 }
 
 .main {
@@ -112,10 +113,12 @@ body {
     float: left;
     text-align: center;
     white-space: normal;
-    font-size: 10px;
     font-family: monospace;
     padding: 0;
     cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: normal;
 }
 
 .articles .category:hover {
@@ -126,8 +129,24 @@ body {
     margin: 10px;
 }
 
+.articles .category.active {
+    background-color: lightgray;
+}
+
+.articles .category.active .title {
+    display: none;
+
+}
+
 .articles .category .icon img {
-    height: 50px;
+    max-height: 50px;
+    max-width: 60px;
+}
+
+.articles .category.active img {
+    min-height: 92px;
+    max-width: 100px;
+
 }
 
 .sidebar {
@@ -201,7 +220,6 @@ body {
     width: auto;
     text-transform: uppercase;
     font-size: 18px;
-    font-family: ISOCTEUR;
     transition:visibility 0s linear 0.5s,opacity 0.5s linear;
     opacity:0;
     z-index: -1000;
@@ -233,7 +251,7 @@ body {
 
 .articles-drilldown .articles-list {
     height: 100%;
-    width: 33.13%;
+    width: 29%;
     background-color: #E1E1E1;
     padding: 30px;
 }
@@ -250,11 +268,24 @@ body {
     background-image: url('../images/list-image.svg');
     background-repeat: no-repeat;
     background-size: contain;
-    padding-left: 20px;
+    padding-left: 40px;
     padding-bottom: 20px;
     padding-top: 5px;
     margin-bottom: 4px;
     cursor: pointer;
+    font-size: 12px;
+}
+
+.articles-drilldown .articles-list ul li.active {
+    background-image: url('../images/list-image-current.svg');
+}
+
+.articles-drilldown .articles-list ul li:last-child {
+    background-image: url('../images/list-image-last.svg');
+}
+
+.articles-drilldown .articles-list ul li.active:last-child {
+    background-image: url('../images/list-image-current-last.svg');
 }
 
 .articles-drilldown .articles-content {
@@ -273,6 +304,7 @@ body {
     text-transform: uppercase;
     font-size: 30px;
     padding: 20px 0 20px 0;
+    color: #000;
 }
 
 .articles-drilldown .articles-content .articles-body {
@@ -280,6 +312,8 @@ body {
     padding: 30px;
     height: 90%;
     overflow: hidden;
+    font-family: Arial;
+    color: #626262;
 }
 
 .articles-drilldown .bottom-gradient {
@@ -516,10 +550,10 @@ body {
 
 .articles-body img.alignleft {
     float: left;
-    padding: 8px 10px 10px 0;
+    padding: 8px 15px 15px 0;
 }
 
 .articles-body img.alignright {
     float: right;
-    padding: 8px 0 10px 10px;
+    padding: 8px 0 15px 15px;
 }

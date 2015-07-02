@@ -12,13 +12,6 @@
                 return $sce.trustAsHtml(html);
             };
 
-            $scope.category_images = ["./wp-content/themes/metadigital/images/marketing-icon.png",
-            "./wp-content/themes/metadigital/images/device-icon.png",
-            "./wp-content/themes/metadigital/images/design-icon.png",
-            "./wp-content/themes/metadigital/images/bitrix-icon.png",
-            "./wp-content/themes/metadigital/images/applications-icon.png",
-            "./wp-content/themes/metadigital/images/outstuffing-icon.png"];
-
             $scope.locale = 'ru';
             $scope.t = {
                 en: {

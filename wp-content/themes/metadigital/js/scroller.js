@@ -22,7 +22,7 @@ $("document").ready(function () {
 
     $('.to-main-footer').click(function () {
         $('html, body').animate({
-            scrollTop: $("#main-footer").offset().top
+            scrollTop: $("#contact_us").offset().top
         }, 1000);
     });
 });

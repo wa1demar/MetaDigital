@@ -39,13 +39,13 @@
       </video>
     </div>
     <div class="articles" id="articles">
-      <div class="category" ng-repeat="category in categories" ng-click="$parent.current_category = category; $parent.current_post = $parent.current_category.posts[0]">
+      <div class="category {{ $parent.current_category != category ? '' : 'active' }}" ng-repeat="category in categories" ng-click="$parent.current_category = category; $parent.current_post = $parent.current_category.posts[0];">
         <div class="item">
           <span class="icon">
-            <img ng-src="{{ category_images[$index] }}">
+            <img ng-src="{{ $parent.current_category != category ? category.icons.default : category.icons.active }}">
           </span>
           <br>
-          {{ category.name }}
+          <span class="title">{{ category.name }}</span>
         </div>
       </div>
       <div style="clear: left"></div>
@@ -53,13 +53,13 @@
     <div class="articles-drilldown">
       <div class="articles-list">
         <ul>
-          <li ng-repeat="post in current_category.posts" ng-click="$parent.current_post = post">{{ post.title }}</li>
+          <li ng-repeat="post in current_category.posts" ng-click="$parent.current_post = post" class="{{ $parent.current_post != post ? '' : 'active' }}">{{ post.title }}</li>
         </ul>
       </div>
       <div class="articles-content">
           <div class="articles-body">
               <div class="articles-header">
-                  {{ current_post.title }}
+                  {{ current_category.name }}
               </div>
               <div style="margin-bottom: 130px;" ng-bind-html="getHtml(current_post.content)"></div>
           </div>
