@@ -78,5 +78,33 @@
               }
             };
             $scope.retriveCategories('ru');
+
+
+            $scope.slides = [
+                { 'image': './wp-content/themes/metadigital/images/map2.png' },
+                { 'image': './wp-content/themes/metadigital/images/map3.png' }
+            ];
+
+            $scope.$slideIndex = 0;
+
+            $scope.next = function() {
+                var total = $scope.slides.length;
+                if (total > 0) {
+                    $scope.$slideIndex = ($scope.$slideIndex == total - 1) ? 0 : $scope.$slideIndex + 1;
+                }
+            };
+// функция play запускает таймер, который переключает слайд и вызывает её же повторно
+
+            $scope.prev = function() {
+                var total = $scope.slides.length;
+                if (total > 0) {
+                    $scope.$slideIndex = ($scope.$slideIndex == 0) ? total-1 : $scope.$slideIndex - 1;
+                }
+            };
         }])
+
+
+
+
+
 }());

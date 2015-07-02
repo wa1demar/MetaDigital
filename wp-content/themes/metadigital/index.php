@@ -121,6 +121,13 @@
             </div>
         </div>
     </div>
+<div id="slider_gallery">
+    <button ng-click="next()">next</button>
+    <button ng-click="prev()">prev</button>
+    <div ng-repeat="(i, slide) in slides" ng-show="i == $slideIndex" class="animation-fade">>
+        <img ng-src="{{ slide.image }}" />
+    </div>
+</div>
 
   </body>
 </html>

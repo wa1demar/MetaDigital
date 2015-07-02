@@ -1,4 +1,9 @@
 (function($) {
+
+    function getRandomArbitary(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    };
+
     window.$ = jQuery;
 
     $.fn.goTo = function() {
@@ -253,7 +258,9 @@
                 if(image_index >= albums_count)
                     image_index = 0;
             }
-            tile.css('background-image', 'url(' + options.albums[image_index].images[0].thumbnail + ')');
+
+            var imageArray = options.albums[image_index].images;
+            tile.css('background-image', 'url(' + imageArray[getRandomArbitary(0,imageArray.length)].thumbnail + ')');
             image_index++;
             return tile;
         };
@@ -263,6 +270,8 @@
         var resize = function(){
             var cell_width = g.width()/defaults.width;
             g.css('height', cell_width*2);
+
+            console.log("--- "+tiles.length);
 
             var i = 0;
             while(i < tiles.length){
@@ -290,6 +299,9 @@
 
         return {};
     };
+
+
+
 
     window.languageBox = function (){
         var choose = function(){};
@@ -330,10 +342,8 @@
 
 
     $(document).ready(function(){
-
-
         $.ajax({
-            url: '/api/gallery/get_all_galleries',
+            url: '/api/gallery/get_all_galleries_localized',
             method: 'GET',
             success: function(data){
                 delete data.status;
