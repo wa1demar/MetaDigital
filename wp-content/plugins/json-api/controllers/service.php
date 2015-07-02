@@ -50,10 +50,15 @@ class JSON_API_Service_Controller
         $obj = array();
 
         foreach ($categories as $cat) {
+
             $c = array();
 
             $c['cat_id'] = $cat->cat_ID;
             $c['name'] = $cat->name;
+            $icon = get_tax_meta($cat->cat_ID,'image_field_id');
+            $c['icons']['default'] = $icon['url'];
+            $active_icon = get_tax_meta($cat->cat_ID,'active_image_field_id');
+            $c['icons']['active'] = $active_icon['url'];
             $c['lang'] = $lang;
 
             $posts_list = get_posts(array(
