@@ -254,6 +254,7 @@ body {
     padding-bottom: 20px;
     padding-top: 5px;
     margin-bottom: 4px;
+    cursor: pointer;
 }
 
 .articles-drilldown .articles-content {
@@ -324,7 +325,7 @@ body {
     border: 0;
     text-align: center;
     position: relative;
-    transition: background 2s ease;
+    transition: background 1s ease;
     cursor: url(../images/search-icon.png) 33 33, auto;
 }
 
@@ -332,6 +333,7 @@ body {
     width: 100%;
     background-color: #ebebeb;
     text-align: center;
+    padding: 10px 0;
 }
 
 .footer-bottom-image a {
@@ -396,15 +398,15 @@ body {
     padding: 15px 0;
 }
 
-.main-footer .footer-contact-us .inputs {
+#contact_us .footer-contact-us .inputs {
     border-bottom: 0;
     font-size: 20px;
 }
 
-.main-footer .footer-contact-us .inputs:last-child {
+#contact_us .footer-contact-us .inputs:last-child {
     border-bottom: 1px;
 }
-.main-footer .footer-contact-us .inputs > textarea {
+#contact_us .footer-contact-us .inputs > textarea {
     width: 98%;
     resize: vertical;
     text-align: center;
@@ -427,7 +429,8 @@ body {
 }
 
 .footer-google-link {
-    padding-top: 90vh;
+    position: relative;
+    top: 92vh;
 }
 
 .footer-google-link a {

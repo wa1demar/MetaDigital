@@ -71,7 +71,7 @@
 
     </div>
 
-    <div class="main-footer" id="main-footer" data-map="0">
+    <div class="main-footer" id="contact_us" data-map="0">
         <div class="footer-address">
             <div class="footer-address-header">{{ t[locale].moskow }}</div>
             <p> {{ t[locale].address}} <br>
