@@ -104,7 +104,7 @@ function desc_meta_save($post_id)
 add_action('add_meta_boxes', 'runame_meta_box_add');
 function runame_meta_box_add()
 {
-    add_meta_box('wdm_gallery2-runame', 'Заголовки', 'runame_meta_box_name', 'wdm_gallery2', 'advanced', 'high');
+    add_meta_box('wdm_gallery2-runame', 'Заголовок', 'runame_meta_box_name', 'wdm_gallery2', 'advanced', 'high');
 }
 
 function runame_meta_box_name($post)
@@ -186,14 +186,17 @@ function manage_wdm_gallery2_columns($column_name, $id)
             break;
 
         case 'wc_avatar':
-            $post_featured_image = get_post_gallery_images($id);
-            if ($post_featured_image) {
+            $gallery_img_ids_ = get_post_gallery($id, false);
 
-                shuffle($post_featured_image);
-                    echo "<img class='wdm_gallery2_image' src='$post_featured_image[0]' />";
+            if ($gallery_img_ids_) {
+                $gallery_img_ids = explode(",", $gallery_img_ids_['ids']);
+                shuffle($gallery_img_ids);
+                $thumb = wp_get_attachment_image_src($gallery_img_ids[0], 'medium');
+
+                    echo "<img class='wdm_gallery2_image' src='$thumb[0]' />";
 
             }
-
+            unset ($gallery_img_ids);
             break;
         case 'wc_title':
             echo "<table><tr><td>";

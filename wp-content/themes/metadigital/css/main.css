@@ -199,12 +199,11 @@ body {
     right: 57px;
     top: -3px;
     width: auto;
-    display: none;
     text-transform: uppercase;
     font-size: 18px;
     font-family: ISOCTEUR;
-    transition: opacity 1s;
-    opacity: 0;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+    opacity:0;
 }
 
 .sidebar li .tooltip:after {
@@ -220,8 +219,9 @@ body {
 }
 
 .sidebar li:hover .tooltip{
-    display: block;
-    opacity: 1;
+    visibility:visible;
+    opacity:1;
+    transition-delay:0s;
 }
 
 .articles-drilldown {

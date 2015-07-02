@@ -71,7 +71,8 @@ class JSON_API_Gallery_Controller
     public function get_all_galleries_localized()
     {
         $posts_list = get_posts(array(
-            'post_type' => 'wdm_gallery2'
+            'post_type' => 'wdm_gallery2',
+            'posts_per_page' => -1,
         ));
 
         $posts = array();
