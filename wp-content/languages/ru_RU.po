@@ -300,7 +300,6 @@ msgstr "1 комментарий<span class=\"screen-reader-text\"> к запи�
 msgid "No Comments<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Комментариев<span class=\"screen-reader-text\"> к записи %s</span> нет"
 
-
 #: wp-includes/default-widgets.php:322
 msgid "Select Post"
 msgstr "Выберите запись"
