@@ -24,6 +24,7 @@
         var g = $(selector);
 
         g.css('position', 'relative');
+        g.css('overflow', 'hidden');
 
         var tiles = [];
 
@@ -246,10 +247,18 @@
 
         var generateTile = function(){
             var tile = $("<div class='gallery-item'></div>");
+            var image = $("<div></div>");
+
+
             tile.css('position', 'absolute');
+            image.css('position', 'absolute');
+            image.css('width', '100%');
+            image.css('height', '100%');
             //tile.css('background-color', generateColor());
-            tile.css('background-repeat', 'no-repeat');
-            tile.css('background-position', 'center');
+            image.css('background-repeat', 'no-repeat');
+            image.css('background-position', 'center');
+            image.css('background-size', 'cover');
+            tile.css('overflow', 'hidden');
             if(image_index >= albums_count)
                 image_index = 0;
 
@@ -260,7 +269,16 @@
             }
 
             var imageArray = options.albums[image_index].images;
-            tile.css('background-image', 'url(' + imageArray[getRandomArbitary(0,imageArray.length)].thumbnail + ')');
+            image.css('background-image', 'url(' + imageArray[getRandomArbitary(0,imageArray.length)].thumbnail + ')');
+            tile.append(image);
+
+            tile.mouseover(function(){
+                console.log('over');
+                image.animate({width:'110%', height:'110%', top: '-5%', left: '-5%'}, 500);
+            });
+            tile.mouseleave(function(){
+                image.animate({width:'100%', height:'100%', top: '0', left: '0'}, 500);
+            });
             image_index++;
             return tile;
         };

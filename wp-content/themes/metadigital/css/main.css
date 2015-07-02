@@ -339,15 +339,10 @@ body {
 
 #gallery .gallery-item {
     /*border: 1px solid red;*/
-    background-size: auto 100%;
+    background-size: cover;
     -moz-transition: all .5s;
     -webkit-transition: all .5s;
     transition: all .5s;
-}
-
-#gallery .gallery-item:hover {
-    /*border: 1px solid red;*/
-    background-size: auto 120%;
 }
 
 .main-footer {
