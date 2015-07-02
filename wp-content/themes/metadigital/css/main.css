@@ -433,15 +433,28 @@ body {
 }
 
 #contact_us .footer-contact-us .inputs {
-    border-bottom: 0;
     font-size: 20px;
 }
+
+.footer-contact-us-inputs .inputs #username,
+.footer-contact-us-inputs .inputs #useremail,
+.footer-contact-us-inputs .inputs #useretext {
+    background-color: #f2f2f2;
+    border: solid 1px #939393;
+    outline: none;
+}
+
+.footer-contact-us-inputs .inputs #username,
+.footer-contact-us-inputs .inputs #useremail {
+    border-bottom: 0px;
+}
+
 
 #contact_us .footer-contact-us .inputs:last-child {
     border-bottom: 1px;
 }
 #contact_us .footer-contact-us .inputs > textarea {
-    width: 98%;
+    width: 97.3%;
     resize: vertical;
     text-align: center;
 }
