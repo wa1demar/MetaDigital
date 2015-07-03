@@ -138,15 +138,26 @@ body {
 
 }
 
-.articles .category .icon img {
-    max-height: 50px;
-    max-width: 60px;
+.articles .category .icon,
+.articles .category .title {
+    height: 48px;
 }
 
-.articles .category.active img {
-    min-height: 92px;
-    max-width: 100px;
+.articles .category.active .icon {
+    height: 98px;
+}
 
+.articles .category.active .title {
+    display: none;
+}
+
+.articles .category .icon img {
+    height: 100%;
+    width: auto;
+}
+
+.articles .category.active .icon img {
+    height: 90%;
 }
 
 .sidebar {

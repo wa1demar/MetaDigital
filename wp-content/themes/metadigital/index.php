@@ -41,11 +41,10 @@
     <div class="articles" id="articles">
       <div class="category {{ $parent.current_category != category ? '' : 'active' }}" ng-repeat="category in categories" ng-click="$parent.current_category = category; $parent.current_post = $parent.current_category.posts[0];">
         <div class="item">
-          <span class="icon">
+          <div class="icon">
             <img ng-src="{{ $parent.current_category != category ? category.icons.default : category.icons.active }}">
-          </span>
-          <br>
-          <span class="title">{{ category.name }}</span>
+          </div>
+          <div class="title" style="height: 48px; padding-top: 2px">{{ category.name }}</div>
         </div>
       </div>
       <div style="clear: left"></div>
