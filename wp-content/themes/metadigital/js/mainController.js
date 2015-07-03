@@ -19,7 +19,7 @@
                     sidebar_works: 'works',
                     sidebar_contacts: 'contact us',
                     webdevelopment: 'WEB - DEVELOPMENT',
-                    moskow: 'Moskow',
+                    moskow: 'Moscow',
                     address: '45 olkhovskaya st, bdg 1',
                     contact_us: 'contact us',
                     name: 'Name',
