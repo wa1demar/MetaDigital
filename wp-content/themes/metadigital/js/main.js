@@ -247,17 +247,11 @@
 
         var generateTile = function(){
             var tile = $("<div class='gallery-item'></div>");
-            var image = $("<div></div>");
+            var image = $("<div class='gallery-image'></div>");
 
 
             tile.css('position', 'absolute');
-            image.css('position', 'absolute');
-            image.css('width', '100%');
-            image.css('height', '100%');
-            //tile.css('background-color', generateColor());
-            image.css('background-repeat', 'no-repeat');
-            image.css('background-position', 'center');
-            image.css('background-size', 'cover');
+
             tile.css('overflow', 'hidden');
             if(image_index >= albums_count)
                 image_index = 0;
@@ -273,16 +267,7 @@
             tile.append(image);
 
 
-            var hover = $('<div></div>');
-            hover.css('position', 'absolute');
-            hover.css('width', '100%');
-            hover.css('height', '100%');
-            hover.css('background-color', 'rgba(27, 28, 181, 0.7)');
-
-            hover.css('bottom', '-100%');
-            hover.css('color', 'white');
-            hover.css('font-size', '24px');
-            hover.css('text-transform', 'uppercase');
+            var hover = $('<div class="gallery_hover"></div>');
             hover.html($('<span>' + options.albums[image_index][locale]['title'] + '</span>').css('position', 'absolute').css('bottom', '60px').css('left', '15px'));
 
             tile.mouseover(function(){
@@ -390,10 +375,10 @@
 
                 var slick_disabler = $('<div class="slick-disabler"></div>');
 
-                var dialogclose = $('<div class="gallery-close"><i class="fa fa-close"></div>').css('color', 'white').click(function(){
+                var dialogclose = $('<div class="gallery-close"></div>').css('color', 'white').click(function(){
                     if(panel_opened){
                         about_panel.animate({
-                            bottom: '-40%'
+                            bottom: '-60%'
                         }, 'slow');
                         panel_opened = false;
                         slick_disabler.hide();
@@ -411,8 +396,8 @@
                     carousel.append($('<div class="lightbox-gallery-item"></div>').css('background-image', 'url(' + options.images[i].full + ')'));
                 }
 
-                var next_arrow = $("<a class='gallery-next'><i class='fa fa-caret-right'></i></a>");
-                var prev_arrow = $("<a class='gallery-prev'><i class='fa fa-caret-left'></i></a>");
+                var next_arrow = $("<a class='gallery-next'></a>");
+                var prev_arrow = $("<a class='gallery-prev'></a>");
 
                 setTimeout(function(){
                     carousel.slick({
@@ -435,7 +420,7 @@
                 dialogoverlay.append(dialogclose);
 
                 var next_text = locale == 'ru' ? 'Следующий Проект' : 'Next Project' ;
-                var about_panel = $('<div class="about-panel"><h1>' + options[locale].title + '</h1><br><br>' + options[locale].description + '<br><br><br><br><br><a class="next-button">' + next_text + '<a></div>');
+                var about_panel = $('<div class="about-panel"><h1>' + options[locale].title + '</h1><p>' + options[locale].description + '</p><br><br><br><br><a class="next-button">' + next_text + '<a></div>');
 
                 var about_text = locale == 'ru' ? 'О проекте' : 'About Project' ;
                 var about_button = $('<div class="about-container"><a class="about-button">' + about_text + '<a></div>').click(function(){
@@ -446,7 +431,7 @@
                     }, 'slow');
                 });
 
-                var close_button = $('<a><i class="fa fa-angle-double-down"></i></a>').click(function(){ dialogclose.click() });
+                var close_button = $('<button class="about-panel-hide">&nbsp;</button>').click(function(){ dialogclose.click() });
                 about_panel.prepend(close_button);
 
                 dialogoverlay.append(about_button);

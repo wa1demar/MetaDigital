@@ -16,10 +16,10 @@
   <body ng-app="metaDigitalApp" ng-controller="HomeController as con">
     <div class="sidebar">
         <ul>
-            <li><a href="#top" class="to-main"></a><div class="tooltip">{{ t[locale].sidebar_top }}</div></li>
-            <li><a href="#services" class="to-articles"></a><div class="tooltip">{{ t[locale].sidebar_services }}</div></li>
-            <li><a href="#gallery" class="to-gallery"></a><div class="tooltip">{{ t[locale].sidebar_works }}</div></li>
-            <li><a href="#contact_us" class="to-main-footer"></a><div class="tooltip">{{ t[locale].sidebar_contacts }}</div></li>
+            <li><a href="#top" class="to-main"><div class="tooltip">{{ t[locale].sidebar_top }}</div></a></li>
+            <li><a href="#services" class="to-articles"><div class="tooltip">{{ t[locale].sidebar_services }}</div></a></li>
+            <li><a href="#gallery" class="to-gallery"><div class="tooltip">{{ t[locale].sidebar_works }}</div></a></li>
+            <li><a href="#contact_us" class="to-main-footer"><div class="tooltip">{{ t[locale].sidebar_contacts }}</div></a></li>
         </ul>
     </div>
 
@@ -61,7 +61,7 @@
               <div class="articles-header">
                   {{ current_category.name }}
               </div>
-              <div style="margin-bottom: 130px;" ng-bind-html="getHtml(current_post.content)"></div>
+              <div style="margin-bottom: 130px;" ng-bind-html="getHtml(current_post.content)" ></div>
           </div>
       </div>
       <div class="bottom-gradient"></div>
