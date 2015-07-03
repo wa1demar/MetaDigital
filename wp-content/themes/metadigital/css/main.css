@@ -778,16 +778,20 @@ body {
 }
 
 @media (max-width: 768px) {
+    .articles .category {
+        width: 33.3%;
+    }
     .articles .category .icon {
         display: none;
     }
 
     .articles .category .title {
-        height: 98px;
+        height: 62px;
     }
 
     .articles .category.active .icon {
         display: block;
+        height: 62px;
     }
 
     .articles-drilldown .articles-list,
