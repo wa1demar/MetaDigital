@@ -44,7 +44,7 @@
           <div class="icon">
             <img ng-src="{{ $parent.current_category != category ? category.icons.default : category.icons.active }}">
           </div>
-          <div class="title" style="height: 48px; padding-top: 2px">{{ category.name }}</div>
+          <div class="title">{{ category.name }}</div>
         </div>
       </div>
       <div style="clear: left"></div>
@@ -60,7 +60,7 @@
               <div class="articles-header">
                   {{ current_category.name }}
               </div>
-              <div style="margin-bottom: 130px;" ng-bind-html="getHtml(current_post.content)" ></div>
+              <div ng-bind-html="getHtml(current_post.content)" ></div>
           </div>
       </div>
       <div class="bottom-gradient"></div>
