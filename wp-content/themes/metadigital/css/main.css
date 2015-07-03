@@ -127,6 +127,7 @@ body {
 
 .articles .category .item {
     margin: 10px;
+    padding: 0 20px;
 }
 
 .articles .category.active {
@@ -255,14 +256,15 @@ body {
 
 .articles-drilldown {
     position: relative;
-    height: 92vh;
+    height: 65vh;
 }
 
 .articles-drilldown .articles-list {
     height: 100%;
-    width: 29%;
+    width: 33.3%;
     background-color: #E1E1E1;
-    padding: 30px;
+    padding: 0;
+    float: left;
 }
 
 .articles-drilldown .articles-list ul {
@@ -271,6 +273,7 @@ body {
     font-family: ISOCTEUR;
     text-transform: uppercase;
     font-size: 19px;
+    padding: 35px 20px 20px 70px;
 }
 
 .articles-drilldown .articles-list ul li {
@@ -299,13 +302,10 @@ body {
 
 .articles-drilldown .articles-content {
     height: 100%;
-    width: 66.87%;
+    width: 66.7%;
     background-color: #ECECEC;
-    position: absolute;
-    left: 33.13%;
-    top: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
+    float: left;
 }
 
 .articles-drilldown .articles-content .articles-header {
@@ -318,19 +318,35 @@ body {
 
 .articles-drilldown .articles-content .articles-body {
     line-height: 30px;
-    padding: 30px;
-    height: 90%;
+    padding: 30px 40px 50px 30px;
+    height: 83%;
     overflow: hidden;
     font-family: Arial;
     color: #626262;
+    overflow-y: scroll;
+}
+
+.articles-drilldown .articles-content .articles-body::-webkit-scrollbar {
+    width: 12px;
+}
+
+.articles-drilldown .articles-content .articles-body::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: transparent;
+    width: 1px;
+}
+
+.articles-drilldown .articles-content .articles-body::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    width: 1px;
 }
 
 .articles-drilldown .bottom-gradient {
     height: 100px;
     position: absolute;
-    width: 66.87%;
+    width: 66.7%;
     bottom: 0;
-    left: 33.13%;
+    left: 33.3%;
     background: rgba(246, 246, 246, 1);
     background: -moz-linear-gradient(top, rgba(246, 246, 246, 0) 0%, rgba(255, 255, 255, 1) 100%);
     /*noinspection CssInvalidFunction*/

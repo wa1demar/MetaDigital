@@ -60,7 +60,7 @@
               <div class="articles-header">
                   {{ current_category.name }}
               </div>
-              <div style="margin-bottom: 130px;" ng-bind-html="getHtml(current_post.content)" ></div>
+              <div ng-bind-html="getHtml(current_post.content)" ></div>
           </div>
       </div>
       <div class="bottom-gradient"></div>
