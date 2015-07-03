@@ -7,12 +7,11 @@
 
 
             $scope.getHtml = function(html){
-
-                console.log(html);
                 return $sce.trustAsHtml(html);
             };
 
             $scope.locale = 'ru';
+            window.locale = 'ru';
             $scope.t = {
                 en: {
                     sidebar_top: 'who we are',
@@ -56,6 +55,7 @@
                     .success(function(data){
                         delete data.status;
                         $scope.locale = lang;
+                        window.locale = lang;
                         $scope.categories = data;
 
                         $scope.current_category = $scope.categories[0];
@@ -65,39 +65,54 @@
                     });
             };
 
-            $scope.console = {
-              log: function(i){
-                  console.log(i);
-              }
-            };
             $scope.retriveCategories('ru');
+            
 
+            $http.get('/api/gallery/get_all_galleries_localized').success(function(data){
 
-            $scope.slides = [
-                { 'image': './wp-content/themes/metadigital/images/map2.png' },
-                { 'image': './wp-content/themes/metadigital/images/map3.png' }
-            ];
+                delete data.status;
+                var gallery = new Gallery("#gallery", {
+                    albums: data,
+                    responsive: [
+                        {
+                            breakpoint: 20000,
+                            settings: {
+                                vertical_double_tiles_count: 2,
+                                horizontal_double_tiles_count: 3,
+                                width: 8,
+                                height: 2
+                            }
+                        },
+                        {
+                            breakpoint: 1300,
+                            settings: {
+                                vertical_double_tiles_count: 1,
+                                horizontal_double_tiles_count: 2,
+                                width: 6,
+                                height: Math.ceil(Object.keys(data).length/6)
+                            }
+                        },
+                        {
+                            breakpoint: 800,
+                            settings: {
+                                vertical_double_tiles_count: 1,
+                                horizontal_double_tiles_count: 1,
+                                width: 4,
+                                height: Math.ceil(Object.keys(data).length/4)
+                            }
+                        },
+                        {
+                            breakpoint: 550,
+                            settings: {
+                                vertical_double_tiles_count: 1,
+                                horizontal_double_tiles_count: 1,
+                                width: 2,
+                                height: Math.ceil(Object.keys(data).length/2)
+                            }
+                        }
+                    ]
+                });
+            });
 
-            $scope.$slideIndex = 0;
-
-            $scope.next = function() {
-                var total = $scope.slides.length;
-                if (total > 0) {
-                    $scope.$slideIndex = ($scope.$slideIndex == total - 1) ? 0 : $scope.$slideIndex + 1;
-                }
-            };
-// функция play запускает таймер, который переключает слайд и вызывает её же повторно
-
-            $scope.prev = function() {
-                var total = $scope.slides.length;
-                if (total > 0) {
-                    $scope.$slideIndex = ($scope.$slideIndex == 0) ? total-1 : $scope.$slideIndex - 1;
-                }
-            };
         }])
-
-
-
-
-
 }());

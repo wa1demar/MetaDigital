@@ -230,7 +230,6 @@ body {
 .sidebar li .tooltip:hover {
     display: none;
 }
-
 .sidebar li .tooltip:after {
     content: "";
     width: 0;

@@ -17,13 +17,14 @@
         $("#section5").goTo();
     });
 
-    var Gallery = function(selector, options){
+    window.Gallery = function(selector, options){
 
         var responsive_options = options.responsive;
 
         var g = $(selector);
 
         g.css('position', 'relative');
+        g.css('overflow', 'hidden');
 
         var tiles = [];
 
@@ -246,10 +247,12 @@
 
         var generateTile = function(){
             var tile = $("<div class='gallery-item'></div>");
+            var image = $("<div class='gallery-image'></div>");
+
+
             tile.css('position', 'absolute');
-            //tile.css('background-color', generateColor());
-            tile.css('background-repeat', 'no-repeat');
-            tile.css('background-position', 'center');
+
+            tile.css('overflow', 'hidden');
             if(image_index >= albums_count)
                 image_index = 0;
 
@@ -260,7 +263,30 @@
             }
 
             var imageArray = options.albums[image_index].images;
-            tile.css('background-image', 'url(' + imageArray[getRandomArbitary(0,imageArray.length)].thumbnail + ')');
+            image.css('background-image', 'url(' + imageArray[getRandomArbitary(0,imageArray.length)].thumbnail + ')');
+            tile.append(image);
+
+
+            var hover = $('<div class="gallery_hover"></div>');
+            hover.html($('<span>' + options.albums[image_index][locale]['title'] + '</span>').css('position', 'absolute').css('bottom', '60px').css('left', '15px'));
+
+            tile.mouseover(function(){
+                image.stop();
+                image.animate({width:'110%', height:'110%', top: '-5%', left: '-5%'}, 500);
+                hover.stop();
+                hover.animate({bottom: 0}, 500);
+            });
+            tile.mouseleave(function(){
+                image.animate({width:'100%', height:'100%', top: '0', left: '0'}, 500);
+
+                hover.animate({bottom: '-100%'}, 500);
+            });
+            var tile_images = options.albums[image_index];
+            tile.click(function(){
+                new Lightbox(tile_images).render();
+            });
+
+            tile.append(hover);
             image_index++;
             return tile;
         };
@@ -300,9 +326,6 @@
         return {};
     };
 
-
-
-
     window.languageBox = function (){
         var choose = function(){};
         var lang = 'ru';
@@ -340,56 +363,93 @@
         }
     };
 
+    window.Lightbox = function (options){
+        console.log(options);
+        return {
+            render: function(){
+                var winW = window.innerWidth;
+                var winH = window.innerHeight;
+                var dialogoverlay = $('<div class="gallery-overlay"></div>');
+
+                var panel_opened = false;
+
+                var slick_disabler = $('<div class="slick-disabler"></div>');
+
+                var dialogclose = $('<div class="gallery-close"></div>').css('color', 'white').click(function(){
+                    if(panel_opened){
+                        about_panel.animate({
+                            bottom: '-60%'
+                        }, 'slow');
+                        panel_opened = false;
+                        slick_disabler.hide();
+                    }else{
+                        dialogoverlay.remove();
+                        $('body').css('overflow', 'auto');
+                    }
+                });
+
+                dialogoverlay.css('dispaly', 'block');
+                $('body').css('overflow', 'hidden');
+
+                var carousel = $('<div class="gallery"></div>');
+                for(var i = 0; i < options.images.length; i++){
+                    carousel.append($('<div class="lightbox-gallery-item"></div>').css('background-image', 'url(' + options.images[i].full + ')'));
+                }
+
+                var next_arrow = $("<a class='gallery-next'></a>");
+                var prev_arrow = $("<a class='gallery-prev'></a>");
+
+                setTimeout(function(){
+                    carousel.slick({
+                        dots: false,
+                        infinite: true,
+                        speed: 300,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: false,
+                        arrows: true,
+                        prevArrow: prev_arrow,
+                        nextArrow: next_arrow
+                    });
+                }, 0);
+
+                dialogoverlay.append(carousel);
+
+                dialogoverlay.append(next_arrow);
+                dialogoverlay.append(prev_arrow);
+                dialogoverlay.append(dialogclose);
+
+                var next_text = locale == 'ru' ? 'Следующий Проект' : 'Next Project' ;
+                var about_panel = $('<div class="about-panel"><h1>' + options[locale].title + '</h1><p>' + options[locale].description + '</p><br><br><br><br><a class="next-button">' + next_text + '<a></div>');
+
+                var about_text = locale == 'ru' ? 'О проекте' : 'About Project' ;
+                var about_button = $('<div class="about-container"><a class="about-button">' + about_text + '<a></div>').click(function(){
+                    panel_opened = true;
+                    slick_disabler.show();
+                    about_panel.animate({
+                        bottom: 0
+                    }, 'slow');
+                });
+
+                var close_button = $('<button class="about-panel-hide">&nbsp;</button>').click(function(){ dialogclose.click() });
+                about_panel.prepend(close_button);
+
+                dialogoverlay.append(about_button);
+
+                dialogoverlay.append(slick_disabler);
+                dialogoverlay.append(about_panel);
+                dialogoverlay.append(dialogclose);
+
+
+                $('body').append(dialogoverlay);
+                return this;
+            }
+        }
+    };
+
 
     $(document).ready(function(){
-        $.ajax({
-            url: '/api/gallery/get_all_galleries_localized',
-            method: 'GET',
-            success: function(data){
-                delete data.status;
-                var gallery = new Gallery("#gallery", {
-                    albums: data,
-                    responsive: [
-                        {
-                            breakpoint: 20000,
-                            settings: {
-                                vertical_double_tiles_count: 2,
-                                horizontal_double_tiles_count: 3,
-                                width: 8,
-                                height: 2
-                            }
-                        },
-                        {
-                            breakpoint: 1300,
-                            settings: {
-                                vertical_double_tiles_count: 1,
-                                horizontal_double_tiles_count: 2,
-                                width: 6,
-                                height: Math.ceil(Object.keys(data).length/6)
-                            }
-                        },
-                        {
-                            breakpoint: 800,
-                            settings: {
-                                vertical_double_tiles_count: 1,
-                                horizontal_double_tiles_count: 1,
-                                width: 4,
-                                height: Math.ceil(Object.keys(data).length/4)
-                            }
-                        },
-                        {
-                            breakpoint: 550,
-                            settings: {
-                                vertical_double_tiles_count: 1,
-                                horizontal_double_tiles_count: 1,
-                                width: 2,
-                                height: Math.ceil(Object.keys(data).length/2)
-                            }
-                        }
-                    ]
-                });
-            }
-        });
+
     });
 
 })(jQuery);

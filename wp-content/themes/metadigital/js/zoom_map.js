@@ -4,6 +4,16 @@
 
     $(document).ready(function () {
 
+        $(".sidebar ul li a").hover(function() {
+            $this = $(this);
+            $this.find('.tooltip').css('display', 'block').css({opacity: 0}).animate({opacity: 1}, 'slow');
+        }, function() {
+            $this = $(this);
+            $this.find('.tooltip').animate({opacity: 0}, 'slow', function() {
+                $(this).css('display', 'none');
+            });
+        });
+
         preload([
             "./wp-content/themes/metadigital/images/map2.png",
             "./wp-content/themes/metadigital/images/map3.png"
@@ -44,4 +54,8 @@
 
         }
     }
-})(jQuery);
+
+
+
+})
+(jQuery);
