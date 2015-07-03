@@ -360,7 +360,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 101vh;
+    height: 91vh;
     border: 0;
     text-align: center;
     position: relative;
@@ -482,7 +482,7 @@ body {
 
 .footer-google-link {
     position: relative;
-    top: 92vh;
+    top: 85vh;
 }
 
 .footer-google-link a {
