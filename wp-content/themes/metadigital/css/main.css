@@ -281,7 +281,7 @@ body {
 .articles-drilldown .articles-list ul li {
     background-image: url('../images/list-image.svg');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 55px 37px;
     padding-left: 40px;
     padding-bottom: 20px;
     padding-top: 5px;
