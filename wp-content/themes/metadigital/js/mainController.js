@@ -25,7 +25,9 @@
                     name: 'Name',
                     email: 'Email Address',
                     feadback_text: 'Your text ...',
-                    send_button: 'send'
+                    send_button: 'send',
+                    next_text: 'Next Project',
+                    about_text: 'About Project'
                 },
                 ru: {
                     sidebar_top:'кто мы',
@@ -39,7 +41,9 @@
                     name: 'Имя',
                     email: 'Електронный адресс',
                     feadback_text: 'Ваш текст ...',
-                    send_button: 'отправить'
+                    send_button: 'отправить',
+                    next_text: 'Следующий Проект',
+                    about_text: 'О Проекте'
                 }
             };
 
@@ -69,10 +73,10 @@
             
 
             $http.get('/api/gallery/get_all_galleries_localized').success(function(data){
-
                 delete data.status;
+                var galleries = data;
                 var gallery = new Gallery("#gallery", {
-                    albums: data,
+                    albums: galleries,
                     responsive: [
                         {
                             breakpoint: 20000,
@@ -111,6 +115,30 @@
                             }
                         }
                     ]
+                }).tileClick(function(index){
+
+                    $scope.$apply(function () {
+                        $scope.lightbox_title = galleries[index][$scope.locale].title;
+                        $scope.lightbox_description = galleries[index][$scope.locale].description;
+                    });
+
+                    var lightbox = new Lightbox();
+                        lightbox.setImages(galleries[index].images).render().nextProject(function(){
+
+
+                            index++;
+                            if(index > Object.keys(galleries).length - 1){
+                                index = 0;
+                            }
+
+                            var current_index = index;
+                            $scope.$apply(function () {
+                                $scope.lightbox_title = galleries[current_index][$scope.locale].title;
+                                $scope.lightbox_description = galleries[current_index][$scope.locale].description;
+                            });
+
+                            lightbox.setImages(galleries[index].images).render();
+                        });
                 });
             });
 

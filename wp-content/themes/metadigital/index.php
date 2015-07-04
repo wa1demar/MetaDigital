@@ -34,9 +34,9 @@
       </div>
       <div class="description">
       </div>
-    <!--      <video preload="none" autoplay="autoplay" loop="loop">-->
-    <!--          <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">-->
-    <!--      </video>-->
+      <video preload="none" autoplay="autoplay" loop="loop">
+          <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+      </video>
     </div>
     <div class="articles" id="articles">
       <div class="category {{ $parent.current_category != category ? '' : 'active' }}" ng-repeat="category in categories" ng-click="$parent.current_category = category; $parent.current_post = $parent.current_category.posts[0];">
@@ -121,6 +121,24 @@
                 <a class="locale locale-en"></a>
             </div>
         </div>
+    </div>
+
+    <div class="gallery-overlay">
+        <div class="slick-disabler"></div>
+        <div class="gallery">
+            <div class="lightbox-gallery-item"></div>
+        </div>
+        <a class='gallery-next'></a>
+        <a class='gallery-prev'></a>
+
+        <div class="about-container"><a class="about-button">{{ t[locale].about_text }}<a></div>
+        <div class="about-panel">
+            <button class="about-panel-hide">&nbsp;</button>
+            <h1>{{ lightbox_title }}</h1><p>{{ lightbox_description }}</p><br><br><br><br><a class="next-button">{{ t[locale].next_text }}<a>
+        </div>
+
+        <button class="about-panel-hide">&nbsp;</button>
+        <div class="gallery-close"></div>
     </div>
   </body>
 </html>

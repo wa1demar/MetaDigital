@@ -547,6 +547,7 @@ body {
 
 .gallery-overlay {
     position: fixed;
+    display: none;
     top: 0px;
     left: 0px;
     background-color: rgba(20, 20, 20, 0.8);
