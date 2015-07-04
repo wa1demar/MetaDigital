@@ -93,7 +93,7 @@
                                 vertical_double_tiles_count: 1,
                                 horizontal_double_tiles_count: 2,
                                 width: 6,
-                                height: Math.ceil(Object.keys(data).length/6)
+                                height: Math.ceil((Object.keys(galleries).length + 3)/6)
                             }
                         },
                         {
@@ -102,7 +102,7 @@
                                 vertical_double_tiles_count: 1,
                                 horizontal_double_tiles_count: 1,
                                 width: 4,
-                                height: Math.ceil(Object.keys(data).length/4)
+                                height: Math.ceil((Object.keys(galleries).length + 2)/4)
                             }
                         },
                         {
@@ -111,7 +111,7 @@
                                 vertical_double_tiles_count: 1,
                                 horizontal_double_tiles_count: 1,
                                 width: 2,
-                                height: Math.ceil(Object.keys(data).length/2)
+                                height: Math.ceil((Object.keys(galleries).length + 2)/2)
                             }
                         }
                     ]

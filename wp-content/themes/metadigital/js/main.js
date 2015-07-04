@@ -294,7 +294,7 @@
 
         var resize = function(){
             var cell_width = g.width()/defaults.width;
-            g.css('height', cell_width*2);
+            g.css('height', cell_width*defaults.height);
 
             var i = 0;
             while(i < tiles.length){
