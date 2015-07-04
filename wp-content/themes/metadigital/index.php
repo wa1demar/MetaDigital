@@ -64,6 +64,7 @@
           </div>
       </div>
       <div class="bottom-gradient"></div>
+        <div class="top-gradient"></div>
     </div>
 
     <div id="gallery">
