@@ -16,7 +16,7 @@
   <body ng-app="metaDigitalApp" ng-controller="HomeController as con">
     <div class="sidebar">
         <ul>
-            <li><a href="#top" class="to-main"><div class="tooltip">{{ t[locale].sidebar_top }}</div></a></li>
+            <li><a href="#top" class="to-main" onclick="animateLogo()"><div class="tooltip">{{ t[locale].sidebar_top }}</div></a></li>
             <li><a href="#services" class="to-articles"><div class="tooltip">{{ t[locale].sidebar_services }}</div></a></li>
             <li><a href="#gallery" class="to-gallery"><div class="tooltip">{{ t[locale].sidebar_works }}</div></a></li>
             <li><a href="#contact_us" class="to-main-footer"><div class="tooltip">{{ t[locale].sidebar_contacts }}</div></a></li>
@@ -34,9 +34,9 @@
       </div>
       <div class="description">
       </div>
-      <video preload="none" autoplay="autoplay" loop="loop">
-          <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
-      </video>
+    <!--      <video preload="none" autoplay="autoplay" loop="loop">-->
+    <!--          <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">-->
+    <!--      </video>-->
     </div>
     <div class="articles" id="articles">
       <div class="category {{ $parent.current_category != category ? '' : 'active' }}" ng-repeat="category in categories" ng-click="$parent.current_category = category; $parent.current_post = $parent.current_category.posts[0];">

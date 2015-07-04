@@ -114,5 +114,15 @@
                 });
             });
 
+            $scope.getSiteInfo = function(){
+                $http.get('/api/general/get_site_info/?lang=' + $scope.locale).success(function(data){
+                    $('.main .description').data('type', data[0].description);
+                });
+            };
+
+            $scope.$watch('locale', function(){
+                $scope.getSiteInfo();
+            });
+
         }])
 }());

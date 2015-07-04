@@ -452,4 +452,20 @@
 
     });
 
+    window.animateLogo = function(){
+        var container = $('.main .description');
+        $('.logo-image').animate({
+            width: '34%',
+            bottom: '45%'
+        }, 700, function(){
+            type(container, container.data('type'), 0);
+        })
+    };
+
+    window.type = function(el, text, i){
+        if( i <= text.length ) {
+           el.html(text.substr(0, i));
+           setTimeout(function(){ type(el, text, i + 1); }, 30);
+        }
+    };
 })(jQuery);
