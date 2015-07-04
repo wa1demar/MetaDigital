@@ -154,11 +154,16 @@
 
             $scope.messages = {};
             $scope.contactUs = function(){
-                $http.post('/api/general/contact_us', {
-                    lang: $scope.lang,
-                    username: $scope.username,
-                    useremail: $scope.useremail,
-                    usertext: $scope.usertext
+
+                var fd = new FormData();
+                fd.append('lang', $scope.locale);
+                fd.append('username', $scope.username);
+                fd.append('useremail', $scope.useremail);
+                fd.append('usertext', $scope.usertext);
+
+                return $http.post('/api/general/contact_us', fd, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
                 }).success(function(data){
                     $scope.messages.errors = data.errors;
                     $scope.messages.success = data.success;
