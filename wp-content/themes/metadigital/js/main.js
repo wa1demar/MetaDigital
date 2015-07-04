@@ -362,6 +362,17 @@
         }
     };
 
+    window.messageBox = function (){
+        var overlay = $('.alert-overlay');
+        overlay.css('display', 'block');
+        $('body').css('overflow', 'hidden');
+
+        overlay.find('.alert-close').click(function(){
+            $('body').css('overflow', 'auto');
+            overlay.css('display', 'none');
+        });
+    };
+
     window.Lightbox = function (options){
 
         var dialogoverlay = $('.gallery-overlay');

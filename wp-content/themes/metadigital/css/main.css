@@ -556,6 +556,51 @@ body {
     height: 100%;
 }
 
+.alert-overlay {
+    position: fixed;
+    display: none;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(20, 20, 20, 0.8);
+    width: 100%;
+    z-index: 1000;
+    height: 100%;
+}
+
+.alert-overlay .alert-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: #0000ff !important;
+    cursor: pointer;
+    width: 24px;
+    height: 25px;
+    background: url("../images/close-icon.png") center no-repeat;
+}
+
+.alert-overlay .message-success {
+    border: 1px solid green;
+}
+
+.alert-overlay .message-error{
+    border: 1px solid red;
+}
+
+.alert-overlay .alert-message {
+    position: absolute;
+    font-size: 25px;
+    color: white;
+
+    width: 60%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 .gallery-overlay .gallery-close {
     position: absolute;
     top: 20px;

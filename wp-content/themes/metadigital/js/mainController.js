@@ -152,5 +152,19 @@
                 $scope.getSiteInfo();
             });
 
+            $scope.messages = {};
+            $scope.contactUs = function(){
+                $http.post('/api/general/contact_us', {
+                    lang: $scope.lang,
+                    username: $scope.username,
+                    useremail: $scope.useremail,
+                    usertext: $scope.usertext
+                }).success(function(data){
+                    $scope.messages.errors = data.errors;
+                    $scope.messages.success = data.success;
+                    new messageBox();
+                })
+            }
+
         }])
 }());

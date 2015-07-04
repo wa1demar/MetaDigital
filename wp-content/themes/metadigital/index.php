@@ -90,15 +90,15 @@
 
         <div class="footer-contact-us">
             <p>{{ t[locale].contact_us}}</p>
-            <form class="footer-contact-us-inputs">
+            <form class="footer-contact-us-inputs" ng-submit="contactUs()" novalidate="true">
                 <div class="inputs">
-                    <input id="username" name="username" type="text" placeholder="{{ t[locale].name}}">
+                    <input id="username" name="username" type="text" placeholder="{{ t[locale].name}}" ng-model="username">
                 </div>
                 <div class="inputs">
-                    <input id="useremail" name="useremail" type="text" placeholder="{{ t[locale].email}}">
+                    <input id="useremail" name="useremail" type="text" placeholder="{{ t[locale].email}}" ng-model="useremail">
                 </div>
                 <div class="inputs">
-                    <textarea rows="3" cols="26" id="useretext" name="useretext" type="text" placeholder="{{ t[locale].feadback_text}}"></textarea>
+                    <textarea rows="3" cols="26" id="useretext" name="useretext" type="text" placeholder="{{ t[locale].feadback_text}}" ng-model="usertext"></textarea>
                 </div>
                 <input class="contact-us-send-button" name="send" type="submit" value="{{ t[locale].send_button}}">
             </form>
@@ -139,6 +139,16 @@
 
         <button class="about-panel-hide">&nbsp;</button>
         <div class="gallery-close"></div>
+    </div>
+
+    <div class="alert-overlay">
+        <div class="alert-message">
+            <ul>
+                <li class="message-error" ng-repeat="error in messages.errors">{{ error }}</li>
+                <li class="message-success" ng-repeat="success in messages.success">{{ success }}</li>
+            </ul>
+        </div>
+        <div class="alert-close"></div>
     </div>
   </body>
 </html>
