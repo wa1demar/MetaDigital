@@ -225,7 +225,7 @@ body {
 
 .sidebar li .tooltip {
     position: absolute;
-    padding: 10px 10px 10px 15px;
+    padding: 14px 10px 13px 15px;
     white-space: nowrap;
     background: black;
     color: white;
@@ -641,6 +641,7 @@ body {
     background-size: cover;
     height: 40px;
     cursor: url(../images/enru.png) 50 50, auto;
+
     margin: 0 25px;
     vertical-align: middle;
 }
