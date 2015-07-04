@@ -308,6 +308,7 @@ body {
     background-color: #ECECEC;
     overflow: hidden;
     float: left;
+    position: relative;
 }
 
 .articles-drilldown .articles-content .articles-header {
@@ -346,9 +347,9 @@ body {
 .articles-drilldown .bottom-gradient {
     height: 100px;
     position: absolute;
-    width: 66.7%;
+    width: 100%;
     bottom: 0;
-    left: 33.3%;
+    left: 0;
     background: rgba(246, 246, 246, 1);
     background: -moz-linear-gradient(top, rgba(246, 246, 246, 0) 0%, rgba(255, 255, 255, 1) 100%);
     /*noinspection CssInvalidFunction*/
@@ -363,9 +364,9 @@ body {
 .articles-drilldown .top-gradient {
     height: 100px;
     position: absolute;
-    width: 66.7%;
+    width: 100%;
     top: 0;
-    left: 33.3%;
+    left: 0;
     background: rgba(246, 246, 246, 1);
     background: -moz-linear-gradient(bottom, rgba(246, 246, 246, 0) 0%, rgba(255, 255, 255, 1) 100%);
     /*noinspection CssInvalidFunction*/
@@ -876,6 +877,7 @@ body {
 
     .articles .category .title {
         height: 62px;
+        padding-top: 15px;
     }
 
     .articles .category.active .icon {
@@ -945,6 +947,11 @@ body {
 }
 
 @media (max-width: 500px) {
+
+    .articles .category .title {
+        font-size: 14px;
+    }
+
     .footer-contact-us {
         top: 107%;
     }
@@ -959,6 +966,10 @@ body {
 }
 
 @media (max-width: 375px) {
+
+    .articles .category {
+        width: 50%;
+    }
 
     .footer-contact-us {
         top: 107%;

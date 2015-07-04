@@ -56,15 +56,16 @@
         </ul>
       </div>
       <div class="articles-content">
+          <div class="top-gradient"></div>
           <div class="articles-body">
               <div class="articles-header">
                   {{ current_category.name }}
               </div>
               <div ng-bind-html="getHtml(current_post.content)" ></div>
           </div>
+          <div class="bottom-gradient"></div>
       </div>
-      <div class="bottom-gradient"></div>
-        <div class="top-gradient"></div>
+
     </div>
 
     <div id="gallery">
