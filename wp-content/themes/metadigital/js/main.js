@@ -392,6 +392,7 @@
 
         function close(){
             unbindAll();
+            slick.slick('unslick');
             dialogoverlay.css('display', 'none');
         }
 
