@@ -396,8 +396,8 @@
         }
 
          function unbindAll(){
-            dialogclose.unbind('click');
             about_button.unbind('click');
+            dialogclose.unbind('click');
             close_button.unbind('click');
             next_button.unbind('click');
         }
@@ -412,6 +412,7 @@
 
         dialogclose.click(function(){
             if(panel_opened){
+                panel_opened = false;
                 hide_panel();
             }else{
                 $('body').css('overflow', 'auto');
