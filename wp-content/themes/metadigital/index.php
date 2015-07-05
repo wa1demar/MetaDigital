@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
+      <link rel="stylesheet" type="text/css" href="wp-content/themes/metadigital/css/main.css"/>
       <meta charset="<?php bloginfo('charset'); ?>"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -102,7 +103,19 @@
                 </div>
                 <input class="contact-us-send-button" name="send" type="submit" value="{{ t[locale].send_button}}">
             </form>
+
         </div>
+
+        <div id="dialog-message" title="Contact us">
+            <p>
+                <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+                Your files have downloaded successfully into the My Downloads folder.
+            </p>
+            <p>
+                Currently using <b>36% of your storage space</b>.
+            </p>
+        </div>
+
         <div class="footer-google-link">
             <a href="#"></a>
         </div>

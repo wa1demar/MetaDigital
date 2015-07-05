@@ -999,3 +999,7 @@ body {
         margin-top: 123%;
     }
 }
+
+#dialog-message {
+    display: none;
+}
