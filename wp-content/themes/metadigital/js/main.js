@@ -396,7 +396,6 @@
         }
 
          function unbindAll(){
-            dialogclose.unbind('click');
             about_button.unbind('click');
             close_button.unbind('click');
             next_button.unbind('click');
@@ -409,9 +408,10 @@
             }, 'slow');
         }
 
-
-        dialogclose.click(function(){
+        dialogclose.unbind('click').click(function(){
+            console.log('here');
             if(panel_opened){
+                panel_opened = false;
                 hide_panel();
             }else{
                 $('body').css('overflow', 'auto');

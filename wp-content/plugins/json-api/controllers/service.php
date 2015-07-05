@@ -55,6 +55,7 @@ class JSON_API_Service_Controller
 
             $c['cat_id'] = $cat->cat_ID;
             $c['name'] = $cat->name;
+            $c['slug'] = $cat->slug;
             $icon = get_tax_meta($cat->cat_ID,'image_field_id');
             $c['icons']['default'] = $icon['url'];
             $active_icon = get_tax_meta($cat->cat_ID,'active_image_field_id');
@@ -71,6 +72,7 @@ class JSON_API_Service_Controller
             for ($i = 0; $i < count($posts_list); $i++) {
                 $p['post_id'] = $posts_list[$i]->ID;
                 $p['title'] = $posts_list[$i]->post_title;
+                $p['slug'] = $posts_list[$i]->post_name;
                 $p['content'] = $posts_list[$i]->post_content;
                 $p['lang'] = $lang;
 
