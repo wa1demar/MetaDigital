@@ -20,7 +20,7 @@
     window.Gallery = function(selector, options){
 
         var responsive_options = options.responsive;
-
+        var tileClickCallback = function(){};
         var g = $(selector);
 
         g.css('position', 'relative');
@@ -68,7 +68,6 @@
                 });
             }
 
-            console.log(defaults.simple_tiles_count);
             for(i = 0; i < simple_tiles_count(); i++){
                 var tile = generateTile();
                 var place = randomPlace();
@@ -281,9 +280,9 @@
 
                 hover.animate({bottom: '-100%'}, 500);
             });
-            var tile_images = options.albums[image_index];
+            var tile_index = image_index;
             tile.click(function(){
-                new Lightbox(tile_images).render();
+                tileClickCallback(tile_index);
             });
 
             tile.append(hover);
@@ -295,9 +294,7 @@
 
         var resize = function(){
             var cell_width = g.width()/defaults.width;
-            g.css('height', cell_width*2);
-
-            console.log("--- "+tiles.length);
+            g.css('height', cell_width*defaults.height);
 
             var i = 0;
             while(i < tiles.length){
@@ -323,7 +320,11 @@
             resize();
         });
 
-        return {};
+        return {
+            tileClick: function(callback){
+                tileClickCallback = callback;
+            }
+        };
     };
 
     window.languageBox = function (){
@@ -331,8 +332,6 @@
         var lang = 'ru';
         return {
             render: function(){
-                var winW = window.innerWidth;
-                var winH = window.innerHeight;
                 var dialogoverlay = document.getElementById('languageoverlay');
                 var dialogbox = document.getElementById('languagebox');
                 dialogoverlay.style.display = "block";
@@ -363,86 +362,113 @@
         }
     };
 
+    window.messageBox = function (){
+        var overlay = $('.alert-overlay');
+        overlay.css('display', 'block');
+        $('body').css('overflow', 'hidden');
+
+        overlay.find('.alert-close').click(function(){
+            $('body').css('overflow', 'auto');
+            overlay.css('display', 'none');
+        });
+    };
+
     window.Lightbox = function (options){
-        console.log(options);
+
+        var dialogoverlay = $('.gallery-overlay');
+        var dialogclose = $('.gallery-close');
+        var carousel = $('.gallery');
+        var next_arrow = $(".gallery-next");
+        var prev_arrow = $(".gallery-prev");
+        var about_button = $('.about-container');
+        var panel_opened = false;
+        var close_button = $('.about-panel-hide');
+        var next_button = $('.next-button');
+        var about_panel = $('.about-panel');
+        var slick = null;
+
+        var images = [];
+        var nextProjectCallback = function(){};
+
+        function close(){
+            unbindAll();
+            slick.slick('unslick');
+            dialogoverlay.css('display', 'none');
+        }
+
+         function unbindAll(){
+            about_button.unbind('click');
+            dialogclose.unbind('click');
+            close_button.unbind('click');
+            next_button.unbind('click');
+        }
+
+        function hide_panel(){
+            $('.slick-disabler').hide();
+            about_panel.animate({
+                bottom: '-60%'
+            }, 'slow');
+        }
+
+        dialogclose.unbind('click').click(function(){
+            console.log('here');
+            if(panel_opened){
+                panel_opened = false;
+                hide_panel();
+            }else{
+                $('body').css('overflow', 'auto');
+                close()
+            }
+        });
+
+        about_button.click(function(){
+            panel_opened = true;
+            $('.slick-disabler').show();
+            about_panel.animate({
+                bottom: 0
+            }, 'slow');
+        });
+
+        close_button.click(function(){ hide_panel() });
+        next_button.click(function(){
+            slick.slick('unslick');
+            nextProjectCallback();
+        });
+
+        function render(){
+            $('body').css('overflow', 'hidden');
+
+            carousel.html('');
+            for(var i = 0; i < images.length; i++){
+               carousel.append($('<div class="lightbox-gallery-item"></div>').css('background-image', 'url(' + images[i].full + ')'));
+            }
+
+            dialogoverlay.css('display', 'block');
+
+            slick = carousel.slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: false,
+                arrows: true,
+                prevArrow: prev_arrow,
+                nextArrow: next_arrow
+            });
+        }
+
         return {
             render: function(){
-                var winW = window.innerWidth;
-                var winH = window.innerHeight;
-                var dialogoverlay = $('<div class="gallery-overlay"></div>');
-
-                var panel_opened = false;
-
-                var slick_disabler = $('<div class="slick-disabler"></div>');
-
-                var dialogclose = $('<div class="gallery-close"></div>').css('color', 'white').click(function(){
-                    if(panel_opened){
-                        about_panel.animate({
-                            bottom: '-60%'
-                        }, 'slow');
-                        panel_opened = false;
-                        slick_disabler.hide();
-                    }else{
-                        dialogoverlay.remove();
-                        $('body').css('overflow', 'auto');
-                    }
-                });
-
-                dialogoverlay.css('dispaly', 'block');
-                $('body').css('overflow', 'hidden');
-
-                var carousel = $('<div class="gallery"></div>');
-                for(var i = 0; i < options.images.length; i++){
-                    carousel.append($('<div class="lightbox-gallery-item"></div>').css('background-image', 'url(' + options.images[i].full + ')'));
-                }
-
-                var next_arrow = $("<a class='gallery-next'></a>");
-                var prev_arrow = $("<a class='gallery-prev'></a>");
-
-                setTimeout(function(){
-                    carousel.slick({
-                        dots: false,
-                        infinite: true,
-                        speed: 300,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        autoplay: false,
-                        arrows: true,
-                        prevArrow: prev_arrow,
-                        nextArrow: next_arrow
-                    });
-                }, 0);
-
-                dialogoverlay.append(carousel);
-
-                dialogoverlay.append(next_arrow);
-                dialogoverlay.append(prev_arrow);
-                dialogoverlay.append(dialogclose);
-
-                var next_text = locale == 'ru' ? 'Следующий Проект' : 'Next Project' ;
-                var about_panel = $('<div class="about-panel"><h1>' + options[locale].title + '</h1><p>' + options[locale].description + '</p><br><br><br><br><a class="next-button">' + next_text + '<a></div>');
-
-                var about_text = locale == 'ru' ? 'О проекте' : 'About Project' ;
-                var about_button = $('<div class="about-container"><a class="about-button">' + about_text + '<a></div>').click(function(){
-                    panel_opened = true;
-                    slick_disabler.show();
-                    about_panel.animate({
-                        bottom: 0
-                    }, 'slow');
-                });
-
-                var close_button = $('<button class="about-panel-hide">&nbsp;</button>').click(function(){ dialogclose.click() });
-                about_panel.prepend(close_button);
-
-                dialogoverlay.append(about_button);
-
-                dialogoverlay.append(slick_disabler);
-                dialogoverlay.append(about_panel);
-                dialogoverlay.append(dialogclose);
-
-
-                $('body').append(dialogoverlay);
+                render();
                 return this;
+            },
+            setImages: function(data){
+                images = data;
+                return this;
+            },
+            nextProject: function(callback){
+                nextProjectCallback = callback;
             }
         }
     };
@@ -452,4 +478,20 @@
 
     });
 
+    window.animateLogo = function(){
+        var container = $('.main .description');
+        $('.logo-image').animate({
+            width: '34%',
+            bottom: '45%'
+        }, 700, function(){
+            type(container, container.data('type'), 0);
+        })
+    };
+
+    window.type = function(el, text, i){
+        if( i <= text.length ) {
+           el.html(text.substr(0, i));
+           setTimeout(function(){ type(el, text, i + 1); }, 30);
+        }
+    };
 })(jQuery);

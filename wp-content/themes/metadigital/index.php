@@ -17,7 +17,7 @@
   <body ng-app="metaDigitalApp" ng-controller="HomeController as con">
     <div class="sidebar">
         <ul>
-            <li><a href="#top" class="to-main"><div class="tooltip">{{ t[locale].sidebar_top }}</div></a></li>
+            <li><a href="#top" class="to-main" onclick="animateLogo()"><div class="tooltip">{{ t[locale].sidebar_top }}</div></a></li>
             <li><a href="#services" class="to-articles"><div class="tooltip">{{ t[locale].sidebar_services }}</div></a></li>
             <li><a href="#gallery" class="to-gallery"><div class="tooltip">{{ t[locale].sidebar_works }}</div></a></li>
             <li><a href="#contact_us" class="to-main-footer"><div class="tooltip">{{ t[locale].sidebar_contacts }}</div></a></li>
@@ -91,15 +91,15 @@
 
         <div class="footer-contact-us">
             <p>{{ t[locale].contact_us}}</p>
-            <form class="footer-contact-us-inputs">
+            <form class="footer-contact-us-inputs" ng-submit="contactUs()" novalidate="true">
                 <div class="inputs">
-                    <input id="username" name="username" type="text" placeholder="{{ t[locale].name}}">
+                    <input id="username" name="username" type="text" placeholder="{{ t[locale].name}}" ng-model="username">
                 </div>
                 <div class="inputs">
-                    <input id="useremail" name="useremail" type="text" placeholder="{{ t[locale].email}}">
+                    <input id="useremail" name="useremail" type="text" placeholder="{{ t[locale].email}}" ng-model="useremail">
                 </div>
                 <div class="inputs">
-                    <textarea rows="3" cols="26" id="useretext" name="useretext" type="text" placeholder="{{ t[locale].feadback_text}}"></textarea>
+                    <textarea rows="3" cols="26" id="useretext" name="useretext" type="text" placeholder="{{ t[locale].feadback_text}}" ng-model="usertext"></textarea>
                 </div>
                 <input class="contact-us-send-button" name="send" type="submit" value="{{ t[locale].send_button}}">
             </form>
@@ -134,6 +134,34 @@
                 <a class="locale locale-en"></a>
             </div>
         </div>
+    </div>
+
+    <div class="gallery-overlay">
+        <div class="slick-disabler"></div>
+        <div class="gallery">
+            <div class="lightbox-gallery-item"></div>
+        </div>
+        <a class='gallery-next'></a>
+        <a class='gallery-prev'></a>
+
+        <div class="about-container"><a class="about-button">{{ t[locale].about_text }}<a></div>
+        <div class="about-panel">
+            <button class="about-panel-hide">&nbsp;</button>
+            <h1>{{ lightbox_title }}</h1><p>{{ lightbox_description }}</p><br><br><br><br><a class="next-button">{{ t[locale].next_text }}<a>
+        </div>
+
+        <button class="about-panel-hide">&nbsp;</button>
+        <div class="gallery-close"></div>
+    </div>
+
+    <div class="alert-overlay">
+        <div class="alert-message">
+            <ul>
+                <li class="message-error" ng-repeat="error in messages.errors">{{ error }}</li>
+                <li class="message-success" ng-repeat="success in messages.success">{{ success }}</li>
+            </ul>
+        </div>
+        <div class="alert-close"></div>
     </div>
   </body>
 </html>

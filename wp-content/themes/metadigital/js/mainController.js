@@ -25,7 +25,9 @@
                     name: 'Name',
                     email: 'Email Address',
                     feadback_text: 'Your text ...',
-                    send_button: 'send'
+                    send_button: 'send',
+                    next_text: 'Next Project',
+                    about_text: 'About Project'
                 },
                 ru: {
                     sidebar_top:'кто мы',
@@ -39,7 +41,9 @@
                     name: 'Имя',
                     email: 'Електронный адресс',
                     feadback_text: 'Ваш текст ...',
-                    send_button: 'отправить'
+                    send_button: 'отправить',
+                    next_text: 'Следующий Проект',
+                    about_text: 'О Проекте'
                 }
             };
 
@@ -69,10 +73,10 @@
             
 
             $http.get('/api/gallery/get_all_galleries_localized').success(function(data){
-
                 delete data.status;
+                var galleries = data;
                 var gallery = new Gallery("#gallery", {
-                    albums: data,
+                    albums: galleries,
                     responsive: [
                         {
                             breakpoint: 20000,
@@ -89,7 +93,7 @@
                                 vertical_double_tiles_count: 1,
                                 horizontal_double_tiles_count: 2,
                                 width: 6,
-                                height: Math.ceil(Object.keys(data).length/6)
+                                height: Math.ceil((Object.keys(galleries).length + 3)/6)
                             }
                         },
                         {
@@ -98,7 +102,7 @@
                                 vertical_double_tiles_count: 1,
                                 horizontal_double_tiles_count: 1,
                                 width: 4,
-                                height: Math.ceil(Object.keys(data).length/4)
+                                height: Math.ceil((Object.keys(galleries).length + 2)/4)
                             }
                         },
                         {
@@ -107,12 +111,65 @@
                                 vertical_double_tiles_count: 1,
                                 horizontal_double_tiles_count: 1,
                                 width: 2,
-                                height: Math.ceil(Object.keys(data).length/2)
+                                height: Math.ceil((Object.keys(galleries).length + 2)/2)
                             }
                         }
                     ]
+                }).tileClick(function(index){
+
+                    $scope.$apply(function () {
+                        $scope.lightbox_title = galleries[index][$scope.locale].title;
+                        $scope.lightbox_description = galleries[index][$scope.locale].description;
+                    });
+
+                    var lightbox = new Lightbox();
+                        lightbox.setImages(galleries[index].images).render().nextProject(function(){
+
+
+                            index++;
+                            if(index > Object.keys(galleries).length - 1){
+                                index = 0;
+                            }
+
+                            var current_index = index;
+                            $scope.$apply(function () {
+                                $scope.lightbox_title = galleries[current_index][$scope.locale].title;
+                                $scope.lightbox_description = galleries[current_index][$scope.locale].description;
+                            });
+
+                            lightbox.setImages(galleries[index].images).render();
+                        });
                 });
             });
+
+            $scope.getSiteInfo = function(){
+                $http.get('/api/general/get_site_info/?lang=' + $scope.locale).success(function(data){
+                    $('.main .description').data('type', data[0].description);
+                });
+            };
+
+            $scope.$watch('locale', function(){
+                $scope.getSiteInfo();
+            });
+
+            $scope.messages = {};
+            $scope.contactUs = function(){
+
+                var fd = new FormData();
+                fd.append('lang', $scope.locale);
+                fd.append('username', $scope.username);
+                fd.append('useremail', $scope.useremail);
+                fd.append('usertext', $scope.usertext);
+
+                return $http.post('/api/general/contact_us', fd, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                }).success(function(data){
+                    $scope.messages.errors = data.errors;
+                    $scope.messages.success = data.success;
+                    new messageBox();
+                })
+            }
 
         }])
 }());
