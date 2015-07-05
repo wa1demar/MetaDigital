@@ -409,8 +409,8 @@
             }, 'slow');
         }
 
-
-        dialogclose.click(function(){
+        dialogclose.unbind('click').click(function(){
+            console.log('here');
             if(panel_opened){
                 panel_opened = false;
                 hide_panel();
