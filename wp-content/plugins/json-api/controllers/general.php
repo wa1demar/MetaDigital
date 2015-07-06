@@ -77,7 +77,7 @@ class JSON_API_General_Controller
         }
 
         if (!$result['errors']) {
-
+            unset($result['errors']);
             $to      = 'zehelloworld@gmail.com';
             $subject = 'MetaDigital';
             $message = $usertext;
