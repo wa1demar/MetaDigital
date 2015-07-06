@@ -569,36 +569,50 @@ body {
 
 .alert-overlay .alert-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     font-size: 40px;
     color: #0000ff !important;
     cursor: pointer;
-    width: 24px;
-    height: 25px;
-    background: url("../images/close-icon.png") center no-repeat;
+    width: 13px;
+    height: 12px;
+    background: url("../images/close-icon.png") no-repeat -6px -6px;
 }
 
 .alert-overlay .message-success {
-    border: 1px solid green;
+    /*background-image: url("../images/success-icon.png");*/
+    /*background-repeat: no-repeat;*/
 }
 
 .alert-overlay .message-error{
-    border: 1px solid red;
+    /*background-image: url("../images/error-icon.png")*/
+    /*background-repeat: no-repeat;*/
 }
 
 .alert-overlay .alert-message {
     position: absolute;
     font-size: 25px;
-    color: white;
-
-    width: 60%;
+    color: black;
+    width: 400px;
     position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    margin: auto auto auto -200px;
+    top: 40%;
+    left: 50%;
+    /* right: 0; */
+    /* bottom: 0; */
+    background-color: #EBEBEB;
+    /*background-image: url("../images/error-icon.png");*/
+    background-repeat: no-repeat;
+    background-position: 10px 33px;
+}
+
+.alert-overlay .alert-message ul {
+    list-style: none;
+    padding-left: 0;
+    padding-bottom: 54px;
+    margin: 25px 15px 10px 70px;
+    box-sizing: content-box;
+    font-size: 20px;
 }
 
 .gallery-overlay .gallery-close {
@@ -608,6 +622,19 @@ body {
     font-size: 40px;
     color: #0000ff !important;
     cursor: pointer;
+}
+
+.close-button {
+    color: #000000;
+    background-color: #FFFFFF;
+    border: 2px solid #3a3a3a;
+    margin: auto;
+    padding: 10px 25px;
+    position: absolute;
+    left: 40%;
+    bottom: 5%;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
 .gallery-overlay .gallery {
@@ -1047,6 +1074,3 @@ body {
     }
 }
 
-#dialog-message {
-    display: none;
-}
