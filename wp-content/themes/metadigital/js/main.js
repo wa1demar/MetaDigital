@@ -369,7 +369,7 @@
         overlay.css('display', 'block');
         $('body').css('overflow', 'hidden');
 
-        overlay.find('.alert-close').click(function () {
+        overlay.find('.alert-close, .close-button').click(function () {
             $('body').css('overflow', 'auto');
             overlay.css('display', 'none');
         });
