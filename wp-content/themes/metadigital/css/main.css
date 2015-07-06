@@ -1003,6 +1003,7 @@ body {
     .about-panel p {
         overflow-y: scroll;
         height: 35%;
+        text-align: justify;
     }
 }
 
@@ -1059,6 +1060,14 @@ body {
 
 @media (max-width: 375px) {
 
+    .main .home-link {
+        left: -120px;
+    }
+
+    .main .home-icon {
+        left: 0;
+    }
+
     .articles .category {
         width: 50%;
     }
@@ -1099,7 +1108,7 @@ body {
     }
 
     .footer-google-link {
-        top: -30%;
+        top: -15%;
     }
 
     .footer-bottom-image {

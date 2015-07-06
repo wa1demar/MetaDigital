@@ -500,7 +500,26 @@
 
 
     $(document).ready(function () {
-
+        $('.home-icon').click(function () {
+            console.log($(this).css('left'));
+            if ($(this).css('left') != '0px') {
+                console.log('close');
+                $('.home-icon').animate({
+                    left: '0'
+                }, 'slow');
+                $('.home-link').animate({
+                    left: '-120px'
+                }, 'slow');
+            } else {
+                console.log('open');
+                $('.home-icon').animate({
+                    left: '121px'
+                }, 'slow');
+                $('.home-link').animate({
+                    left: '0'
+                }, 'slow');
+            }
+        });
     });
 
     window.animateLogo = function () {
