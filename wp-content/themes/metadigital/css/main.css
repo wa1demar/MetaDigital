@@ -518,7 +518,9 @@ body {
 
 .footer-google-link {
     position: relative;
-    top: 85vh;
+    top: 84vh;
+    width: 160px;
+    margin: 0 auto;
 }
 
 .footer-google-link a {
@@ -862,6 +864,10 @@ body {
     .articles .category {
         font-size: 16px;
     }
+
+    .footer-google-link {
+        top: 38vh;
+    }
 }
 
 @media ( max-width: 992px ) {
@@ -895,10 +901,6 @@ body {
     .contact-us-send-button {
         width: 244px !important;
         margin-top: 18px;
-    }
-
-    .footer-google-link {
-        top: 94%;
     }
 
     .articles .category .item {
@@ -1094,7 +1096,7 @@ body {
     }
 
     .footer-contact-us {
-        top: 93%;
+        top: 87%;
     }
 
     .contact-us-send-button {
