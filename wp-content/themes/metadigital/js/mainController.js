@@ -168,6 +168,13 @@
                     $scope.messages.errors = data.errors;
                     $scope.messages.success = data.success;
                     new messageBox();
+
+                    if ($('.alert-overlay .alert-message').find('.message-success').length) {
+                        $('.alert-overlay .alert-message').css("background-image", "url(\"./wp-content/themes/metadigital/images/success-icon.png\")");
+                    }
+                    else {
+                        $('.alert-overlay .alert-message').css("background-image", "url(\"./wp-content/themes/metadigital/images/error-icon.png\")");
+                    }
                 })
             }
 

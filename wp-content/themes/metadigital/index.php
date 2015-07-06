@@ -168,8 +168,9 @@
             <li class="message-error" ng-repeat="error in messages.errors">{{ error }}</li>
             <li class="message-success" ng-repeat="success in messages.success">{{ success }}</li>
         </ul>
+            <button class="close-button" type="submit">ok</button>
+            <div class="alert-close"></div>
+        </div>
     </div>
-    <div class="alert-close"></div>
-</div>
-</body>
+  </body>
 </html>
