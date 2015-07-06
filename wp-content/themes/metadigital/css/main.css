@@ -495,7 +495,7 @@ body {
 }
 
 #contact_us .footer-contact-us .inputs > textarea {
-    width: 92.3%;
+    width: 276px;
     resize: vertical;
     text-align: center;
 }
@@ -889,7 +889,7 @@ body {
     }
 
     #contact_us .footer-contact-us .inputs > textarea {
-        width: 78.9%;
+        width: 236px;
     }
 
     .contact-us-send-button {
@@ -1005,7 +1005,7 @@ body {
     }
 
     #contact_us .footer-contact-us .inputs > textarea {
-        width: 92.3%;
+        width: 276px;
     }
 
     .contact-us-send-button {
