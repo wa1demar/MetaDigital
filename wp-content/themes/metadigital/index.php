@@ -34,7 +34,7 @@
 <div class="main" id="main">
 
     <div class="logo">
-        <img class="logo-image" src="./wp-content/themes/metadigital/images/meta-moskow-logo.png">
+        <img class="logo-image" src="./wp-content/themes/metadigital/images/meta-digital.png">
         <img class="logo-scroll" src="./wp-content/themes/metadigital/images/scroll-icon.svg"
              onclick="$('.articles').goTo()">
     </div>

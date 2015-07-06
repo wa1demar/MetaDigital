@@ -166,7 +166,7 @@ body {
 .sidebar {
     position: fixed;
     right: 13px;
-    top: 152px;
+    top: 75px;
     z-index: 500;
 }
 
@@ -1125,7 +1125,7 @@ body {
     .main .description{
         font-size: 11px;
         padding: 0 22% 0 10%;
-        top: 38%;
+        top: 30%;
     }
 
     .about-panel .next-button,
