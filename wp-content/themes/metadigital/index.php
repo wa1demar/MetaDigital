@@ -94,26 +94,6 @@
         <p> {{ t[locale].address}} <br>
             +74957259669<br>
             info@metamoscow.com</p>
-        <div class="footer-contact-us">
-            <p>{{ t[locale].contact_us}}</p>
-            <form class="footer-contact-us-inputs" ng-submit="contactUs()" novalidate="true">
-                <div class="inputs">
-                    <input id="username" name="username" type="text" placeholder="{{ t[locale].name}}" ng-model="username">
-                </div>
-                <div class="inputs">
-                    <input id="useremail" name="useremail" type="text" placeholder="{{ t[locale].email}}" ng-model="useremail">
-                </div>
-                <div class="inputs">
-                    <textarea rows="3" cols="26" id="useretext" name="useretext" type="text" placeholder="{{ t[locale].feadback_text}}" ng-model="usertext"></textarea>
-                </div>
-                <input class="contact-us-send-button" name="send" type="submit" value="{{ t[locale].send_button}}">
-            </form>
-
-        </div>
-
-        <div class="footer-google-link">
-            <a href="#"></a>
-        </div>
 
         <ul class="footer-address-header-social-links">
             <li><a href="#"><img src="<?php echo THEME_URL ?>/images/twitter-icon.png"></a></li>
@@ -122,7 +102,6 @@
             <li><a href="#"><img src="<?php echo THEME_URL ?>/images/facebook-icon.png"></a></li>
             <li><a href="#"><img src="<?php echo THEME_URL ?>/images/blogger-icon.png"></a></li>
         </ul>
-
     </div>
 
     <div class="footer-contact-us">
