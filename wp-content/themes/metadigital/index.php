@@ -34,7 +34,7 @@
 <div class="main" id="main">
 
     <div class="logo">
-        <img class="logo-image" src="./wp-content/themes/metadigital/images/meta-moskow-logo.png">
+        <img class="logo-image" src="./wp-content/themes/metadigital/images/meta-digital.png">
         <img class="logo-scroll" src="./wp-content/themes/metadigital/images/scroll-icon.svg"
              onclick="$('.articles').goTo()">
     </div>
@@ -45,10 +45,10 @@
     <div class="home-icon"><i class="fa fa-home"></i></div>
     <div class="description">
     </div>
-<!--    <video preload="none" autoplay="autoplay" loop="loop">-->
-<!--        <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4"-->
-<!--                codecs="avc1.42E01E, mp4a.40.2">-->
-<!--    </video>-->
+    <video preload="none" autoplay="autoplay" loop="loop">
+        <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4"
+                codecs="avc1.42E01E, mp4a.40.2">
+    </video>
 </div>
 <div class="articles" id="articles">
     <div class="category {{ $parent.current_category != category ? '' : 'active' }}" ng-repeat="category in categories"

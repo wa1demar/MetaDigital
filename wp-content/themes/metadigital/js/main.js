@@ -369,7 +369,7 @@
         overlay.css('display', 'block');
         $('body').css('overflow', 'hidden');
 
-        overlay.find('.alert-close').click(function () {
+        overlay.find('.alert-close, .close-button').click(function () {
             $('body').css('overflow', 'auto');
             overlay.css('display', 'none');
         });
@@ -524,12 +524,23 @@
 
     window.animateLogo = function () {
         var container = $('.main .description');
-        $('.logo-image').animate({
-            width: '34%',
-            bottom: '45%'
-        }, 700, function () {
-            type(container, container.data('type'), 0);
-        })
+
+        if ($('body').height() > '600px') {
+            $('.logo-image').animate({
+                width: '34%',
+                bottom: '45%'
+            }, 700, function () {
+                type(container, container.data('type'), 0);
+            })
+        } else {
+            $('.logo-image').animate({
+                width: '50%',
+                bottom: '70%'
+            }, 700, function () {
+                type(container, container.data('type'), 0);
+                $('.sidebar li .tooltip').animate({'display': 'none'});
+            })
+        }
     };
 
     window.type = function (el, text, i) {
