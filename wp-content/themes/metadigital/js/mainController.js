@@ -47,14 +47,24 @@
                 }
             };
 
-            var Alert = new languageBox();
-            Alert.render().chooseCallback(function(lang){
-                $scope.retriveCategories(lang);
+            if ($.cookie('language')) {
+                setTimeout(function() {
+                    $scope.$apply(function(){
+                        $scope.retrieveCategories($.cookie('language'));
+                    });
+                }, 0);
 
-                Alert.close();
-            });
 
-            $scope.retriveCategories = function(lang){
+            } else {
+                var Alert = new LanguageBox();
+                Alert.render().chooseCallback(function (lang) {
+                    $scope.retrieveCategories(lang);
+
+                    Alert.close();
+                });
+            }
+
+            $scope.retrieveCategories = function(lang){
                 $http.get('/api/service/get_all_categories/?lang=' + lang)
                     .success(function(data){
                         delete data.status;
@@ -69,7 +79,7 @@
                     });
             };
 
-            $scope.retriveCategories('ru');
+            //$scope.retrieveCategories('ru');
             
 
             $http.get('/api/gallery/get_all_galleries_localized').success(function(data){

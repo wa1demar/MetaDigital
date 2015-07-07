@@ -328,8 +328,9 @@
         };
     };
 
-    window.languageBox = function () {
-        var choose = function () {
+    window.LanguageBox = function () {
+        var choose = function (lang) {
+
         };
         var lang = 'ru';
         return {
@@ -343,12 +344,16 @@
 
                 $("#languagebox .locale-ru").click(function () {
                     choose('ru');
+                    $.cookie('language', 'ru', {expires: 7, path: '/'});
                     return false;
                 });
                 $("#languagebox .locale-en").click(function () {
                     choose('en');
+                    $.cookie('language', 'en', {expires: 7, path: '/'});
                     return false;
                 });
+
+
                 return this;
             },
             close: function () {
@@ -465,8 +470,13 @@
 
             carousel.html('');
             for (var i = 0; i < images.length; i++) {
-                carousel.append($('<div class="lightbox-gallery-item"></div>').css('background-image', 'url(' + images[i].full + ')'));
+                carousel.append($('<div class="lightbox-gallery-item" ></div>').css('background-image', 'url(' + images[i].full + ')'));
+                //carousel.append($('<div class="lightbox-gallery-item lazy-hidden" data-bg="' + images[i].full +  '"></div>'));
             }
+
+            //$(window).lazyLoadXT({
+            //    autoInit: true
+            //});
 
             dialogoverlay.css('display', 'block');
 
@@ -481,6 +491,7 @@
                 prevArrow: prev_arrow,
                 nextArrow: next_arrow
             });
+
         }
 
         return {
