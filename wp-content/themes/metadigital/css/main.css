@@ -454,7 +454,7 @@ body {
 
 .footer-contact-us {
     float: right;
-    margin-right: 75px;
+    padding-right: 75px;
     font-family: ISOCTEUR;
     position: relative;
     top: 45%;
@@ -508,7 +508,7 @@ body {
     background: black;
     color: white;
     border: none;
-    width: 95% !important;
+    width: 284px !important;
     padding: 0;
     margin-top: 18px;
     font-family: ISOCTEUR;
@@ -518,7 +518,9 @@ body {
 
 .footer-google-link {
     position: relative;
-    top: 85vh;
+    top: 84vh;
+    width: 160px;
+    margin: 0 auto;
 }
 
 .footer-google-link a {
@@ -862,6 +864,10 @@ body {
     .articles .category {
         font-size: 16px;
     }
+
+    .footer-google-link {
+        top: 38vh;
+    }
 }
 
 @media ( max-width: 992px ) {
@@ -875,7 +881,7 @@ body {
     }
 
     .footer-contact-us {
-        margin-right: 35px;
+        padding-right: 60px;
     }
 
     .footer-contact-us p {
@@ -893,12 +899,8 @@ body {
     }
 
     .contact-us-send-button {
-        width: 82% !important;
+        width: 244px !important;
         margin-top: 18px;
-    }
-
-    .footer-google-link {
-        top: 94%;
     }
 
     .articles .category .item {
@@ -930,9 +932,25 @@ body {
 
     .footer-contact-us {
         float: none;
-        top: 111%;
+        top: 104%;
         margin-left: auto;
         margin-right: auto;
+        padding-right: 0;
+    }
+
+    .footer-contact-us-inputs .inputs #username,
+    .footer-contact-us-inputs .inputs #useremail,
+    .footer-contact-us-inputs .inputs #useretext {
+        width:45%;
+    }
+    #contact_us .footer-contact-us .inputs > textarea {
+        width: 44.5%;
+        resize: vertical;
+        text-align: center;
+    }
+
+    .contact-us-send-button {
+        width: 45.5% !important;
     }
 
     .footer-google-link {
@@ -991,7 +1009,7 @@ body {
     }
 
     .footer-contact-us {
-        top: 108%;
+        top: 100%;
     }
 
     .footer-contact-us p {
@@ -999,17 +1017,19 @@ body {
         margin: 0 0 33px 0;
     }
 
-    .footer-contact-us-inputs input {
-        width: 280px;
-        padding: 15px 0;
+    .footer-contact-us-inputs .inputs #username,
+    .footer-contact-us-inputs .inputs #useremail,
+    .footer-contact-us-inputs .inputs #useretext {
+        width:45%;
     }
-
     #contact_us .footer-contact-us .inputs > textarea {
-        width: 276px;
+        width: 44.5%;
+        resize: vertical;
+        text-align: center;
     }
 
     .contact-us-send-button {
-        width: 95% !important;
+        width: 45.5% !important;
     }
 
     .footer-google-link {
@@ -1034,6 +1054,21 @@ body {
 }
 
 @media (max-width: 600px) {
+
+    .footer-contact-us-inputs .inputs #username,
+    .footer-contact-us-inputs .inputs #useremail,
+    .footer-contact-us-inputs .inputs #useretext {
+        width:65%;
+    }
+
+    #contact_us .footer-contact-us .inputs > textarea {
+        width: 64.2%;
+    }
+
+    .contact-us-send-button {
+        width: 65.7% !important;
+    }
+
     .footer-google-link {
         top: -10%;
     }
@@ -1061,7 +1096,11 @@ body {
     }
 
     .footer-contact-us {
-        top: 107%;
+        top: 87%;
+    }
+
+    .contact-us-send-button {
+        width: 66.1% !important;
     }
 
     .footer-google-link {
@@ -1099,7 +1138,7 @@ body {
     }
 
     .footer-contact-us {
-        top: 107%;
+        top: 97%;
     }
 
     .footer-google-link {
@@ -1130,7 +1169,7 @@ body {
 @media (max-width: 320px) {
 
     .footer-contact-us {
-        top: 106%;
+        top: 93%;
     }
 
     .footer-google-link {
