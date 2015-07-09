@@ -77,7 +77,8 @@ class JSON_API_Service_Controller
                 if ($lang == 'en') {
                     $p['slug'] = $posts_list[$i]->post_name;
                 } else {
-                    $id = $polylang->get_translations('post', $posts_list[$i]->ID, 'en')['en'];
+                    $ids = $polylang->get_translations('post', $posts_list[$i]->ID, 'en');
+                    $id = $ids['en'];
                     $p['slug'] = get_post($id)->post_name;
                 }
 
