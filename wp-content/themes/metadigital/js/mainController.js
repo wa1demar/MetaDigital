@@ -6,7 +6,7 @@
         .controller('HomeController', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
 
 
-            $scope.getHtml = function(html){
+            $scope.getHtml = function (html) {
                 return $sce.trustAsHtml(html);
             };
 
@@ -27,10 +27,12 @@
                     feadback_text: 'Your text ...',
                     send_button: 'send',
                     next_text: 'Next Project',
-                    about_text: 'About Project'
+                    about_text: 'About Project',
+                    more: 'More',
+                    server_error: 'Server Connect Error'
                 },
                 ru: {
-                    sidebar_top:'кто мы',
+                    sidebar_top: 'кто мы',
                     sidebar_services: 'услуги',
                     sidebar_works: 'работы',
                     sidebar_contacts: 'контакты',
@@ -43,13 +45,15 @@
                     feadback_text: 'Ваш текст ...',
                     send_button: 'отправить',
                     next_text: 'Следующий Проект',
-                    about_text: 'О Проекте'
+                    about_text: 'О Проекте',
+                    more: 'Подробнее',
+                    server_error: 'Ошибка связи с сервером'
                 }
             };
 
             if ($.cookie('language')) {
-                setTimeout(function() {
-                    $scope.$apply(function(){
+                setTimeout(function () {
+                    $scope.$apply(function () {
                         $scope.retrieveCategories($.cookie('language'));
                     });
                 }, 0);
@@ -64,25 +68,75 @@
                 });
             }
 
-            $scope.retrieveCategories = function(lang){
+            $scope.findCategory = function (data, slugName) {
+                console.log("start");
+                var res = null;
+                $.each(data, function (i, category) {
+                    $.each(category.posts, function (j, post) {
+                        if (post.slug === slugName) {
+                            res = {
+                                cat: category,
+                                post: post
+                            };
+                            console.log(res);
+                            return;
+                        }
+
+                    });
+
+                });
+                return res;
+
+            };
+
+            $scope.retrieveCategories = function (lang) {
                 $http.get('/api/service/get_all_categories/?lang=' + lang)
-                    .success(function(data){
+                    .success(function (data) {
                         delete data.status;
                         $scope.locale = lang;
                         window.locale = lang;
                         $scope.categories = data;
 
-                        $scope.current_category = $scope.categories[0];
-                        $scope.current_post = $scope.current_category.posts[0];
+                        if ($.urlParam('service')) {
+                            var result = $scope.findCategory($scope.categories, $.urlParam('service'));
+                            console.log(result);
+                            if (result == null) {
+                                $scope.current_category = $scope.categories[0];
+                                $scope.current_post = $scope.current_category.posts[0];
+                                $scope.full_page = false;
+                            } else {
+                                $scope.current_category = result.cat;
+                                $scope.current_post = result.post;
+                                $scope.full_page = true;
+                                $(".articles-drilldown").animate({"height": "90vh"}, 'slow');
+                            }
+
+                        } else {
+                            $scope.current_category = $scope.categories[0];
+                            $scope.current_post = $scope.current_category.posts[0];
+                            $scope.full_page = false;
+                        }
+
+                        if ($scope.full_page) {
+                            $(".more").hide();
+                        }
+
                     })
-                    .error(function(){
+                    .error(function () {
+                        $scope.messages.errors = $scope.t[$scope.locale].server_error;
+
+                        $('.alert-overlay .alert-message').css("background-image", "url(\"./wp-content/themes/metadigital/images/error-icon.png\")");
+
+
+                        new messageBox();
                     });
             };
 
-            //$scope.retrieveCategories('ru');
-            
 
-            $http.get('/api/gallery/get_all_galleries_localized').success(function(data){
+            //$scope.retrieveCategories('ru');
+
+
+            $http.get('/api/gallery/get_all_galleries_localized').success(function (data) {
                 delete data.status;
                 var galleries = data;
                 var gallery = new Gallery("#gallery", {
@@ -103,7 +157,7 @@
                                 vertical_double_tiles_count: 1,
                                 horizontal_double_tiles_count: 2,
                                 width: 6,
-                                height: Math.ceil((Object.keys(galleries).length + 3)/6)
+                                height: Math.ceil((Object.keys(galleries).length + 3) / 6)
                             }
                         },
                         {
@@ -112,7 +166,7 @@
                                 vertical_double_tiles_count: 1,
                                 horizontal_double_tiles_count: 1,
                                 width: 4,
-                                height: Math.ceil((Object.keys(galleries).length + 2)/4)
+                                height: Math.ceil((Object.keys(galleries).length + 2) / 4)
                             }
                         },
                         {
@@ -121,23 +175,23 @@
                                 vertical_double_tiles_count: 1,
                                 horizontal_double_tiles_count: 1,
                                 width: 2,
-                                height: Math.ceil((Object.keys(galleries).length + 2)/2)
+                                height: Math.ceil((Object.keys(galleries).length + 2) / 2)
                             }
                         }
                     ]
-                }).tileClick(function(index){
+                }).tileClick(function (index) {
 
-                    $scope.$apply(function () {
-                        $scope.lightbox_title = galleries[index][$scope.locale].title;
-                        $scope.lightbox_description = galleries[index][$scope.locale].description;
-                    });
+                        $scope.$apply(function () {
+                            $scope.lightbox_title = galleries[index][$scope.locale].title;
+                            $scope.lightbox_description = galleries[index][$scope.locale].description;
+                        });
 
-                    var lightbox = new Lightbox();
-                        lightbox.setImages(galleries[index].images).render().nextProject(function(){
+                        var lightbox = new Lightbox();
+                        lightbox.setImages(galleries[index].images).render().nextProject(function () {
 
 
                             index++;
-                            if(index > Object.keys(galleries).length - 1){
+                            if (index > Object.keys(galleries).length - 1) {
                                 index = 0;
                             }
 
@@ -149,21 +203,21 @@
 
                             lightbox.setImages(galleries[index].images).render();
                         });
-                });
+                    });
             });
 
-            $scope.getSiteInfo = function(){
-                $http.get('/api/general/get_site_info/?lang=' + $scope.locale).success(function(data){
+            $scope.getSiteInfo = function () {
+                $http.get('/api/general/get_site_info/?lang=' + $scope.locale).success(function (data) {
                     $('.main .description').data('type', data[0].description);
                 });
             };
 
-            $scope.$watch('locale', function(){
+            $scope.$watch('locale', function () {
                 $scope.getSiteInfo();
             });
 
             $scope.messages = {};
-            $scope.contactUs = function(){
+            $scope.contactUs = function () {
 
                 var fd = new FormData();
                 fd.append('lang', $scope.locale);
@@ -174,7 +228,7 @@
                 return $http.post('/api/general/contact_us', fd, {
                     transformRequest: angular.identity,
                     headers: {'Content-Type': undefined}
-                }).success(function(data){
+                }).success(function (data) {
                     $scope.messages.errors = data.errors;
                     $scope.messages.success = data.success;
 

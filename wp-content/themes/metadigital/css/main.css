@@ -81,6 +81,7 @@ body {
     left: 121px;
     background-color: #000000;
     color: #ffffff;
+    cursor: pointer;
 }
 
 .main .home-icon i {
@@ -91,7 +92,6 @@ body {
     top: 50%;    
     /*width: 50%;*/
     position: absolute;
-    text-align: center;
     padding: 0 22%;
     line-height: 1.5em;
     font-size: 16px;
@@ -259,7 +259,7 @@ body {
 
 .articles-drilldown {
     position: relative;
-    height: 65vh;
+    height: 50vh;
 }
 
 .articles-drilldown .articles-list {
@@ -542,7 +542,7 @@ body {
     background-color: rgba(20, 20, 20, 0.98);
     width: 100%;
     z-index: 1000;
-    cursor: url(../images/enru.png), auto;
+    cursor: url(../images/test.cur), auto;
     height: 100%;
 }
 
@@ -691,7 +691,7 @@ body {
     border-radius: 7px;
     z-index: 1001;
     width: 100%;
-    cursor: url(../images/enru.png) 10 10, auto;
+    cursor: url(../images/test11.cur) 50 50, auto;
 }
 
 #languagebox .locale-ru {
@@ -715,8 +715,7 @@ body {
     width: 40px;
     background-size: cover;
     height: 40px;
-    cursor: url(../images/enru.png) 50 50, auto;
-
+    cursor: url(../images/test11.cur) 50 50, auto;
     margin: 0 25px;
     vertical-align: middle;
 }

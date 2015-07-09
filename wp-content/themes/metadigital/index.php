@@ -16,16 +16,16 @@
 <body ng-app="metaDigitalApp" ng-controller="HomeController as con">
 <div class="sidebar">
     <ul>
-        <li><a href="#top" class="to-main" onclick="animateLogo()">
+        <li><a href="" class="to-main" onclick="animateLogo()">
                 <div class="tooltip">{{ t[locale].sidebar_top }}</div>
             </a></li>
-        <li><a href="#services" class="to-articles">
+        <li><a href="" class="to-articles">
                 <div class="tooltip">{{ t[locale].sidebar_services }}</div>
             </a></li>
-        <li><a href="#gallery" class="to-gallery">
+        <li><a href="" class="to-gallery">
                 <div class="tooltip">{{ t[locale].sidebar_works }}</div>
             </a></li>
-        <li><a href="#contact_us" class="to-main-footer">
+        <li><a href="" class="to-main-footer">
                 <div class="tooltip">{{ t[locale].sidebar_contacts }}</div>
             </a></li>
     </ul>
@@ -43,7 +43,7 @@
         </a>
     </div>
     <div class="home-icon"><i class="fa fa-home"></i></div>
-    <div class="description">
+    <div class="description" >
     </div>
 <!--    <video preload="none" autoplay="autoplay" loop="loop">-->
 <!--        <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4"-->
@@ -74,10 +74,10 @@
     <div class="articles-content">
         <div class="top-gradient"></div>
         <div class="articles-body">
-            <div class="articles-header">
+            <div class="articles-header" name="services">
                 {{ current_category.name }}
             </div>
-            <div ng-bind-html="getHtml(current_post.content)"></div>
+            <div ng-bind-html="getHtml(full_page ? current_post.content : current_post.exerpt)"></div><a class="more" href="/?service={{current_post.slug}}#services">{{ t[locale].more }}</a>
         </div>
         <div class="bottom-gradient"></div>
     </div>

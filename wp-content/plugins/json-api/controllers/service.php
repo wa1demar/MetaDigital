@@ -34,6 +34,8 @@ class JSON_API_Service_Controller
     public function get_all_categories()
     {
         global $json_api;
+        global $polylang;
+
         $lang = $json_api->query->lang;
         if (!$lang) $lang = 'ru';
 
@@ -70,9 +72,17 @@ class JSON_API_Service_Controller
 
             $posts = array();
             for ($i = 0; $i < count($posts_list); $i++) {
-                $p['post_id'] = $posts_list[$i]->ID;
+                $p['post_id'] = $polylang->get_translations('post', $posts_list[$i]->ID, 'en');
                 $p['title'] = $posts_list[$i]->post_title;
-                $p['slug'] = $posts_list[$i]->post_name;
+                if ($lang == 'en') {
+                    $p['slug'] = $posts_list[$i]->post_name;
+                } else {
+                    $id = $polylang->get_translations('post', $posts_list[$i]->ID, 'en')['en'];
+                    $p['slug'] = get_post($id)->post_name;
+                }
+
+                $s = strip_tags($posts_list[$i]->post_content);
+                $p['exerpt'] = mb_substr($s, 0, 500) . "...";
                 $p['content'] = $posts_list[$i]->post_content;
                 $p['lang'] = $lang;
 
