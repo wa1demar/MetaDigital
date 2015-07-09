@@ -471,10 +471,11 @@ body {
     text-align: center;
     width: 280px;
     padding: 15px 0;
+    font-size: 20px;
 }
 
 #contact_us .footer-contact-us .inputs {
-    font-size: 20px;
+    /*font-size: 19px !important;*/
 }
 
 .footer-contact-us-inputs .inputs #username,
@@ -498,6 +499,8 @@ body {
     width: 276px;
     resize: vertical;
     text-align: center;
+    padding-top: 1em;
+    font-size: 19px;
 }
 
 .footer-contact-us-inputs #useretext {
@@ -863,10 +866,6 @@ body {
     .articles .category {
         font-size: 16px;
     }
-
-    .footer-google-link {
-        top: 38vh;
-    }
 }
 
 @media ( max-width: 992px ) {
@@ -1032,7 +1031,7 @@ body {
     }
 
     .footer-google-link {
-        top: -10%;
+        top: -16%;
     }
 
     .footer-bottom-image {
@@ -1069,7 +1068,7 @@ body {
     }
 
     .footer-google-link {
-        top: -10%;
+        top: -16%;
     }
 
     .footer-bottom-image {
@@ -1103,7 +1102,7 @@ body {
     }
 
     .footer-google-link {
-        top: -10%;
+        top: -27%;
     }
 
     .footer-bottom-image {
@@ -1141,7 +1140,7 @@ body {
     }
 
     .footer-google-link {
-        top: -10%;
+        top: -18%;
     }
 
     .footer-bottom-image {
@@ -1171,9 +1170,6 @@ body {
         top: 93%;
     }
 
-    .footer-google-link {
-        top: -15%;
-    }
 
     .footer-bottom-image {
         margin-top: 123%;
@@ -1192,6 +1188,10 @@ body {
         top: 30%;
     }
 
+    #contact_us .footer-contact-us .inputs > textarea {
+        width: 64%;
+    }
+
     .about-panel .next-button,
     .about-container .about-button{
         margin: 0px;
@@ -1200,6 +1200,10 @@ body {
     .about-panel p {
         overflow-y: scroll;
         height: 35%;
+    }
+
+    .footer-google-link {
+        top: -23%;
     }
 
 }
@@ -1210,6 +1214,10 @@ body {
         font-size: 9px;
     }
 
+    #contact_us .footer-contact-us .inputs > textarea {
+        width: 64%;
+    }
+
     .about-panel p {
         overflow-y: scroll;
         height: 35%;
@@ -1219,4 +1227,9 @@ body {
     .about-container .about-button{
         margin: 0px;
     }
+
+    .footer-google-link {
+        top: -41%;
+    }
+
 }
