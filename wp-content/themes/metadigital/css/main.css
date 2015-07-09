@@ -295,6 +295,11 @@ body {
     min-height: 23px;
 }
 
+.articles-drilldown .articles-list ul li a {
+    color: #0000FF;
+    text-decoration: none;
+}
+
 .articles-drilldown .articles-list ul li.active {
     background-image: url('../images/selected-post.png');
 }

@@ -10,6 +10,11 @@
                 return $sce.trustAsHtml(html);
             };
 
+            $scope.setCurrentPost = function (post) {
+
+                $scope.current_post = post
+            };
+
             $scope.locale = 'ru';
             window.locale = 'ru';
             $scope.t = {
