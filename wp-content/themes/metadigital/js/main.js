@@ -391,6 +391,7 @@
         var close_button = $('.about-panel-hide');
         var next_button = $('.next-button');
         var about_panel = $('.about-panel');
+        var slick_disabler = $('.slick-disabler');
         var slick = null;
 
         var displayWidth = $(document).width();
@@ -420,6 +421,7 @@
         }
 
         function hide_panel() {
+            slick_disabler.css("display", "none");
             if (isMobileDisplay()) {
                 about_panel.css('height', '60%');
                 $('.slick-disabler').hide();
@@ -448,6 +450,7 @@
         about_button.click(function () {
             if (isMobileDisplay()) {
                 about_panel.css('height', '100%');
+                slick_disabler.css("display", 'block');
             }
 
             panel_opened = true;

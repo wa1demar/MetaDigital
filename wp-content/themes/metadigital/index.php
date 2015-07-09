@@ -150,6 +150,7 @@
     <a class='gallery-next'></a>
     <a class='gallery-prev'></a>
 
+    <div class="slick-disabler"></div>
     <div class="about-container"><a class="about-button">{{ t[locale].about_text }}<a></div>
     <div class="about-panel">
         <button class="about-panel-hide">&nbsp;</button>
@@ -157,7 +158,6 @@
 
         <p>{{ lightbox_description }}</p><br><br><br><br><a class="next-button">{{ t[locale].next_text }}<a>
     </div>
-
     <button class="about-panel-hide">&nbsp;</button>
     <div class="gallery-close"></div>
 </div>
