@@ -548,8 +548,8 @@
             })
         } else {
             $('.logo-image').animate({
-                width: '50%',
-                bottom: '70%'
+                width: '47%',
+                bottom: '20%'
             }, 700, function () {
                 type(container, container.data('type'), 0);
                 $('.sidebar li .tooltip').animate({'display': 'none'});
