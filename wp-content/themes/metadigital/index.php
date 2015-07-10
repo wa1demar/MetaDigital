@@ -34,7 +34,8 @@
 <div class="main" id="main">
 
     <div class="logo">
-git add .        <img class="logo-scroll" src="./wp-content/themes/metadigital/images/scroll-icon.svg"
+        <img class="logo-image" src="./wp-content/themes/metadigital/images/meta-digital.png">
+        <img class="logo-scroll" src="./wp-content/themes/metadigital/images/scroll-icon.svg"
              onclick="$('.articles').goTo()">
     </div>
     <div class="home-link"><a href="http://metamoscow.com/" target="_blank">
