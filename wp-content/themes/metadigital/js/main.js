@@ -539,17 +539,26 @@
     window.animateLogo = function () {
         var container = $('.main .description');
 
-        if ($('body').height() > '600px') {
+        var width = $('body').width();
+        console.log(width);
+        if (width > 1200) {
             $('.logo-image').animate({
-                width: '34%',
-                bottom: '45%'
+                width: '30%'
+
             }, 700, function () {
                 type(container, container.data('type'), 0);
             })
-        } else {
+        } else if (width > 768) {
             $('.logo-image').animate({
                 width: '47%',
-                bottom: '20%'
+                left: '180px'
+            }, 700, function () {
+                type(container, container.data('type'), 0);
+                $('.sidebar li .tooltip').animate({'display': 'none'});
+            })
+        } else {
+            $('.logo-image').animate({
+                opacity: 0
             }, 700, function () {
                 type(container, container.data('type'), 0);
                 $('.sidebar li .tooltip').animate({'display': 'none'});
