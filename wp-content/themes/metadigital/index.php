@@ -34,8 +34,7 @@
 <div class="main" id="main">
 
     <div class="logo">
-        <img class="logo-image" src="./wp-content/themes/metadigital/images/meta-digital.png">
-        <img class="logo-scroll" src="./wp-content/themes/metadigital/images/scroll-icon.svg"
+git add .        <img class="logo-scroll" src="./wp-content/themes/metadigital/images/scroll-icon.svg"
              onclick="$('.articles').goTo()">
     </div>
     <div class="home-link"><a href="http://metamoscow.com/" target="_blank">
@@ -45,9 +44,13 @@
     <div class="home-icon"><i class="fa fa-home"></i></div>
     <div class="description" >
     </div>
-    <video preload="none" autoplay="autoplay" loop="loop">
-        <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4"
-                codecs="avc1.42E01E, mp4a.40.2">
+<!--    <video preload="none" autoplay="autoplay" loop="loop">-->
+<!--        <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4"-->
+<!--                codecs="avc1.42E01E, mp4a.40.2">-->
+<!--    </video>-->
+    <video autoplay loop poster="/wp-content/themes/metadigital/polina.png" id="bgvid">
+        <source src="./wp-content/themes/metadigital/video/metaspace.webm" type="video/webm">
+        <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4">
     </video>
 </div>
 <div class="articles" id="articles">
