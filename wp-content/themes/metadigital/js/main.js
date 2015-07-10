@@ -272,14 +272,14 @@
 
             tile.mouseover(function () {
                 image.stop();
-                image.animate({width: '110%', height: '110%', top: '-5%', left: '-5%'}, 500);
-                hover.stop();
-                hover.animate({bottom: 0}, 500);
+                image.animate({width: '120%', height: '120%', top: '-6%', left: '-6%'}, 300);
+                //hover.stop();
+                //hover.animate({bottom: 0}, 500);
             });
             tile.mouseleave(function () {
-                image.animate({width: '100%', height: '100%', top: '0', left: '0'}, 500);
+                image.animate({width: '100%', height: '100%', top: '0', left: '0'}, 300);
 
-                hover.animate({bottom: '-100%'}, 500);
+                //hover.animate({bottom: '-100%'}, 500);
             });
             var tile_index = image_index;
             tile.click(function () {
@@ -391,6 +391,7 @@
         var close_button = $('.about-panel-hide');
         var next_button = $('.next-button');
         var about_panel = $('.about-panel');
+        var slick_disabler = $('.slick-disabler');
         var slick = null;
 
         var displayWidth = $(document).width();
@@ -420,6 +421,7 @@
         }
 
         function hide_panel() {
+            slick_disabler.css("display", "none");
             if (isMobileDisplay()) {
                 about_panel.css('height', '60%');
                 $('.slick-disabler').hide();
@@ -448,6 +450,7 @@
         about_button.click(function () {
             if (isMobileDisplay()) {
                 about_panel.css('height', '100%');
+                slick_disabler.css("display", 'block');
             }
 
             panel_opened = true;

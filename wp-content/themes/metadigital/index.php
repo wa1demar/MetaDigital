@@ -66,8 +66,8 @@
 <div class="articles-drilldown">
     <div class="articles-list">
         <ul>
-            <li ng-repeat="post in current_category.posts" ng-click="$parent.current_post = post"
-                class="{{ $parent.current_post != post ? '' : 'active' }}">{{ post.title }}
+            <li ng-repeat="post in current_category.posts" ng-click="setCurrentPost(post)"
+                class="{{ $parent.current_post != post ? '' : 'active' }}"><a href="#{{ post.slug }}">{{ post.title }}</a>
             </li>
         </ul>
     </div>
@@ -77,7 +77,7 @@
             <div class="articles-header" name="services">
                 {{ current_category.name }}
             </div>
-            <div ng-bind-html="getHtml(full_page ? current_post.content : current_post.exerpt)"></div><a class="more" href="/?service={{current_post.slug}}#services">{{ t[locale].more }}</a>
+            <div ng-bind-html="getHtml(current_post.content)"></div>
         </div>
         <div class="bottom-gradient"></div>
     </div>
@@ -150,6 +150,7 @@
     <a class='gallery-next'></a>
     <a class='gallery-prev'></a>
 
+    <div class="slick-disabler"></div>
     <div class="about-container"><a class="about-button">{{ t[locale].about_text }}<a></div>
     <div class="about-panel">
         <button class="about-panel-hide">&nbsp;</button>
@@ -157,7 +158,6 @@
 
         <p>{{ lightbox_description }}</p><br><br><br><br><a class="next-button">{{ t[locale].next_text }}<a>
     </div>
-
     <button class="about-panel-hide">&nbsp;</button>
     <div class="gallery-close"></div>
 </div>

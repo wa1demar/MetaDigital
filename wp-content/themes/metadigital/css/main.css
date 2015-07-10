@@ -166,7 +166,8 @@ body {
 .sidebar {
     position: fixed;
     right: 13px;
-    top: 75px;
+    top: 50%;
+    margin-top: -186px;
     z-index: 500;
 }
 
@@ -185,6 +186,10 @@ body {
     height: 37px;
     display: block;
     transition: background 1s;
+}
+
+.sidebar ul li:last-child a {
+    margin-bottom: 0;
 }
 
 .sidebar li {
@@ -280,27 +285,31 @@ body {
 }
 
 .articles-drilldown .articles-list ul li {
-    background-image: url('../images/list-image.svg');
+    background-image: url('../images/unselected-post.png');
     background-repeat: no-repeat;
-    background-size: 55px 37px;
     padding-left: 40px;
-    padding-bottom: 20px;
     padding-top: 5px;
     margin-bottom: 4px;
     cursor: pointer;
     font-size: 12px;
+    min-height: 23px;
+}
+
+.articles-drilldown .articles-list ul li a {
+    color: #0000FF;
+    text-decoration: none;
 }
 
 .articles-drilldown .articles-list ul li.active {
-    background-image: url('../images/list-image-current.svg');
+    background-image: url('../images/selected-post.png');
 }
 
 .articles-drilldown .articles-list ul li:last-child {
-    background-image: url('../images/list-image-last.svg');
+    background-image: url('../images/last-unselected-post.png');
 }
 
 .articles-drilldown .articles-list ul li.active:last-child {
-    background-image: url('../images/list-image-current-last.svg');
+    background-image: url('../images/last-selected-post.png');
 }
 
 .articles-drilldown .articles-content {
@@ -560,6 +569,13 @@ body {
     height: 100%;
 }
 
+.slick-disabler {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
 .alert-overlay {
     position: fixed;
     display: none;
@@ -679,7 +695,7 @@ body {
 .gallery-overlay .gallery .lightbox-gallery-item {
     width: 100%;
     height: 100%;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -765,7 +781,7 @@ body {
     position: absolute;
     width: 100%;
     text-align: center;
-    bottom: 150px;
+    bottom: 100px;
 }
 
 .about-panel {
@@ -782,16 +798,26 @@ body {
     color: #000000;
     background-color: #FFFFFF;
     border: 2px solid #3a3a3a;
-    padding: 15px 40px;
+    padding: 19px 69px;
     margin: 40px;
     cursor: pointer;
     text-transform: uppercase;
+    font-size: 20px;
+}
+
+.about-panel .next-button {
+    background-color: #ebebeb;
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*text-align: center;*/
+    /*bottom: 100px;*/
 }
 
 .about-panel p {
     font-family: Arial;
     text-align: center;
     padding: 30px;
+    min-height: 15vh;
 }
 
 .about-container .about-button {
@@ -812,10 +838,16 @@ body {
     height: 100%;
     background-color: rgba(27, 28, 181, 0.7);
     cursor: pointer;
-    bottom: -100%;
+    bottom: 0;
     color: #FFFFFF;
     font-size: 24px;
     text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.gallery_hover:hover {
+    opacity: 1;
 }
 
 .gallery-image {

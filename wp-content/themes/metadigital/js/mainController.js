@@ -10,6 +10,11 @@
                 return $sce.trustAsHtml(html);
             };
 
+            $scope.setCurrentPost = function (post) {
+
+                $scope.current_post = post
+            };
+
             $scope.locale = 'ru';
             window.locale = 'ru';
             $scope.t = {
@@ -97,8 +102,8 @@
                         window.locale = lang;
                         $scope.categories = data;
 
-                        if ($.urlParam('service')) {
-                            var result = $scope.findCategory($scope.categories, $.urlParam('service'));
+                        if (window.location.hash.substr(1)) {
+                            var result = $scope.findCategory($scope.categories, window.location.hash.substr(1));
                             console.log(result);
                             if (result == null) {
                                 $scope.current_category = $scope.categories[0];
