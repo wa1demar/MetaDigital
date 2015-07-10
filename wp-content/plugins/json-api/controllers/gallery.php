@@ -97,6 +97,13 @@ class JSON_API_Gallery_Controller
                 $image = null;
                 $thumb = wp_get_attachment_image_src($i_id, 'medium');
                 $image['thumbnail'] = $thumb[0];
+
+                $img = wp_get_attachment_image_src($i_id, array(600,400));
+                $image['medium'] = $img[0];
+
+                $img = wp_get_attachment_image_src($i_id, array(300,200));
+                $image['small'] = $img[0];
+
                 $img = wp_get_attachment_image_src($i_id, 'full');
                 $image['full'] = $img[0];
 

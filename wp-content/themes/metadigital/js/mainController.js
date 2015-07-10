@@ -108,22 +108,14 @@
                             if (result == null) {
                                 $scope.current_category = $scope.categories[0];
                                 $scope.current_post = $scope.current_category.posts[0];
-                                $scope.full_page = false;
                             } else {
                                 $scope.current_category = result.cat;
                                 $scope.current_post = result.post;
-                                $scope.full_page = true;
-                                $(".articles-drilldown").animate({"height": "90vh"}, 'slow');
                             }
 
                         } else {
                             $scope.current_category = $scope.categories[0];
                             $scope.current_post = $scope.current_category.posts[0];
-                            $scope.full_page = false;
-                        }
-
-                        if ($scope.full_page) {
-                            $(".more").hide();
                         }
 
                     })

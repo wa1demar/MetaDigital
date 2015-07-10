@@ -472,14 +472,21 @@
             $('body').css('overflow', 'hidden');
 
             carousel.html('');
+            var width = $(window).width();
+            var height = $(window).height();
+            console.log("width: " + width + ", height: " + height);
             for (var i = 0; i < images.length; i++) {
-                carousel.append($('<div class="lightbox-gallery-item" ></div>').css('background-image', 'url(' + images[i].full + ')'));
-                //carousel.append($('<div class="lightbox-gallery-item lazy-hidden" data-bg="' + images[i].full +  '"></div>'));
-            }
+                var url = "";
+                if (width > 600 && height > 600) {
+                    url = images[i].medium;
+                } else if (width > 300 && height > 300) {
+                    url = images[i].small;
+                } else {
+                    url = images[i].full
+                }
 
-            //$(window).lazyLoadXT({
-            //    autoInit: true
-            //});
+                carousel.append($('<div class="lightbox-gallery-item" ></div>').css('background-image', 'url(' + url + ')'));
+            }
 
             dialogoverlay.css('display', 'block');
 
@@ -575,12 +582,12 @@
         }
     };
 
-    $.urlParam = function(name){
+    $.urlParam = function (name) {
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        if (results==null){
+        if (results == null) {
             return null;
         }
-        else{
+        else {
             return results[1] || 0;
         }
     }
