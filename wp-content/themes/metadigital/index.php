@@ -45,10 +45,10 @@
     <div class="home-icon"><i class="fa fa-home"></i></div>
     <div class="description" >
     </div>
-    <video autoplay loop poster="./wp-content/themes/metadigital/polina.png" id="bgvid">
+    <video autoplay loop poster="./wp-content/themes/metadigital/images/polina.png" id="bgvid">
         <source src="./wp-content/themes/metadigital/video/metaspace.webm" type="video/webm">
         <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4">
-        <img src="./wp-content/themes/metadigital/polina.png" />
+        <img src="./wp-content/themes/metadigital/images/polina.png" />
     </video>
 </div>
 <div class="articles" id="articles">
