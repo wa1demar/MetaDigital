@@ -45,13 +45,10 @@
     <div class="home-icon"><i class="fa fa-home"></i></div>
     <div class="description" >
     </div>
-<!--    <video preload="none" autoplay="autoplay" loop="loop">-->
-<!--        <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4"-->
-<!--                codecs="avc1.42E01E, mp4a.40.2">-->
-<!--    </video>-->
-    <video autoplay loop poster="/wp-content/themes/metadigital/polina.png" id="bgvid">
+    <video autoplay loop poster="./wp-content/themes/metadigital/polina.png" id="bgvid">
         <source src="./wp-content/themes/metadigital/video/metaspace.webm" type="video/webm">
         <source src="./wp-content/themes/metadigital/video/metaspace.mp4" type="video/mp4">
+        <img src="./wp-content/themes/metadigital/polina.png" />
     </video>
 </div>
 <div class="articles" id="articles">
@@ -76,7 +73,7 @@
         </ul>
     </div>
     <div class="articles-content">
-        <div class="top-gradient"></div>
+        <div class="top-gradient" id="{{current_post.slug}}_id"></div>
         <div class="articles-body">
             <div class="articles-header" name="services">
                 {{ current_category.name }}

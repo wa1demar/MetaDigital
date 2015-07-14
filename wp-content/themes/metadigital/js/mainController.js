@@ -12,7 +12,12 @@
 
             $scope.setCurrentPost = function (post) {
 
-                $scope.current_post = post
+                $scope.current_post = post;
+
+                //$('html, body').animate({
+                //    scrollTop: $("#" + post.slug + "_id").offset().top + 'px'
+                //}, 'slow');
+
             };
 
             $scope.locale = 'ru';
