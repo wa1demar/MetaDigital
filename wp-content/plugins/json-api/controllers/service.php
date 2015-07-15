@@ -35,6 +35,7 @@ class JSON_API_Service_Controller
     {
         global $json_api;
         global $polylang;
+        global $mycustom;
 
         $lang = $json_api->query->lang;
         if (!$lang) $lang = 'ru';
@@ -85,6 +86,16 @@ class JSON_API_Service_Controller
                 $s = strip_tags($posts_list[$i]->post_content);
                 $p['exerpt'] = mb_substr($s, 0, 500) . "...";
                 $p['content'] = $posts_list[$i]->post_content;
+
+                $gallery_img_ids = MyCustom::getInstance()->c_get_post_galleries($posts_list[$i], false);
+                $technologies = array();
+                foreach (explode(",", $gallery_img_ids['ids']) as $i_id) {
+                    $img = wp_get_attachment_image_src($i_id, array(150,150));
+                    $image['src'] = $img[0];
+                    array_push($technologies, $image);
+                }
+
+                $p['technologies'] = $technologies;
                 $p['lang'] = $lang;
 
                 array_push($posts, $p);

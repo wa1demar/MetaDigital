@@ -10,6 +10,15 @@ body {
     font-family: ISOCTEUR;
 }
 
+a {
+    color: #0000FF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .main {
     height: 100vh;
     min-height: 400px;
@@ -271,6 +280,17 @@ body {
 .articles-drilldown-full {
     position: relative;
     height: auto;
+}
+
+.articles-drilldown-full .technologies {
+    padding: 10px;
+    text-align: center;
+}
+
+.articles-drilldown-full .technologies img {
+    width: auto;
+    height: 100px;
+    margin: 0 10px;
 }
 
 .articles-drilldown .articles-list {

@@ -83,3 +83,109 @@ function create_services_taxonomies()
 
     register_taxonomy('services_category', 'services', $args);
 }
+
+
+add_action('add_meta_boxes', 'technologies_meta_box_add');
+function technologies_meta_box_add()
+{
+    add_meta_box(
+        'metaname_id',
+        __( 'Технологии', 'metaname_textdomain'),
+        'metaname_custom_box',
+        'services',
+        'normal'
+    );
+}
+
+function metaname_custom_box()
+{
+
+    global $post;
+    wp_nonce_field( plugin_basename( __FILE__ ), 'metaname_noncename' );
+    $data = get_post_meta($post->ID, 'metaname_custom_box', true);
+
+    wp_editor($data,"metaname_custom_box", array('textarea_rows'=>12, 'editor_class'=>'mytext_class'));
+
+}
+
+add_action('save_post', 'metaname_save');
+function metaname_save($post_id) {
+    global $post;
+
+    // Verify
+    if ( !wp_verify_nonce( $_POST['metaname_noncename'], plugin_basename(__FILE__) )) {
+        return $post_id;
+    }
+    if ( 'page' == $_POST['post_type'] ) {
+        if ( !current_user_can( 'edit_page', $post_id ))
+            return $post_id;
+    } else {
+        if ( !current_user_can( 'edit_post', $post_id ))
+            return $post_id;
+    }
+
+    $key = 'metaname_custom_box';
+    $data = wpautop($_POST[$key]);
+
+    // New, Update, and Delete
+    if(get_post_meta($post_id, $key) == "")
+        add_post_meta($post_id, $key, $data, true);
+    elseif($data != get_post_meta($post_id, $key, true))
+        update_post_meta($post_id, $key, $data);
+    elseif($data == "")
+        delete_post_meta($post_id, $key, get_post_meta($post_id, $key, true));
+}
+
+
+class MyCustom {
+
+    private static $instance;
+
+    private function __construct() {}
+    private function __clone() {}
+
+    public static function getInstance() {
+        if (!MyCustom::$instance instanceof self) {
+            MyCustom::$instance = new self();
+        }
+        return MyCustom::$instance;
+    }
+
+    public function c_get_post_galleries( $post, $html = true ) {
+        if (!$post = get_post($post))
+            return array();
+
+        $content_arr = get_post_meta($post->ID, "metaname_custom_box");
+        $content = $content_arr[0];
+
+        if (!has_shortcode($content, 'gallery'))
+            return array();
+
+        $galleries = array();
+        if (preg_match_all('/' . get_shortcode_regex() . '/s', $content, $matches, PREG_SET_ORDER)) {
+            foreach ($matches as $shortcode) {
+                if ('gallery' === $shortcode[2]) {
+                    $srcs = array();
+
+                    $gallery = do_shortcode_tag($shortcode);
+                    if ($html) {
+                        $galleries[] = $gallery;
+                    } else {
+                        preg_match_all('#src=([\'"])(.+?)\1#is', $gallery, $src, PREG_SET_ORDER);
+                        if (!empty($src)) {
+                            foreach ($src as $s)
+                                $srcs[] = $s[2];
+                        }
+
+                        $data = shortcode_parse_atts($shortcode[3]);
+                        $data['src'] = array_values(array_unique($srcs));
+                        $galleries[] = $data;
+                    }
+                }
+            }
+        }
+
+        return $galleries[0];
+    }
+}
+

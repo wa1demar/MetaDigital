@@ -7,6 +7,9 @@
                         {{ current_post.title }}
                     </div>
                     <div ng-bind-html="getHtml(current_post.content)"></div>
+                    <div class="technologies">
+                        <img ng-src="{{ image.src  }}" ng-repeat="image in current_post.technologies" />
+                    </div>
                 </div>
             </div>
         </div>
