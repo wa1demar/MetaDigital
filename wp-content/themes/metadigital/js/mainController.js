@@ -106,9 +106,15 @@
                         $scope.locale = lang;
                         window.locale = lang;
                         $scope.categories = data;
+                        var cur = "";
+                        if (window.location.pathname.split("/")[1] == "services") {
+                            cur = window.location.pathname.split("/")[2];
+                        } else if (window.location.hash.substr(1)) {
+                            cur = window.location.hash.substr(1);
+                        }
 
-                        if (window.location.hash.substr(1)) {
-                            var result = $scope.findCategory($scope.categories, window.location.hash.substr(1));
+                        if (cur != "") {
+                            var result = $scope.findCategory($scope.categories, cur);
                             console.log(result);
                             if (result == null) {
                                 $scope.current_category = $scope.categories[0];
