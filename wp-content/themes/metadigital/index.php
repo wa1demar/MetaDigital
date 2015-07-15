@@ -30,7 +30,7 @@
                     {{ current_category.name }}
                 </div>
                 <div ng-bind-html="getHtml(current_post.exerpt)"></div>
-                <div class="more"><a href="/services/{{ current_post.slug }}/">More...</a></div>
+                <div class="more"><a href="/services/{{ current_post.slug }}/">{{ t[locale].more }}...</a></div>
             </div>
             <div class="bottom-gradient"></div>
         </div>
