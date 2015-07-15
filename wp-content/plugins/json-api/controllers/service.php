@@ -90,7 +90,7 @@ class JSON_API_Service_Controller
                 $gallery_img_ids = MyCustom::getInstance()->c_get_post_galleries($posts_list[$i], false);
                 $technologies = array();
                 foreach (explode(",", $gallery_img_ids['ids']) as $i_id) {
-                    $img = wp_get_attachment_image_src($i_id, array(150,150));
+                    $img = wp_get_attachment_image_src($i_id, 'full');
                     $image['src'] = $img[0];
                     array_push($technologies, $image);
                 }
