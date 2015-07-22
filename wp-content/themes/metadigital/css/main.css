@@ -946,6 +946,10 @@ a:hover {
 
 @media ( max-width: 992px ) {
 
+    .articles{
+        width: 97%;
+    }
+
     .footer-address {
         font-size: 26px;
     }
@@ -965,7 +969,7 @@ a:hover {
     }
 
     .footer-contact-us-inputs input {
-        width: 240px;
+        width: 240px;logo-scroll
         padding: 15px 0;
     }
 
@@ -985,6 +989,10 @@ a:hover {
 }
 
 @media ( max-width: 800px ) {
+
+    .articles{
+        width: 94%;
+    }
 
     .main-footer {
         text-align: center;
@@ -1036,6 +1044,15 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+
+    .articles{
+        width: 90%;
+    }
+
+    .articles .category {
+        width: 50%;
+    }
+
     .main-footer {
         height: 168vh;
     }
@@ -1130,6 +1147,14 @@ a:hover {
 
 @media (max-width: 600px) {
 
+    .articles{
+        width: 90%;
+    }
+
+    .articles .category {
+        width: 50%;
+    }
+
     .footer-contact-us-inputs .inputs #username,
     .footer-contact-us-inputs .inputs #useremail,
     .footer-contact-us-inputs .inputs #useretext {
@@ -1164,6 +1189,15 @@ a:hover {
 
 @media (max-width: 500px) {
 
+    .articles{
+        width: 90%;
+    }
+
+    .articles .category {
+        width: 50%;
+    }
+
+
     .footer-contact-us {
         top: 89%;
     }
@@ -1187,6 +1221,10 @@ a:hover {
 }
 
 @media (max-width: 375px) {
+
+    .articles{
+        width: 87%;
+    }
 
     .main .home-link {
         left: -120px;
@@ -1216,7 +1254,7 @@ a:hover {
     .about-panel .next-button,
     .about-container .about-button {
         margin: 0 auto;
-        max-width: 85%;
+        max-width: 50%;
         padding: 19px 0;
         display: block;
     }
