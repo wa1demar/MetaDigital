@@ -10,11 +10,11 @@
             info@metamoscow.com</p>
 
         <ul class="footer-address-header-social-links">
-            <li><a href="#"><img src="<?php echo THEME_URL ?>/images/twitter-icon.png"></a></li>
-            <li><a href="#"><img src="<?php echo THEME_URL ?>/images/vk-icon.png"></a></li>
-            <li><a href="#"><img src="<?php echo THEME_URL ?>/images/linkedin-icon.png"></a></li>
-            <li><a href="#"><img src="<?php echo THEME_URL ?>/images/facebook-icon.png"></a></li>
-            <li><a href="#"><img src="<?php echo THEME_URL ?>/images/blogger-icon.png"></a></li>
+            <li><a target="_blank" href="https://twitter.com/metamoscow"><img src="<?php echo THEME_URL ?>/images/twitter-icon.png"></a></li>
+            <li><a target="_blank" href="https://vk.com/wearemeta"><img src="<?php echo THEME_URL ?>/images/vk-icon.png"></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/"><img src="<?php echo THEME_URL ?>/images/linkedin-icon.png"></a></li>
+            <li><a target="_blank" href="https://www.facebook.com/pages/META-MOSCOW/1528633020688948"><img src="<?php echo THEME_URL ?>/images/facebook-icon.png"></a></li>
+            <li><a target="_blank" href="https://www.behance.net/metamoscow"><img src="<?php echo THEME_URL ?>/images/blogger-icon.png"></a></li>
         </ul>
     </div>
 
