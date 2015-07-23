@@ -41,7 +41,7 @@
     <div class="home-icon"><i class="fa fa-home"></i></div>
     <div class="description" >
     </div>
-    <video autoplay loop poster="./wp-content/themes/metadigital/images/polina.png" id="bgvid">
+    <video loop poster="./wp-content/themes/metadigital/images/polina.png" id="bgvid">
         <source src="<?php echo THEME_URL ?>/video/metaspace.webm" type="video/webm">
         <source src="<?php echo THEME_URL ?>/video/metaspace.mp4" type="video/mp4">
         <img src="<?php echo THEME_URL ?>/images/polina.png" />
