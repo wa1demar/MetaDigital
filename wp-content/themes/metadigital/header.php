@@ -32,8 +32,7 @@
 
     <div class="logo">
         <img class="logo-image" src="<?php echo THEME_URL ?>/images/meta-digital.png">
-        <img class="logo-scroll" src="<?php echo THEME_URL ?>/images/scroll-icon.svg"
-             onclick="$('.articles').goTo()">
+
     </div>
     <div class="home-link"><a href="http://metamoscow.com/" target="_blank">
             <img src="<?php echo THEME_URL ?>/images/meta-moskow-logo.svg">

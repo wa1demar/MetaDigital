@@ -9,7 +9,7 @@
         $(document).ready(function () {
             $('p.first').css({display: "block"});
 
-            type($('p.first'), " # curl -I <?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']; ?>", 0);
+            type($('p.first'), " # curl -I " + window.location.href, 0);
 
             $("p.second").oneTime("2500ms", function () {
                 $(this).css({display: "block"});
