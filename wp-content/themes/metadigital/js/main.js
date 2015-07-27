@@ -346,32 +346,32 @@
                 dialogbox.style.display = "block";
                 $('body').css('overflow', 'hidden');
 
-                if (isMobile) {
-                    $("#languagebox .locale-ru").on("tap",function(){
+
+                    $("#languagebox .locale-ru").on("tap click touch",function(){
                         choose('ru');
                         $.cookie('language', 'ru', {expires: 7, path: '/'});
                         return false;
                     });
 
-                    $("#languagebox .locale-en").on("tap",function(){
-                        choose('en');
-                        $.cookie('language', 'en', {expires: 7, path: '/'});
-                        return false;
-                    });
-                } else {
-                    $("#languagebox .locale-ru").click(function () {
-                        choose('ru');
-                        $.cookie('language', 'ru', {expires: 7, path: '/'});
-                        return false;
-                    });
-
-                    $("#languagebox .locale-en").click(function () {
+                    $("#languagebox .locale-en").on("tap click touch",function(){
                         choose('en');
                         $.cookie('language', 'en', {expires: 7, path: '/'});
                         return false;
                     });
 
-                }
+                    //$("#languagebox .locale-ru").click(function () {
+                    //    choose('ru');
+                    //    $.cookie('language', 'ru', {expires: 7, path: '/'});
+                    //    return false;
+                    //});
+                    //
+                    //$("#languagebox .locale-en").click(function () {
+                    //    choose('en');
+                    //    $.cookie('language', 'en', {expires: 7, path: '/'});
+                    //    return false;
+                    //});
+
+
 
                 return this;
             },
