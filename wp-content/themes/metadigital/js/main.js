@@ -334,7 +334,7 @@
 
     window.LanguageBox = function () {
         var choose = function (lang) {
-
+            $.cookie('language', lang, {expires: 7, path: '/'});
         };
         var lang = 'ru';
         return {
@@ -349,29 +349,14 @@
 
                     $("#languagebox .locale-ru").on("tap click touch",function(){
                         choose('ru');
-                        $.cookie('language', 'ru', {expires: 7, path: '/'});
                         return false;
                     });
 
                     $("#languagebox .locale-en").on("tap click touch",function(){
                         choose('en');
-                        $.cookie('language', 'en', {expires: 7, path: '/'});
+
                         return false;
                     });
-
-                    //$("#languagebox .locale-ru").click(function () {
-                    //    choose('ru');
-                    //    $.cookie('language', 'ru', {expires: 7, path: '/'});
-                    //    return false;
-                    //});
-                    //
-                    //$("#languagebox .locale-en").click(function () {
-                    //    choose('en');
-                    //    $.cookie('language', 'en', {expires: 7, path: '/'});
-                    //    return false;
-                    //});
-
-
 
                 return this;
             },
