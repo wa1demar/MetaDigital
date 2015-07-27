@@ -777,7 +777,6 @@ a:hover {
     background-size: cover;
     height: 40px;
     cursor: url(../images/test11.cur) 50 50, auto;
-    cursor: pointer;
     margin: 0 25px;
     vertical-align: middle;
 }
