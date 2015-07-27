@@ -50,8 +50,8 @@
 <div id="languagebox">
     <div id="languagebody">
         <div>
-            <a class="locale locale-ru"></a>
-            <a class="locale locale-en"></a>
+            <a class="locale locale-ru" onclick="choose('ru')"></a>
+            <a class="locale locale-en" onclick="choose('en')"></a>
         </div>
     </div>
 </div>
