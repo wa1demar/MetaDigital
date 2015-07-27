@@ -334,7 +334,6 @@
 
     window.LanguageBox = function () {
         var choose = function (lang) {
-            $.cookie('language', lang, {expires: 7, path: '/'});
         };
         var lang = 'ru';
         return {
@@ -352,14 +351,17 @@
 
                 }
 
-                    $("#languagebox .locale-ru").bind("tap click touchstart",function(){
+                    $("#languagebox .locale-ru").bind("touchstart click",function(){
+                        alert("Clicked");
                         choose('ru');
+                        //$.cookie('language', lang, {expires: 7, path: '/'});
                         return false;
                     });
 
-                    $("#languagebox .locale-en").bind("tap click touchstart",function(){
+                    $("#languagebox .locale-en").bind("touchstart click",function(){
+                        alert("Clicked");
                         choose('en');
-
+                        //$.cookie('language', lang, {expires: 7, path: '/'});
                         return false;
                     });
 
