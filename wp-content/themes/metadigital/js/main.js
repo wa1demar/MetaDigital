@@ -352,12 +352,12 @@
 
                 }
 
-                    $("#languagebox .locale-ru").on("tap click touchstart",function(){
+                    $("#languagebox .locale-ru").bind("tap click touchstart",function(){
                         choose('ru');
                         return false;
                     });
 
-                    $("#languagebox .locale-en").on("tap click touchstart",function(){
+                    $("#languagebox .locale-en").bind("tap click touchstart",function(){
                         choose('en');
 
                         return false;
