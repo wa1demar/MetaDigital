@@ -346,6 +346,11 @@
                 dialogbox.style.display = "block";
                 $('body').css('overflow', 'hidden');
 
+                if (isMobile) {
+                    $("#languagebox .locale-ru").css("cursor", "pointer");
+                    $("#languagebox .locale-en").css("cursor", "pointer");
+
+                }
 
                     $("#languagebox .locale-ru").on("tap click touch",function(){
                         choose('ru');
