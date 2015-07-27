@@ -333,6 +333,7 @@
     };
 
     window.LanguageBox = function () {
+        choose('ru');
         var choose = function (lang) {
         };
         var lang = 'ru';
@@ -348,7 +349,6 @@
                 if (isMobile) {
                     $("#languagebox .locale-ru").css("cursor", "pointer");
                     $("#languagebox .locale-en").css("cursor", "pointer");
-                    choose('ru');
 
                 }
 
