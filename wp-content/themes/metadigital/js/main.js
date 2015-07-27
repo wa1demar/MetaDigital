@@ -348,6 +348,7 @@
                 if (isMobile) {
                     $("#languagebox .locale-ru").css("cursor", "pointer");
                     $("#languagebox .locale-en").css("cursor", "pointer");
+                    choose('ru');
 
                 }
 
