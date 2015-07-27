@@ -347,16 +347,16 @@
                 $('body').css('overflow', 'hidden');
 
 
-                    //$("#languagebox .locale-ru").on("tap click touch",function(){
-                    //    choose('ru');
-                    //    return false;
-                    //});
-                    //
-                    //$("#languagebox .locale-en").on("tap click touch",function(){
-                    //    choose('en');
-                    //
-                    //    return false;
-                    //});
+                    $("#languagebox .locale-ru").on("tap click touch",function(){
+                        choose('ru');
+                        return false;
+                    });
+
+                    $("#languagebox .locale-en").on("tap click touch",function(){
+                        choose('en');
+
+                        return false;
+                    });
 
                 return this;
             },
