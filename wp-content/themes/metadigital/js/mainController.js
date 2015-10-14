@@ -132,10 +132,10 @@
                         {
                             breakpoint: 20000,
                             settings: {
-                                vertical_double_tiles_count: 2,
-                                horizontal_double_tiles_count: 3,
-                                width: 8,
-                                height: 2
+                                vertical_double_tiles_count: 3,
+                                horizontal_double_tiles_count: 2,
+                                width: 6,
+                                height: 3
                             }
                         },
                         {
@@ -186,6 +186,7 @@
                         var current_index = index;
                         $scope.$apply(function () {
                             $scope.lightbox_title = galleries[current_index][$scope.locale].title;
+                            $scope.lightbox_type = galleries[index].types;
                             $scope.lightbox_description = galleries[current_index][$scope.locale].description;
                         });
 

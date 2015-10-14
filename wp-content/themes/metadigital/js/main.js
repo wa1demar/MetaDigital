@@ -272,7 +272,7 @@
 
 
             var hover = $('<div class="gallery_hover"></div>');
-            hover.html($('<span>' + options.albums[image_index][locale]['title'] + '</span>').css('position', 'absolute').css('bottom', '60px').css('left', '15px'));
+            hover.html($('<div><span>' + options.albums[image_index][locale]['title'] + '</span><br><strong style="margin-top: 15px; text-transform: lowercase; font-size: 14px; font-weight: normal;">' + options.albums[image_index].types + '</strong></div>').css('position', 'absolute').css('bottom', '60px').css('left', '15px'));
 
             tile.mouseover(function () {
                 image.stop();

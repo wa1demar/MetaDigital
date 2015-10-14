@@ -863,8 +863,11 @@ a:hover {
 .about-panel p {
     font-family: Arial;
     text-align: center;
-    padding: 30px;
+    padding: 20px;
     min-height: 15vh;
+    color: #626262;
+    line-height: 150%;
+    font-size: 14px;
 }
 
 .about-container .about-button {
@@ -984,11 +987,25 @@ a:hover {
     .footer-contact-us-inputs input {
         width: 285px;
         padding: 15px 0;
+        font-size: 20px;
+        font-family: Arial;
     }
+
+    .footer-contact-us-inputs input::-webkit-input-placeholder {color:#c2c2c2;}
+    .footer-contact-us-inputs input::-moz-placeholder          {color:#c2c2c2;}/* Firefox 19+ */
+    .footer-contact-us-inputs input:-moz-placeholder           {color:#c2c2c2;}/* Firefox 18- */
+    .footer-contact-us-inputs input:-ms-input-placeholder      {color:#c2c2c2;}
 
     #contact_us .footer-contact-us .inputs > textarea {
         width: 281px;
+        font-size: 20px;
+        font-family: Arial;
     }
+
+    #contact_us .footer-contact-us .inputs > textarea::-webkit-input-placeholder {color:#c2c2c2;}
+    #contact_us .footer-contact-us .inputs > textarea::-moz-placeholder          {color:#c2c2c2;}/* Firefox 19+ */
+    #contact_us .footer-contact-us .inputs > textarea:-moz-placeholder           {color:#c2c2c2;}/* Firefox 18- */
+    #contact_us .footer-contact-us .inputs > textarea:-ms-input-placeholder      {color:#c2c2c2;}
 
     .contact-us-send-button {
         width: 285px !important;
