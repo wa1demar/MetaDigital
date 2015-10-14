@@ -85,7 +85,6 @@
                     $.each(category.posts, function (j, post) {
                         if (post.slug === slugName) {
                             res = {
-                                cat: category,
                                 post: post
                             };
                             console.log(res);
@@ -100,34 +99,14 @@
             };
 
             $scope.retrieveCategories = function (lang) {
-                $http.get('/api/service/get_all_categories/?lang=' + lang)
+                $http.get('/api/service/get_all_categories2/?lang=' + lang)
                     .success(function (data) {
                         delete data.status;
                         $scope.locale = lang;
                         window.locale = lang;
                         $scope.categories = data;
-                        var cur = "";
-                        if (window.location.pathname.split("/")[1] == "services") {
-                            cur = window.location.pathname.split("/")[2];
-                        } else if (window.location.hash.substr(1)) {
-                            cur = window.location.hash.substr(1);
-                        }
 
-                        if (cur != "") {
-                            var result = $scope.findCategory($scope.categories, cur);
-                            console.log(result);
-                            if (result == null) {
-                                $scope.current_category = $scope.categories[0];
-                                $scope.current_post = $scope.current_category.posts[0];
-                            } else {
-                                $scope.current_category = result.cat;
-                                $scope.current_post = result.post;
-                            }
-
-                        } else {
-                            $scope.current_category = $scope.categories[0];
-                            $scope.current_post = $scope.current_category.posts[0];
-                        }
+                        $scope.current_category = $scope.categories[0];
 
                     })
                     .error(function () {
@@ -189,29 +168,30 @@
                     ]
                 }).tileClick(function (index) {
 
-                        $scope.$apply(function () {
-                            $scope.lightbox_title = galleries[index][$scope.locale].title;
-                            $scope.lightbox_description = galleries[index][$scope.locale].description;
-                        });
-
-                        var lightbox = new Lightbox();
-                        lightbox.setImages(galleries[index].images).render().nextProject(function () {
-
-
-                            index++;
-                            if (index > Object.keys(galleries).length - 1) {
-                                index = 0;
-                            }
-
-                            var current_index = index;
-                            $scope.$apply(function () {
-                                $scope.lightbox_title = galleries[current_index][$scope.locale].title;
-                                $scope.lightbox_description = galleries[current_index][$scope.locale].description;
-                            });
-
-                            lightbox.setImages(galleries[index].images).render();
-                        });
+                    $scope.$apply(function () {
+                        $scope.lightbox_title = galleries[index][$scope.locale].title;
+                        $scope.lightbox_type = galleries[index].types;
+                        $scope.lightbox_description = galleries[index][$scope.locale].description;
                     });
+
+                    var lightbox = new Lightbox();
+                    lightbox.setImages(galleries[index].images).render().nextProject(function () {
+
+
+                        index++;
+                        if (index > Object.keys(galleries).length - 1) {
+                            index = 0;
+                        }
+
+                        var current_index = index;
+                        $scope.$apply(function () {
+                            $scope.lightbox_title = galleries[current_index][$scope.locale].title;
+                            $scope.lightbox_description = galleries[current_index][$scope.locale].description;
+                        });
+
+                        lightbox.setImages(galleries[index].images).render();
+                    });
+                });
             });
 
             $scope.getSiteInfo = function () {

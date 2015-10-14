@@ -118,7 +118,7 @@ a:hover {
 
 .articles .category {
     margin: 0;
-    width: 16.65%;
+    width: 25%;
     float: left;
     text-align: center;
     white-space: normal;
@@ -147,22 +147,19 @@ a:hover {
 }
 
 .articles .category.active .title {
-    display: none;
-
 }
 
 .articles .category .icon,
 .articles .category .title {
-    height: 48px;
-    padding-top: 2px;
+    height: 40px;
+    padding-top: 7px;
+}
+
+.articles .category .title {
+    padding-top: 15px;
 }
 
 .articles .category.active .icon {
-    height: 98px;
-}
-
-.articles .category.active .title {
-    display: none;
 }
 
 .articles .category .icon img {
@@ -171,7 +168,6 @@ a:hover {
 }
 
 .articles .category.active .icon img {
-    height: 90%;
 }
 
 .sidebar {
@@ -242,13 +238,14 @@ a:hover {
 
 .sidebar li .tooltip {
     position: absolute;
-    padding: 14px 10px 13px 15px;
+    padding: 10px 10px 16px 15px;
     white-space: nowrap;
     background: black;
     color: white;
     right: 57px;
     top: -3px;
     width: auto;
+    height: 16px;
     text-transform: uppercase;
     font-size: 18px;
     transition: visibility 0s linear 0.5s, opacity 0.5s linear;
@@ -349,7 +346,7 @@ a:hover {
 
 .articles-drilldown .articles-content {
     height: 100%;
-    width: 66.7%;
+    width: 100%;
     overflow: hidden;
     float: left;
 }
@@ -363,9 +360,11 @@ a:hover {
 .articles-drilldown .articles-content .articles-header {
     font-family: ISOCTEUR;
     text-transform: uppercase;
-    font-size: 30px;
-    padding: 20px 0 20px 0;
+    font-size: 40px;
+    padding: 30px 0 30px 0;
+
     color: #000;
+    text-align: center;
 }
 
 .articles-drilldown-full .articles-content-full .articles-body-full,
@@ -376,7 +375,10 @@ a:hover {
     overflow: hidden;
     font-family: Arial;
     color: #626262;
-    overflow-y: scroll;
+    text-align: center;
+    text-transform: uppercase;
+    max-width: 762px;
+    margin: 0 auto;
 }
 
 .articles-drilldown .articles-content .articles-body::-webkit-scrollbar {
@@ -441,7 +443,7 @@ a:hover {
 }
 
 .main-footer {
-    background-image: url('../images/map.png');
+    background-image: url('../images/meta_map_new1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -479,6 +481,7 @@ a:hover {
     position: relative;
     top: 45%;
     transform: translateY(-50%);
+    cursor: auto;
 }
 
 .footer-address p {
@@ -509,6 +512,7 @@ a:hover {
     top: 45%;
     transform: translateY(-50%);
     max-width: 400px;
+    cursor: auto;
 }
 
 .footer-contact-us p {
@@ -1064,30 +1068,17 @@ a:hover {
         width: 90%;
     }
 
-    .articles .category {
-        width: 50%;
-    }
-
     .main-footer {
         height: 168vh;
     }
 
     .articles .category {
-        width: 33.3%;
-    }
-
-    .articles .category .icon {
-        display: none;
+        width: 50%;
     }
 
     .articles .category .title {
         height: 62px;
         padding-top: 15px;
-    }
-
-    .articles .category.active .icon {
-        display: block;
-        height: 77px;
     }
 
     .articles-drilldown .articles-list,

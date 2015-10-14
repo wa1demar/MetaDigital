@@ -15,8 +15,8 @@
         });
 
         preload([
-            "./wp-content/themes/metadigital/images/map2.png",
-            "./wp-content/themes/metadigital/images/map3.png"
+            "./wp-content/themes/metadigital/images/meta_map_new2.jpg",
+            "./wp-content/themes/metadigital/images/meta_map_new3.jpg"
         ]);
 
         $('#contact_us').click(function (ev) {
@@ -28,10 +28,13 @@
 
                 switch (mapId) {
                     case 0:
-                        zoomImage($this, "./wp-content/themes/metadigital/images/map2.png", mapId);
+                        zoomImage($this, "./wp-content/themes/metadigital/images/meta_map_new2.jpg", mapId);
                         break;
                     case 1:
-                        zoomImage($this, "./wp-content/themes/metadigital/images/map3.png", mapId);
+                        zoomImage($this, "./wp-content/themes/metadigital/images/meta_map_new3.jpg", mapId);
+                        break;
+                    case 2:
+                        zoomImage($this, "./wp-content/themes/metadigital/images/meta_map_new1.jpg", mapId);
                         break;
 
                 }
@@ -40,7 +43,7 @@
     });
 
     var zoomImage = function (el, background_img, mapId) {
-        el.attr("data-map", (++mapId));
+        el.attr("data-map", (++mapId > 2 ? 0 : mapId));
         el.css({'background-image': 'url(' + background_img + ')'});
 
     };

@@ -113,4 +113,39 @@ class JSON_API_Service_Controller
 
         return $obj;
     }
+
+    public function get_all_categories2()
+    {
+        global $json_api;
+
+        $lang = $json_api->query->lang;
+        if (!$lang) $lang = 'ru';
+
+        $args = array(
+            'post_type' => 'services2',
+            'posts_per_page' => -1,
+            'post_status' => 'publish'
+        );
+
+        $query = new WP_Query($args);
+        $posts = array();
+        if ($query->have_posts()) {
+
+            foreach ($query->posts as $post) {
+                $p['post_id'] = $post->ID;
+                $p['ru']['title'] = get_post_meta($post->ID, 'ru_title');
+                $p['en']['title'] = get_post_meta($post->ID, 'en_title');
+                $p['ru']['description'] = get_post_meta($post->ID, 'ru_desc');
+                $p['en']['description'] = get_post_meta($post->ID, 'en_desc');
+                $p['thumb'] = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+                array_push($posts, $p);
+                unset($p);
+            }
+
+        }
+
+        return $posts;
+
+    }
 }

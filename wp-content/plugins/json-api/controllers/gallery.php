@@ -88,6 +88,12 @@ class JSON_API_Gallery_Controller
             $post['en']['title'] = $post_title[0];
             $post_desc = get_post_meta($id, 'en_desc');
             $post['en']['description'] = $post_desc[0];
+            $terms = get_the_terms($id, 'wdm_gallery2_category');
+            $termList = array();
+            foreach ($terms as $t) {
+                array_push($termList, $t->name);
+            }
+            $post['types'] = implode($termList, ", ");
 
             $images = array();
 

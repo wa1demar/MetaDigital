@@ -267,7 +267,7 @@
             }
 
             var imageArray = options.albums[image_index].images;
-            image.css('background-image', 'url(' + imageArray[getRandomArbitary(0, imageArray.length)].thumbnail + ')');
+            image.css('background-image', 'url(' + imageArray[getRandomArbitary(0, imageArray.length)].medium + ')');
             tile.append(image);
 
 
@@ -348,21 +348,18 @@
                 if (isMobile) {
                     $("#languagebox .locale-ru").css("cursor", "pointer");
                     $("#languagebox .locale-en").css("cursor", "pointer");
-                    alert('is mobile');
                     choose('ru');
                 }
 
                 $("#languagebox .locale-ru").bind("touchstart click", function () {
-                    alert("Clicked");
                     choose('ru');
-                    //$.cookie('language', lang, {expires: 7, path: '/'});
+                    $.cookie('language', lang, {expires: 7, path: '/'});
                     return false;
                 });
 
                 $("#languagebox .locale-en").bind("touchstart click", function () {
-                    alert("Clicked");
                     choose('en');
-                    //$.cookie('language', lang, {expires: 7, path: '/'});
+                    $.cookie('language', lang, {expires: 7, path: '/'});
                     return false;
                 });
 
@@ -491,11 +488,11 @@
             for (var i = 0; i < images.length; i++) {
                 var url = "";
                 if (width > 600 && height > 600) {
-                    url = images[i].medium;
+                    url = images[i].full;
                 } else if (width > 300 && height > 300) {
-                    url = images[i].small;
+                    url = images[i].medium;
                 } else {
-                    url = images[i].full
+                    url = images[i].small
                 }
 
                 carousel.append($('<div class="lightbox-gallery-item" ></div>').css('background-image', 'url(' + url + ')'));

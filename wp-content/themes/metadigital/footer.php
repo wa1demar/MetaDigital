@@ -23,14 +23,14 @@
 
         <form class="footer-contact-us-inputs" ng-submit="contactUs()" novalidate="true">
             <div class="inputs">
-                <input id="username" name="username" type="text" placeholder="{{ t[locale].name}}" ng-model="username">
+                <input id="username" name="username" type="text" style="font-family: monospace"  placeholder="{{ t[locale].name}}" ng-model="username">
             </div>
             <div class="inputs">
-                <input id="useremail" name="useremail" type="text" placeholder="{{ t[locale].email}}"
+                <input id="useremail" name="useremail" style="font-family: monospace" type="text" placeholder="{{ t[locale].email}}"
                        ng-model="useremail">
             </div>
             <div class="inputs">
-                <textarea rows="3" cols="26" id="useretext" name="useretext" type="text"
+                <textarea rows="3" cols="26" id="useretext" style="font-family: monospace"  name="useretext" type="text"
                           placeholder="{{ t[locale].feadback_text}}" ng-model="usertext"></textarea>
             </div>
             <input class="contact-us-send-button" name="send" type="submit" value="{{ t[locale].send_button}}">
@@ -39,6 +39,7 @@
     <div class="footer-google-link">
         <a href="#"></a>
     </div>
+
 </div>
 
 <div class="footer-bottom-image">
@@ -65,12 +66,13 @@
     <a class='gallery-prev'></a>
 
     <div class="slick-disabler"></div>
-    <div class="about-container"><a class="about-button">{{ t[locale].about_text }}<a></div>
+    <div class="about-container"><a class="about-button" style="text-decoration: none;">{{ t[locale].about_text }}</a></div>
     <div class="about-panel">
         <button class="about-panel-hide">&nbsp;</button>
         <h1>{{ lightbox_title }}</h1>
+        <h3>{{ lightbox_type }}</h3>
 
-        <p>{{ lightbox_description }}</p><br><br><br><br><a class="next-button">{{ t[locale].next_text }}<a>
+        <p>{{ lightbox_description }}</p><a style="text-decoration: none;" class="next-button">{{ t[locale].next_text }}</a>
     </div>
     <button class="about-panel-hide">&nbsp;</button>
     <div class="gallery-close"></div>

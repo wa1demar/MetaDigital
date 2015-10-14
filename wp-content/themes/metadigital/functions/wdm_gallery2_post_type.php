@@ -51,6 +51,39 @@ function register_wdm_gallery2_form()
     flush_rewrite_rules();
 }
 
+add_action('init', 'create_wdm_gallery2_taxonomies', 0);
+function create_wdm_gallery2_taxonomies()
+{
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name' => __('Тип'),
+        'singular_name' => __('Типы'),
+        'search_items' => __('Поиск типов'),
+        'all_items' => __('Все типы'),
+        'parent_item' => __('Родительский тип'),
+        'parent_item_colon' => __('Родительский тип'),
+        'edit_item' => __('Редактировать тип'),
+        'update_item' => __('Редактировать тип'),
+        'add_new_item' => __('Добавить тип'),
+        'new_item_name' => __('Название типа'),
+        'menu_name' => __('Тип'),
+    );
+
+    $args = array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'wdm_gallery2_category'),
+        'can_export' => TRUE,
+        'show_in_nav_menus' => false
+    );
+
+
+    register_taxonomy('wdm_gallery2_category', 'wdm_gallery2', $args);
+}
+
 
 add_action('add_meta_boxes', 'desc_meta_box_add');
 function desc_meta_box_add()
