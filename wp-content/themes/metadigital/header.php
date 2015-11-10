@@ -31,7 +31,7 @@
 <div class="main" id="main">
 
     <div class="logo">
-        <img class="logo-image" src="<?php echo THEME_URL ?>/images/meta-digital.png">
+        <img class="logo-image" src="<?php echo THEME_URL ?>/images/logo2.png">
 
     </div>
     <div class="home-link"><a href="http://metamoscow.com/" target="_blank">

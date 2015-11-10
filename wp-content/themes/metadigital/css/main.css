@@ -64,6 +64,7 @@ a:hover {
 
 .main .home-link {
     position: absolute;
+    display: none;
     top: 20px;
     left: 0px;
     background-color: #000000;
@@ -84,6 +85,7 @@ a:hover {
 
 .main .home-icon {
     position: absolute;
+    display: none;
     width: 35px;
     height: 35px;
     text-align: center;
@@ -122,7 +124,7 @@ a:hover {
     float: left;
     text-align: center;
     white-space: normal;
-    font-family: monospace;
+    font-family: ISOCTEUR;
     padding: 0;
     cursor: pointer;
     font-size: 18px;
@@ -131,6 +133,7 @@ a:hover {
     display: inline-block;
     float: none;
     vertical-align: top;
+    color: #020202;
 }
 
 .articles .category:hover {
@@ -143,7 +146,7 @@ a:hover {
 }
 
 .articles .category.active {
-    background-color: lightgray;
+    background-color: #EBEBEB;
 }
 
 .articles .category.active .title {
@@ -272,7 +275,7 @@ a:hover {
 
 .articles-drilldown {
     position: relative;
-    height: 60vh;
+    overflow: hidden;
 }
 
 .articles-drilldown-full {
@@ -340,7 +343,7 @@ a:hover {
 
 .articles-drilldown-full .articles-content-full,
 .articles-drilldown .articles-content {
-    background-color: #ECECEC;
+    background-color: #EBEBEB;
     position: relative;
 }
 
@@ -360,7 +363,7 @@ a:hover {
 .articles-drilldown .articles-content .articles-header {
     font-family: ISOCTEUR;
     text-transform: uppercase;
-    font-size: 40px;
+    font-size: 36px;
     padding: 30px 0 30px 0;
 
     color: #000;
@@ -370,10 +373,11 @@ a:hover {
 .articles-drilldown-full .articles-content-full .articles-body-full,
 .articles-drilldown .articles-content .articles-body {
     line-height: 30px;
-    padding: 30px 40px 50px 30px;
+    padding: 30px 40px 100px 30px;
     height: 83%;
     overflow: hidden;
-    font-family: Arial;
+    font-family: ISOCTEUR;
+    font-size: 14px;
     color: #626262;
     text-align: center;
     text-transform: uppercase;
@@ -538,6 +542,25 @@ a:hover {
     background-color: #f2f2f2;
     border: solid 2px #939393;
     outline: none;
+    font-family: Arial;
+    font-size: 20px;
+    border-radius: 0;
+}
+
+.footer-contact-us-inputs .inputs #username::-webkit-input-placeholder,
+.footer-contact-us-inputs .inputs #useremail::-webkit-input-placeholder,
+.footer-contact-us-inputs .inputs #useretext::-webkit-input-placeholder,
+.footer-contact-us-inputs .inputs #username::-moz-placeholder ,
+.footer-contact-us-inputs .inputs #useremail::-moz-placeholder ,
+.footer-contact-us-inputs .inputs #useretext::-moz-placeholder ,
+.footer-contact-us-inputs .inputs #username:-moz-placeholder ,
+.footer-contact-us-inputs .inputs #useremail:-moz-placeholder ,
+.footer-contact-us-inputs .inputs #useretext:-moz-placeholder,
+.footer-contact-us-inputs .inputs #username:-ms-input-placeholder ,
+.footer-contact-us-inputs .inputs #useremail:-ms-input-placeholder ,
+.footer-contact-us-inputs .inputs #useretext:-ms-input-placeholder{
+    color:#bfbfbf;
+    font-weight: normal;
 }
 
 .footer-contact-us-inputs .inputs #username,
@@ -991,21 +1014,20 @@ a:hover {
         font-family: Arial;
     }
 
-    .footer-contact-us-inputs input::-webkit-input-placeholder {color:#c2c2c2;}
-    .footer-contact-us-inputs input::-moz-placeholder          {color:#c2c2c2;}/* Firefox 19+ */
-    .footer-contact-us-inputs input:-moz-placeholder           {color:#c2c2c2;}/* Firefox 18- */
-    .footer-contact-us-inputs input:-ms-input-placeholder      {color:#c2c2c2;}
+    .placeholder {
+           font-size: 20px;
+        font-family: Arial;
+    }
+    .placeholder::-webkit-input-placeholder {color:#c2c2c2;}
+    .placeholder input::-moz-placeholder          {color:#c2c2c2;}/* Firefox 19+ */
+    .placeholder input:-moz-placeholder           {color:#c2c2c2;}/* Firefox 18- */
+    .placeholder input:-ms-input-placeholder      {color:#c2c2c2;}
 
     #contact_us .footer-contact-us .inputs > textarea {
         width: 281px;
         font-size: 20px;
         font-family: Arial;
     }
-
-    #contact_us .footer-contact-us .inputs > textarea::-webkit-input-placeholder {color:#c2c2c2;}
-    #contact_us .footer-contact-us .inputs > textarea::-moz-placeholder          {color:#c2c2c2;}/* Firefox 19+ */
-    #contact_us .footer-contact-us .inputs > textarea:-moz-placeholder           {color:#c2c2c2;}/* Firefox 18- */
-    #contact_us .footer-contact-us .inputs > textarea:-ms-input-placeholder      {color:#c2c2c2;}
 
     .contact-us-send-button {
         width: 285px !important;
@@ -1080,6 +1102,13 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+    .sidebar {
+        /*display: none;*/
+    }
+    .sidebar li .tooltip {
+        display: none;
+    }
+
 
     .articles{
         width: 90%;
@@ -1262,6 +1291,7 @@ a:hover {
 
     .main .home-icon {
         left: 0;
+        display: none;
     }
 
     .articles .category {

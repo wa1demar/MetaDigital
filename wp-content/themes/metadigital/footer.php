@@ -23,21 +23,22 @@
 
         <form class="footer-contact-us-inputs" ng-submit="contactUs()" novalidate="true">
             <div class="inputs">
-                <input id="username" name="username" type="text" style="font-family: monospace"  placeholder="{{ t[locale].name}}" ng-model="username">
+                <input id="username" name="username" type="text"  placeholder="{{ t[locale].name}}" ng-model="username" class="placeholder">
             </div>
             <div class="inputs">
-                <input id="useremail" name="useremail" style="font-family: monospace" type="text" placeholder="{{ t[locale].email}}"
-                       ng-model="useremail">
+                <input id="useremail" name="useremail" type="text" placeholder="{{ t[locale].email}}"
+                       ng-model="useremail" class="placeholder">
             </div>
             <div class="inputs">
-                <textarea rows="3" cols="26" id="useretext" style="font-family: monospace"  name="useretext" type="text"
-                          placeholder="{{ t[locale].feadback_text}}" ng-model="usertext"></textarea>
+                <textarea rows="3" cols="26" id="useretext" name="useretext" type="text"
+                          placeholder="{{ t[locale].feadback_text}}" ng-model="usertext" class="placeholder"></textarea>
             </div>
             <input class="contact-us-send-button" name="send" type="submit" value="{{ t[locale].send_button}}">
         </form>
     </div>
     <div class="footer-google-link">
-        <a href="#"></a>
+        <a target="_blank" href="https://www.google.com.ua/maps?biw=1366&bih=565&q=%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0+%D1%83%D0%BB.+%D0%9E%D0%BB%D1%8C%D1%85%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F,+45,+%D1%81%D1%82%D1%80.+1&bav=on.2,or.r_cp.&bvm=bv.106923889,d.bGQ&um=1&ie=UTF-8&sa=X&ved=0CAYQ_AUoAWoVChMI96ez9rWDyQIVKf1yCh2pgQBw
+"></a>
     </div>
 
 </div>

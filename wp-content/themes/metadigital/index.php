@@ -16,14 +16,14 @@
     </div>
     <div class="articles-drilldown">
         <div class="articles-content">
-            <div class="top-gradient" id="{{current_category.id}}_id"></div>
+            <div id="{{current_category.id}}_id"></div>
             <div class="articles-body">
                 <div class="articles-header" name="services">
                     {{ current_category[locale].title[0] }}
                 </div>
                 <div ng-bind-html="getHtml(current_category[locale].description[0])"></div>
             </div>
-            <div class="bottom-gradient"></div>
+
         </div>
 
     </div>
