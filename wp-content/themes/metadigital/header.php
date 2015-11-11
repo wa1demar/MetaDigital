@@ -12,6 +12,7 @@
 
 </head>
 <body ng-app="metaDigitalApp" ng-controller="HomeController as con">
+
 <div class="sidebar">
     <ul>
         <li><a href="" class="to-main" onclick="animateLogo()">
@@ -46,4 +47,8 @@
         <source src="<?php echo THEME_URL ?>/video/metaspace.mp4" type="video/mp4">
         <img src="<?php echo THEME_URL ?>/images/polina.png" />
     </video>
+    <div class="lang">
+        <a class="locale locale-ru">RU</a>
+        <a class="locale locale-en">ENG</a>
+    </div>
 </div>
