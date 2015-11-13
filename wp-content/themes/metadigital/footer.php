@@ -21,6 +21,8 @@
             <li><a target="_blank" href="https://www.behance.net/metamoscow"><img
                         src="<?php echo THEME_URL ?>/images/blogger-icon.png"></a></li>
         </ul>
+        <div style="height: 25px"></div>
+        <a class="payment" style="cursor: pointer" ><img src="<?php echo THEME_URL ?>/images/imgo.jpg"></a>
     </div>
     <div class="footer-map" id="footer-map" data-map="0">
         <div class="footer-google-link">
@@ -97,6 +99,17 @@
         <div class="alert-close"></div>
     </div>
 </div>
+
+<div class="payment-overlay" style="display: none">
+    <div class="alert-message" >
+        <div class="payment-body" style="margin: auto auto auto auto; top: 37%; left: 21%;; position: absolute">
+            <script type='text/javascript' src='https://paymaster.ru/ru-RU/widget/Basic/1?LMI_MERCHANT_ID=d51ccac4-3973-4ebc-a3a4-9acb4d6352cd&LMI_PAYMENT_AMOUNT=100&LMI_PAYMENT_DESC=Test+payment&LMI_CURRENCY=RUB'></script>
+        </div>
+
+    </div>
+    <div class="alert-close"></div>
+</div>
+
 <?php wp_footer(); ?>
 </body>
 </html>

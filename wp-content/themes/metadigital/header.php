@@ -47,8 +47,8 @@
         <source src="<?php echo THEME_URL ?>/video/metaspace.mp4" type="video/mp4">
         <img src="<?php echo THEME_URL ?>/images/polina.png" />
     </video>
-    <div class="lang">
-        <a class="locale locale-ru">RU</a>
-        <a class="locale locale-en">ENG</a>
-    </div>
+<!--    <div class="lang">-->
+<!--        <span class="locale locale-ru">RU</span>-->
+<!--        <span class="locale locale-en">ENG</span>-->
+<!--    </div>-->
 </div>

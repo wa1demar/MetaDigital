@@ -543,6 +543,16 @@
             home_icon_click();
         });
 
+        $('.payment').click(function () {
+            $('.payment-overlay').css('display', 'block');
+        });
+
+        $('.payment-overlay .alert-close').click(function () {
+            $('.payment-overlay').css('display', 'none');
+        });
+
+
+
     });
 
     window.home_icon_click = function () {
@@ -614,4 +624,6 @@
             return results[1] || 0;
         }
     }
+
+
 })(jQuery);

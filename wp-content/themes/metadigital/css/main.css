@@ -674,7 +674,8 @@ a:hover {
     position: fixed;
 }
 
-.alert-overlay {
+.alert-overlay,
+.payment-overlay {
     position: fixed;
     display: none;
     top: 0px;
@@ -685,7 +686,8 @@ a:hover {
     height: 100%;
 }
 
-.alert-overlay .alert-close {
+.alert-overlay .alert-close,
+.payment-overlay .alert-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -1027,9 +1029,9 @@ a:hover {
 
 @media ( max-width: 992px ) {
 
-    .articles{
-        width: 97%;
-    }
+    /*.articles{*/
+        /*width: 97%;*/
+    /*}*/
 
     .footer-address {
         font-size: 26px;
@@ -1084,9 +1086,9 @@ a:hover {
 
 @media ( max-width: 800px ) {
 
-    .articles{
-        width: 94%;
-    }
+    /*.articles{*/
+        /*width: 94%;*/
+    /*}*/
 
     .main-footer {
         text-align: center;
@@ -1139,7 +1141,7 @@ a:hover {
     }
 
     #contact_us .footer-contact-us .inputs > textarea {
-        width: 95.8%;
+        width: 97%;;
         resize: vertical;
         text-align: center;
     }
@@ -1174,9 +1176,9 @@ a:hover {
     }
 
 
-    .articles{
-        width: 90%;
-    }
+    /*.articles{*/
+        /*width: 90%;*/
+    /*}*/
 
     .articles .category {
         width: 50%;
@@ -1258,9 +1260,9 @@ a:hover {
 
 @media (max-width: 600px) {
 
-    .articles{
-        width: 90%;
-    }
+    /*.articles{*/
+        /*width: 90%;*/
+    /*}*/
 
     .articles .category {
         width: 50%;
@@ -1297,9 +1299,9 @@ a:hover {
 
 @media (max-width: 500px) {
 
-    .articles{
-        width: 90%;
-    }
+    /*.articles{*/
+        /*width: 90%;*/
+    /*}*/
 
     .articles .category {
         width: 50%;
@@ -1324,6 +1326,7 @@ a:hover {
 
     .footer-contact-us {
         margin-right: 45px;
+        margin-left: 45px;
     }
 
     .main-footer  {
@@ -1341,9 +1344,9 @@ a:hover {
 
 @media (max-width: 375px) {
 
-    .articles{
-        width: 87%;
-    }
+    /*.articles{*/
+        /*width: 87%;*/
+    /*}*/
 
     .main .home-link {
         left: -120px;
@@ -1375,7 +1378,7 @@ a:hover {
     }
 
     #contact_us .footer-contact-us .inputs > textarea {
-        /*width: 64%;*/
+        width: 96.5%;
     }
 
     .main .logo .logo-scroll {
@@ -1417,4 +1420,10 @@ a:hover {
     .main-footer  {
         background-size: cover;
     }
+}
+
+@media (max-width : 300px) {
+    #contact_us .footer-contact-us .inputs > textarea {
+    width: 96%;
+}
 }
